@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import BusinessNewsPage from "./pages/BusinessNewsPage";
 import Login from "./components/auth/Login";
 import Signup from "./components/auth/Signup";
+import JobsPage from "./pages/JobsPage"
 
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
@@ -26,6 +27,7 @@ function App() {
           <Routes>
             <Route index element={<Home />} />
             <Route path="/business-news" element={<BusinessNewsPage />} />
+            <Route path="/jobs" element={<JobsPage/>} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/adminportal/*" element={<AdminPanel />} />
