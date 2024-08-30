@@ -1,18 +1,14 @@
 // src/components/FeaturedNews.jsx
-import React, { useEffect, useState } from "react";
+import React from "react";
 import NewsItem from "./FeturedArticleItem";
 import "../../assets/styles/FeaturedNews.css";
 
 function FeaturedNews() {
   return (
     <div className="text-white d-flex gap-5 home-article-posts ">
-      <h2
-        className="vertical-text"
-      >
-        FEATURED NEWS
-      </h2>
-      <div className="d-flex flex flex-md-row  ">
-        <div className="flex flex-column align-content-center home-single-article-container">
+      <h2 className="vertical-text">FEATURED NEWS</h2>
+      <div className="d-flex flex-xl-row  flex-column gap-4 gap-xl-0 ">
+        <div className="d-flex flex-column  align-content-center home-single-article-container hero-home-single-article-container ">
           <NewsItem
             category="Tech"
             title="HERE'S THE FIRST ARTICLE"
@@ -23,7 +19,7 @@ function FeaturedNews() {
     Harum veritatis magni nulla quia accusamus suscipit, maxime doloribus corporis id vero, nemo quod neque! Fugiat, iure numquam optio voluptas, deleniti nesciunt nam, ex expedita soluta alias repellendus fugit iusto!"
           />
         </div>
-        <div className="flex flex-column align-content-center gap-5 home-single-article-container">
+        <div className="d-flex flex-column align-content-center gap-5 home-single-article-container ">
           <NewsItem
             category="Tech"
             title="HERE'S THE SECOND ARTICLE"

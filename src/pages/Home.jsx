@@ -2,7 +2,7 @@ import React from 'react'
 import FeaturedNews from "../components/Home/FeaturedNews";
 import ArticleList from "../components/Home/ArticleList";
 import "../assets/styles/FeaturedNews.css";
-import LoginModel from '../components/ui/LoginModel';
+// import LoginModel from '../components/ui/LoginModel';
 
 function Home() {
   return (
@@ -12,7 +12,7 @@ function Home() {
       </div>
       <FeaturedNews />
       <ArticleList />
-      <LoginModel />
+
     </div>
   );
 }

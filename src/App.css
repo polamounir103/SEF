@@ -22,6 +22,26 @@ body {
   background: #000;
   max-width: 100vw !important;
 }
+.header-logo {
+  width: 150px;
+  aspect-ratio: 1/1;
+}
+/* position-fixed top-0 end-0 text-light bg-dark p-5 z-3 w-75 */
+.mobile-nav-menu {
+  background: #000 !important;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 75%;
+  /* height: 100dvh; */
+  height: 100lvh;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
 /* ------------------------------------------ */
 /* ********************************************** */
 .site-page {
@@ -29,15 +49,17 @@ body {
   margin: auto;
 }
 .home-title-container {
-  margin-top: 150px;
+  margin-top: 50px;
   width: 50%;
 }
 .home-title-container h1 {
   color: white;
-  font-size: 75px;
+  /* font-size: 40px; */
+  font-size: clamp(2.5rem, 0.7143rem + 5.7143vw, 5rem);
   font-weight: bold;
   text-transform: uppercase;
   word-spacing: 5px;
+  word-break: keep-all;
 }
 
 .home-article-posts {
@@ -50,11 +72,35 @@ body {
   text-overflow: ellipsis;
 }
 .home-single-article-container {
-  max-width: 50%;
+  /* max-width: 50%; */
   padding: 10px;
 }
 .home-featured-articles-post {
-  padding-right: 100px;
+  /* padding-right: 100px; */
+}
+.hero-home-single-article-container {
+  /* max-width: 50%; */
+}
+@media (width > 1200px) {
+  .hero-home-single-article-container {
+    max-width: 50%;
+  }
+}
+.article-category {
+  color: #ffcc00;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  position: relative;
+}
+.article-category::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 110%;
+  height: 2px;
+  background-color: #ffcc00;
 }
 .home-articles-post-arrow {
   position: absolute;
@@ -130,8 +176,8 @@ body {
   align-self: end;
   margin-top: -70px;
 }
-.article-table-top-container{
-  margin: -75px 0 0 ;
+.article-table-top-container {
+  margin: -75px 0 0;
 }
 .table-title {
   position: relative;
@@ -146,3 +192,5 @@ body {
   background-color: #ffcc00;
   justify-content: space-between;
 }
+
+/* -------------------------- */
