@@ -14,10 +14,13 @@ import BusinessNewsPage from "./pages/BusinessNewsPage";
 import Login from "./components/auth/Login";
 import Signup from "./components/auth/Signup";
 
+import { SpeedInsights } from "@vercel/speed-insights/react";
+
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
+        <SpeedInsights />
         <Header />
 
         <div className="px-3">
