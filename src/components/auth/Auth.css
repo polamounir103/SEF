@@ -5,14 +5,16 @@
     min-height: 100vh;
     position: relative;
     overflow: hidden;
-    background-color: #313131 !important;
+
 }
 
 .login-form .form-box {
     position: relative;
     width: 450px;
-    height: 500px;
-    padding-top: 20px;
+    /* height: 500px; */
+    padding: 20px 0 ;
+    background-color: #3131312a !important;
+    border: 1px solid #313131;
 }
 
 .register-form .form-box {

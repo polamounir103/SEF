@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LoginModel from "./ui/LoginModel";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [isTechMenuOpen, setIsTechMenuOpen] = useState(false);
@@ -20,14 +20,12 @@ function Header() {
         <div>
           <ul className="d-flex align-content-end justify-content-end list-unstyled">
             <li>
-              <button
-                className="btn"
-                onClick={() => {
-                  return <LoginModel value="open" />;
-                }}
+              <Link
+                className="btn btn-light"
+                to={"/login"}
               >
                 Login
-              </button>
+              </Link>
             </li>
           </ul>
         </div>

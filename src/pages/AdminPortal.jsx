@@ -49,14 +49,15 @@ function AdminPanel() {
                   path="articles/add-new-article"
                   element={<AddNewArticle />}
                 />
+                <Route path="add-new-article" element={<AddNewArticle />} />
                 <Route path="jobs" element={<Jobs />} />
-                <Route path="/jobs/add-new-job" element={<AddJobForm />} />
+                <Route path="jobs/add-new-job" element={<AddJobForm />} />
+                <Route path="/add-new-job" element={<AddJobForm />} />
                 <Route
                   path="/upload-certificate"
                   element={<CertificateForm />}
                 />
               </Routes>
-              {/* <AddJobForm /> */}
             </div>
           </div>
         </div>

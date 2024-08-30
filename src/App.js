@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -8,7 +8,6 @@ import Home from "./pages/Home"; // Make sure this is the correct path
 import NoPage from "./pages/NoPage"; // Make sure this is the correct path
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import JobsPage from "./pages/JobsPage";
 
 import BusinessNewsPage from "./pages/BusinessNewsPage";
 import Login from "./components/auth/Login";
