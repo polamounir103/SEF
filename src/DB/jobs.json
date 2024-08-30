@@ -1,0 +1,78 @@
+[
+    {
+        "_id": {
+            "$oid": "662d52af4b91b4bcce888a3c"
+        },
+        "jobName": "Front-end React JS Devolopment",
+        "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.Accusamus dolorum accusantium nesciunt veniam asperiores tempore libero sequi iste,necessitatibus dolores praesentium atque quos repellendus dolore voluptate!Quaerat unde facilis illo!",
+        "tools": [
+            "React",
+            "Devolopment"
+        ],
+        "location": "Eptiker IT Solutions, Cairo City",
+        "minPrice": 4000,
+        "maxPrice": 8000,
+        "time": "1 h",
+        "jobType": "Part Time",
+        "level": "Intermediate",
+        "itemquantity": 1,
+        "favourit": false
+    },
+    {
+        "_id": {
+            "$oid": "662d52af4b91b4bcce888a3d"
+        },
+        "jobName": "Back-end Node JS Devolopment",
+        "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.Accusamus dolorum accusantium nesciunt veniam asperiores tempore libero sequi iste,necessitatibus dolores praesentium atque quos repellendus dolore voluptate!Quaerat unde facilis illo!",
+        "tools": [
+            "Nodejs",
+            "Devolopment"
+        ],
+        "location": "Eptiker IT Solutions, Alex City",
+        "minPrice": 4000,
+        "maxPrice": 8000,
+        "time": "2.5 h",
+        "jobType": "Full Time",
+        "level": "Intermediate",
+        "itemquantity": 1,
+        "favourit": false
+    },
+    {
+        "_id": {
+            "$oid": "662d52af4b91b4bcce888a3e"
+        },
+        "jobName": "Mern-Stack Devolopment",
+        "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.Accusamus dolorum accusantium nesciunt veniam asperiores tempore libero sequi iste,necessitatibus dolores praesentium atque quos repellendus dolore voluptate!Quaerat unde facilis illo!",
+        "tools": [
+            "React",
+            "Nodejs",
+            "Devolopment"
+        ],
+        "location": "Eptiker IT Solutions, Obour City",
+        "minPrice": 10000,
+        "maxPrice": 15000,
+        "time": "3 h",
+        "jobType": "Remote",
+        "level": "Expert",
+        "itemquantity": 1,
+        "favourit": false
+    },
+    {
+        "_id": {
+            "$oid": "662d52af4b91b4bcce888a3f"
+        },
+        "jobName": "UI/UX ",
+        "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.Accusamus dolorum accusantium nesciunt veniam asperiores tempore libero sequi iste,necessitatibus dolores praesentium atque quos repellendus dolore voluptate!Quaerat unde facilis illo!",
+        "tools": [
+            "Desgine"
+        ],
+        "location": "Eptiker IT Solutions, Mansoura City",
+        "minPrice": 5000,
+        "maxPrice": 10000,
+        "time": "3 h",
+        "jobType": "Full Time",
+        "level": "Entry Level",
+        "itemquantity": 1,
+        "favourit": false
+    }
+]
