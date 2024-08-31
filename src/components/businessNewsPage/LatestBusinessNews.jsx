@@ -3,8 +3,8 @@ import "../../assets/styles/Business.css";
 import { CgTimer } from "react-icons/cg";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { Link } from "react-router-dom";
-import { FaAnglesRight } from "react-icons/fa6";
+// import { Link } from "react-router-dom";
+// import { FaAnglesRight } from "react-icons/fa6";
 const LatestBusinessNews = () => {
   return (
     <>

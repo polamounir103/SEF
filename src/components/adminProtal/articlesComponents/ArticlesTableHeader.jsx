@@ -7,7 +7,7 @@ const ArticlesTableHeader = () => {
       <h3 className=" ">Category</h3>
       <h3 className=" ">Status</h3>
       <h3 className=" ">Date&Time</h3>
-      <h3 className=" "></h3>
+      <h3 className=" ">{" "}</h3>
     </div>
   );
 };

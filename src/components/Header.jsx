@@ -93,7 +93,7 @@ function Header() {
       </div>
 
       <div
-        className={`mobile-nav-menu ${isMobileMenuOpen ? "d-none" : "d-block"}`}
+        className={`mobile-nav-menu ${isMobileMenuOpen ? "d-block" : "d-none"}`}
       >
         <div
           className="d-flex justify-content-end mt-4"
