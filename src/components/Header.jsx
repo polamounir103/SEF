@@ -19,12 +19,12 @@ function Header() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
   const [isTechSubMenuOpen, setIsTechSubMenuOpen] = useState(false);
-  const handleTechSubMenu = (e) => {
+  const handleTechSubMenu = () => {
     setIsTechSubMenuOpen(!isTechSubMenuOpen);
   };
 
   const [isCoursesSubMenuOpen, setIsCoursesSubMenuOpen] = useState(false);
-  const handleCoursesSubMenu = (e) => {
+  const handleCoursesSubMenu = () => {
     setIsCoursesSubMenuOpen(!isCoursesSubMenuOpen);
   };
 
@@ -59,7 +59,9 @@ function Header() {
                 <li>Tablets</li>
               </ul>
             </li>
-            <li>Business</li>
+            <Link to="/business-news" onClick={handleMobileMenu}>
+              Business
+            </Link>
             <li>Sports</li>
             <li>Medical</li>
             <li>Startups</li>
@@ -93,7 +95,9 @@ function Header() {
       </div>
 
       <div
-        className={`mobile-nav-menu ${isMobileMenuOpen ? "d-none" : "d-block"}`}
+        className={`mobile-nav-menu w-75 w-md-50 ${
+          isMobileMenuOpen ? "d-block" : "d-none"
+        }`}
       >
         <div
           className="d-flex justify-content-end mt-4"
@@ -101,13 +105,13 @@ function Header() {
         >
           <IoClose className="fs-1 btn-danger" />
         </div>
-        <ul className="list-unstyled d-flex flex-column gap-3 fs-1">
-          <li>Home</li>
+        <ul className="list-unstyled d-flex flex-column gap-3 fs-3">
+          <Link to="/">Home</Link>
           <li>About</li>
           <li onClick={handleTechSubMenu}>
             <span>Tech</span>
             <ul
-              className={`list-unstyled fs-3 ${
+              className={`list-unstyled fs-3 ps-4 ${
                 isTechSubMenuOpen ? "d-block" : "d-none"
               }`}
             >
@@ -116,7 +120,9 @@ function Header() {
               <li>Tablets</li>
             </ul>
           </li>
-          <li>Business</li>
+          <Link to="/business-news" onClick={handleMobileMenu}>
+            Business
+          </Link>
           <li>Sports</li>
           <li>Medical</li>
           <li>Startups</li>
@@ -124,7 +130,7 @@ function Header() {
           <li onClick={handleCoursesSubMenu}>
             <span>Courses</span>
             <ul
-              className={`list-unstyled fs-3 ${
+              className={`list-unstyled fs-3 ps-4 ${
                 isCoursesSubMenuOpen ? "d-block" : "d-none"
               }`}
             >
@@ -138,8 +144,10 @@ function Header() {
           <li>Jobs</li>
           <li>Contact Us</li>
         </ul>
-        <div className=" gap-3 fs-1 btn btn-light ">
-          <span>login</span>
+        <div className=" gap-3 fs-5 btn btn-light ">
+          <Link to="/login" onClick={handleMobileMenu}>
+            login
+          </Link>
         </div>
       </div>
     </nav>

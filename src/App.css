@@ -32,7 +32,6 @@ body {
   position: fixed;
   top: 0;
   right: 0;
-  width: 75%;
   /* height: 100dvh; */
   height: 100lvh;
   z-index: 4;
@@ -41,6 +40,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 20px;
+  overflow-y: scroll;
 }
 /* ------------------------------------------ */
 /* ********************************************** */
