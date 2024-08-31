@@ -95,9 +95,13 @@ function Header() {
       </div>
 
       <div
+<<<<<<< HEAD
         className={`mobile-nav-menu w-75 w-md-50 ${
           isMobileMenuOpen ? "d-block" : "d-none"
         }`}
+=======
+        className={`mobile-nav-menu ${isMobileMenuOpen ? "d-block" : "d-none"}`}
+>>>>>>> 1ff3cb9147b29feaa2f7407509ed36883d55ad99
       >
         <div
           className="d-flex justify-content-end mt-4"

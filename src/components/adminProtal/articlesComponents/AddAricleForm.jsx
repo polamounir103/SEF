@@ -1,8 +1,8 @@
-import { React, useState, useEffect, useRef } from "react";
+import { React, useRef } from "react";
 import { Link } from "react-router-dom";
 // export const UserContext = React.createContext();
 const AddAricleForm = () => {
-  const [title1, settitle] = useState("");
+  // const [title1, settitle] = useState("");
 
   const fileInputRef = useRef(null);
   const handleBrowseClick = () => {
@@ -23,7 +23,7 @@ const AddAricleForm = () => {
                   className=""
                   placeholder=""
                   onChange={(e) => {
-                    settitle(e.target.value);
+                    // settitle(e.target.value);
                   }}
                 />
               </div>

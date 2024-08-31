@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function AddJobForm() {
   return (
@@ -50,9 +51,9 @@ function AddJobForm() {
               <h5>Company Logo</h5>
 
               <div className="rounded col-10 col-lg-12 p-5 bg-dark ">
-                <a href="#" className="text-warning">
+                <Link href="#" className="text-warning">
                   browse
-                </a>
+                </Link>
               </div>
             </div>
             <label className="w-100 p-1 text-start fw-bolder">
