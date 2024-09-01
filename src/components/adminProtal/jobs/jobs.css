@@ -159,7 +159,6 @@ th {
 .jobs-table-item {
   column-gap: 10px;
   padding: 10px 0;
-  
 }
 .job-status-open {
   color: #ffffff;
@@ -178,4 +177,80 @@ th {
   margin-right: 10px;
   cursor: pointer;
   color: #f7b500;
+}
+
+/* ---------------------------------- */
+.job-upload-logo-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: -5px;
+  color: #ffffff;
+  
+}
+.job-upload-logo-container .details {
+  font-size: 14px;
+}
+.job-upload-logo-container .upload-container {
+  text-align: center;
+  border: 2px dashed #ffc107;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.job-upload-logo-container .upload-icon i {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #bf9b30;
+}
+
+.job-upload-logo-container .upload-text {
+  font-size: 18px;
+  margin: 0;
+}
+
+.job-upload-logo-container .upload-text .browse {
+  color: #ffc107;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.job-upload-logo-container .supported-formats {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #a0a0a0;
+}
+.job-upload-logo-container .buttons {
+  /* background-color: red; */
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  gap: 0.5vw;
+  margin-top: 7vh;
+}
+.job-upload-logo-container .buttons input {
+  border: none;
+  border-radius: 5px;
+  background-color: #bf9b30;
+  padding: 8px 40px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.job-upload-logo-container .buttons input:hover {
+  background-color: #d4a32e;
+}
+
+/* Mohammed hussein kamel ended here */
+
+@media (max-width: 768px) {
+  form .user_details .input-box {
+    width: 100%;
+  }
 }

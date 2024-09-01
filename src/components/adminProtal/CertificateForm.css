@@ -7,15 +7,6 @@
 
     color: rgb(255, 255, 255);
 }
- .title::before{
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -10px; 
-    height: 2.5px;
-    width: 180px;
-    background: #BF9B30 ;
-}
  form .user_details{
     display: flex;
     flex-wrap: wrap;
@@ -66,7 +57,7 @@ form .user_details .input-box.full-width{
     margin-top: 10px;
     color: #ffffff;
 }
-.upload-container {
+.mohammed .upload-container {
     border: 2px dashed #FFC107;
     padding: 50px;
     text-align: center;
@@ -79,29 +70,29 @@ form .user_details .input-box.full-width{
     margin-top: -5px;
 }
 
-.upload-icon i {
+.mohammed .upload-icon i {
     font-size: 32px;
     margin-bottom: 20px;
     color: #BF9B30;
 }
 
-.upload-text {
+.mohammed .upload-text {
     font-size: 18px;
     margin: 0;
 }
 
-.upload-text .browse {
+.mohammed .upload-text .browse {
     color: #FFC107;
     cursor: pointer;
     text-decoration: underline;
 }
 
-.supported-formats {
+.mohammed .supported-formats {
     font-size: 14px;
     margin-top: 10px;
     color: #a0a0a0;
 }
-.buttons{
+.mohammed .buttons{
     /* background-color: red; */
     display: flex;
     flex-direction: row;
@@ -110,7 +101,7 @@ form .user_details .input-box.full-width{
     margin-top: 7vh;
 
 }
-.buttons input {
+.mohammed .buttons input {
     border: none;
     border-radius: 5px;
     background-color: #BF9B30;
@@ -120,7 +111,7 @@ form .user_details .input-box.full-width{
     transition: background-color 0.3s ease;
 }
 
-.buttons input:hover {
+.mohammed .buttons input:hover {
     background-color: #d4a32e; 
 }
 

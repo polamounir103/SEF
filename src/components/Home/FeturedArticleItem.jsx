@@ -1,8 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-function FeturedArticleItem({ category, title, time, content }) {
+function FeturedArticleItem({id, category, title, time, content }) {
+ const navigate = useNavigate()
   return (
-    <div className="home-featured-articles-post border-bottom border-dark ">
+    <div className="home-featured-articles-post border-bottom border-dark " onClick={() => {
+      navigate(`/article/${id}`)
+    }} style={{ cursor: "pointer" }}>
       <div className="article-content">
         <div className="d-flex justify-content-between py-3 ">
           <span className="article-category">{category}</span>

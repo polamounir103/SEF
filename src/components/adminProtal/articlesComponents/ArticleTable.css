@@ -35,17 +35,20 @@
 }
 
 input[type="text"],
+input[type="password"],
+input[type="email"],
 select,
 textarea {
   width: 100%;
   background: #716f6fb9;
   border-radius: 5px;
-  padding: 10px 5px;
+  padding: 5px 10px;
   margin-bottom: 5px;
   color: white;
+  border:none;
+  outline: none;
 }
 input[type="date"] {
-  width: 200px;
   padding: 10px;
   background: #716f6fb9;
   border-radius: 4px;
