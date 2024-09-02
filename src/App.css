@@ -131,9 +131,8 @@ body {
   gap: 20px;
 }
 .business-aritcle-item {
-  display: flex;
+  /* display: flex; */
   background: #111010;
-  flex-direction: row !important;
   padding: 10px;
 }
 
