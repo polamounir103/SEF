@@ -9,8 +9,9 @@ body {
   /* background: rgba(2, 2, 2, 0.7); */
   background: linear-gradient(
     0deg,
-    rgba(0, 0, 0, 1),
-    rgba(0, 0, 0, 0.9),
+    rgb(5, 5, 0),
+    rgba(5, 5, 0, 0.9),
+    rgba(5, 5, 0, 0.8),
     rgba(0, 0, 0, 0.7)
   );
   min-height: 100dvh;
@@ -46,7 +47,6 @@ body {
   background: #00000000;
   padding: 0;
   font-size: 50px !important;
-  
 }
 /* ------------------------------------------ */
 /* ********************************************** */
@@ -81,12 +81,13 @@ body {
   /* max-width: 50%; */
   padding: 10px;
 }
-.home-featured-articles-post {
-  /* padding-right: 100px; */
+/* .home-featured-articles-post {
+  padding-right: 100px;
 }
 .hero-home-single-article-container {
-  /* max-width: 50%; */
-}
+  max-width: 50%;
+} */
+
 @media (width > 1200px) {
   .hero-home-single-article-container {
     max-width: 50%;
@@ -144,6 +145,7 @@ body {
 /* ********************************************** */
 .page-title {
   position: relative;
+  width: fit-content;
 }
 .page-title::after {
   position: absolute;
@@ -249,10 +251,10 @@ li {
   height: 2px;
   background-color: #ffcc00;
 }
-.newssletter-container{
+.newssletter-container {
   margin-top: 200px;
 }
-.newssletter-discription{
+.newssletter-discription {
   font-size: 12px;
   text-align: center;
   font-weight: 600;
@@ -268,7 +270,7 @@ li {
   cursor: pointer;
 }
 
-.newssletter-email-button{
+.newssletter-email-button {
   height: 50px;
   background-color: #ffcc00;
   padding: 10px;
@@ -277,3 +279,138 @@ li {
   text-transform: uppercase;
   cursor: pointer;
 }
+
+/* **************************** */
+
+.card {
+  background-color: #33333370;
+  color: #ffffff;
+  border: none;
+}
+
+.Noneditable-text {
+  padding: 5px;
+  border-radius: 4px;
+  min-width: 150px;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.editable-text {
+  padding: 5px;
+  border-radius: 4px;
+  min-width: 150px;
+  display: inline-block;
+  background-color: #979393b0;
+  border-radius: 4px;
+}
+
+.editable-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.editable-label {
+  display: inline-block;
+  width: 150px;
+}
+
+.car {
+  background-color: #33333370;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+}
+
+.car2 {
+  background-color: #33333370;
+  color: #ffffff;
+  border: none;
+  padding: 10px 0;
+}
+
+.yel {
+  color: #ffc107;
+}
+
+.profile-pic {
+  /* background-image: url('path_to_profile_image.jpg'); */
+  background-size: cover;
+  background-position: center;
+  width: 100px;
+  height: 100px;
+}
+
+.none {
+  background: none !important;
+}
+
+/* Icons styling */
+.icon-email,
+.icon-phone,
+.icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  color: #ffc107;
+  font-size: 25px;
+}
+
+.i {
+  margin-left: 30px;
+  width: calc(100% - 30px);
+}
+
+/* --------------------------------------------* */
+/* ******************************************** */
+.user-profile-about-field.form-control {
+  min-height: 150px;
+  max-height: 150px;
+}
+
+/* --------------------------------------------- */
+/* ****************************************** */
+
+.instructor-upcoming-courses-img-shade {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+}
+
+.instructor-upcoming-courses-outer-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+@media (max-width: 776px) {
+  .instructor-upcoming-courses-outer-container {
+    grid-template-columns: 1fr;
+  }
+}
+/* --------------------------------------------- */
+/* ****************************************** */
+
+/* --------------------------------------------- */
+/* ****************************************** */
+
+/* --------------------------------------------- */
+/* ****************************************** */
+
+/* --------------------------------------------- */
+/* ****************************************** */
+
+/* --------------------------------------------- */
+/* ****************************************** */
+
+/* --------------------------------------------- */
+/* ****************************************** */
+
+/* --------------------------------------------- */
+/* ****************************************** */

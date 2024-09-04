@@ -1,0 +1,19 @@
+.btt{border-radius: 50px;
+margin-left: 15%;}
+.nn{border: none;}
+.parent1{display: flex;}
+@media(min-width:1200px){
+  .ll{display: none;} 
+  .mobile{display: none;}
+  .ss{display: none;}
+   
+ }
+ @media(max-width:567px){
+     .ll{display: block;}
+      .ww{display: none;}  
+      .parent1{display: block;}
+     
+ }
+ 
+
+

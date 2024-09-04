@@ -11,6 +11,7 @@ import useWindowWidth from "../hooks/useWindowWidth ";
 import Jobs from "../components/adminProtal/jobs/Jobs";
 import AddJobForm from "../components/adminProtal/jobs/AddJobForm";
 import UserStudentTable from "../components/adminProtal/usersComponents/students/UserStudentTable";
+import CoursesTable from "../components/courses/CoursesTable";
 
 function AdminPanel() {
   const { width } = useWindowWidth();
@@ -57,6 +58,7 @@ function AdminPanel() {
                   path="/upload-certificate"
                   element={<CertificateForm />}
                 />
+                <Route path="/published-courses" element={<CoursesTable />} />
               </Routes>
             </div>
           </div>

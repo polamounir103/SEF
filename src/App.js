@@ -34,6 +34,13 @@ import NoPage from "./pages/NoPage";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import SingleArticle from "./pages/SingleArticle";
 import ContactUs from "./pages/ContactUs";
+import CoursesTable from "./components/courses/CoursesTable";
+import Profile from "./pages/StudentProfile";
+import EditStudentProfile from "./pages/EditStudentProfile";
+import StudentExams from "./pages/StudentExams";
+import InstructorPortal from "./pages/InstructorPortal";
+import StudentPortal from "./pages/StudentPortal";
+// import InstructorPortalHeader from "./components/instructorPortal/InstructorPortalHeader";
 
 function App() {
   return (
@@ -49,9 +56,13 @@ function App() {
             <Route path="/jobs" element={<JobsPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile-edit" element={<EditStudentProfile />} />
             <Route path="/article" element={<SingleArticle />} />
             <Route path="/article/:id" element={<SingleArticle />} />
             <Route path="/adminportal/*" element={<AdminPanel />} />
+            <Route path="/instructorportal" element={<InstructorPortal />} />
+            <Route path="/studentportal" element={<StudentPortal />} />
             <Route path="/about" element={<div>PAGE</div>} />
             <Route path="/contact" element={<ContactUs />} />
 
@@ -66,12 +77,14 @@ function App() {
             <Route path="/tech/tablets" element={<div>PAGE</div>} />
 
             {/* Courses Submenu Routes */}
-            <Route path="/courses" element={<div>PAGE</div>} />
+            <Route path="/courses" element={<CoursesTable />} />
             <Route path="/courses/python" element={<div>PAGE</div>} />
             <Route path="/courses/java" element={<div>PAGE</div>} />
             <Route path="/courses/javascript" element={<div>PAGE</div>} />
             <Route path="/courses/css" element={<div>PAGE</div>} />
             <Route path="/courses/html" element={<div>PAGE</div>} />
+
+            <Route path="/student-exams" element={<StudentExams />} />
 
             {/* Catch-All Route for NoPage */}
             <Route path="*" element={<NoPage />} />
