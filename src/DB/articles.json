@@ -1,0 +1,38 @@
+[
+    {
+        "_id": 1,
+        "title": "Here's the article title1",
+        "category": "tech",
+        "time": "12:30 PM",
+        "date": "monday , june5th",
+        "image": "https://dummyjson.com/icon/emilys/128",
+        "content": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus iure animi ut expedita ex ullam tempore nisi, blanditiis explicabo amet eligendi aut harum beatae, consequatur odio architecto, in qui quia"
+    },
+    {
+        "_id": 2,
+        "title": "Here's the article title2",
+        "category": "tech",
+        "time": "12:30 PM",
+        "date": "monday , june5th",
+        "image": "https://dummyjson.com/icon/emilys/128",
+        "content": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus iure animi ut expedita ex ullam tempore nisi, blanditiis explicabo amet eligendi aut harum beatae, consequatur odio architecto, in qui quia"
+    },
+    {
+        "_id": 3,
+        "title": "Here's the article title3",
+        "category": "tech",
+        "time": "12:30 PM",
+        "date": "monday , june5th",
+        "image": "https://dummyjson.com/icon/emilys/128",
+        "content": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus iure animi ut expedita ex ullam tempore nisi, blanditiis explicabo amet eligendi aut harum beatae, consequatur odio architecto, in qui quia"
+    },
+    {
+        "_id": 4,
+        "title": "Here's the article title4",
+        "category": "tech",
+        "time": "12:30 PM",
+        "date": "monday , june5th",
+        "image": "https://dummyjson.com/icon/emilys/128",
+        "content": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus iure animi ut expedita ex ullam tempore nisi, blanditiis explicabo amet eligendi aut harum beatae, consequatur odio architecto, in qui quia"
+    }
+]

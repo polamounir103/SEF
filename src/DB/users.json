@@ -1,0 +1,34 @@
+[
+    {
+        "userID": 1,
+        "email": "emily.johnson@x.dummyjson.com",
+        "phone": "+81 965-431-3024",
+        "username": "Emily Smith",
+        "image": "https://dummyjson.com/icon/emilys/128",
+        "role": "admin"
+    },
+    {
+        "userID": 2,
+        "email": "michael.williams@x.dummyjson.com",
+        "phone": "+49 258-627-6644",
+        "username": "michaelw",
+        "image": "https://dummyjson.com/icon/michaelw/128",
+        "role": "student"
+    },
+    {
+        "userID": 3,
+        "email": "sophia.brown@x.dummyjson.com",
+        "phone": "+81 210-652-2785",
+        "username": "sophiab",
+        "image": "https://dummyjson.com/icon/sophiab/128",
+        "role": "instructor"
+    },
+    {
+        "userID": 4,
+        "email": "james.davis@x.dummyjson.com",
+        "phone": "+49 614-958-9364",
+        "username": "jamesd",
+        "image": "https://dummyjson.com/icon/jamesd/128",
+        "role": "student"
+    }
+]
