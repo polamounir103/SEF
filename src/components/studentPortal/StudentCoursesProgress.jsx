@@ -4,24 +4,36 @@ import CourseCard from "./CourseCard";
 const StudentCoursesProgress = () => {
   const courses = [
     {
+      percentage: 91,
       title: "Introduction to React js",
-      progress: 91,
-      level: "LEV. 1",
-      hours: "27 / 30 Hours",
+      level: 1,
+      hoursCompleted: 27,
+      totalHours: 30,
     },
     {
+      percentage: 75,
+      title: "Introduction to React js",
+      level: 1,
+      hoursCompleted: 27,
+      totalHours: 30,
+    },
+    {
+      percentage: 100,
       title: "Introduction to Data Analysis",
-      progress: 75,
-      level: "LEV. 1",
-      hours: "27 / 30 Hours",
+      level: 1,
+      hoursCompleted: 27,
+      totalHours: 30,
     },
     {
+      percentage: 85,
       title: "System analysis and design",
-      progress: 100,
-      level: "LEV. 1",
-      hours: "27 / 30 Hours",
+      level: 1,
+      hoursCompleted: 27,
+      totalHours: 30,
     },
   ];
+
+
 
   return (
     <div className="d-flex justify-content-between flex-column flex-lg-row gap-3 ">
