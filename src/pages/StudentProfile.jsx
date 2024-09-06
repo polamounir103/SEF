@@ -11,7 +11,6 @@ import useFormattedDate from "../hooks/useFormattedDate";
 import { Link } from "react-router-dom";
 
 function StudentProfile() {
-
   const date = useFormattedDate();
   return (
     <div>
@@ -117,7 +116,7 @@ function StudentProfile() {
                 <h5 className="car2">Contact Info</h5>
                 <div className="d-flex mt-2 gap-2">
                   <span className="icon-email">
-                    <i class="fa-regular fa-envelope"></i>
+                    <i className="fa-regular fa-envelope"></i>
                   </span>
                   <div className="d-flex flex-column ">
                     <span className="editable-label">Email</span>
@@ -126,7 +125,7 @@ function StudentProfile() {
                 </div>
                 <div className="d-flex mt-2 gap-2">
                   <span className="icon-phone">
-                    <i class="fa-solid fa-phone"></i>
+                    <i className="fa-solid fa-phone"></i>
                   </span>
                   <div className="d-flex flex-column ">
                     <span className="editable-label">Mobile Number</span>

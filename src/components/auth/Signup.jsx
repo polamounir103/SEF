@@ -13,36 +13,36 @@ const Signup = () => {
   const navigate = useNavigate();
   return (
     <>
-      {/* <div class=" signUp login-form register-form">
-                <div class="form-box text-light rounded ">
-                    <div class="form-image">
+      {/* <div className=" signUp login-form register-form">
+                <div className="form-box text-light rounded ">
+                    <div className="form-image">
                         <img src={Logo} className='logo' alt="Profile Picture" />
                     </div>
                     <form>
                         <div className="row">
-                            <div class="col-md-5 mb-3 input-box">
+                            <div className="col-md-5 mb-3 input-box">
                                 <label htmlFor='firstname'><LuUserSquare2 /></label>
-                                <input type="text" class="form-control" id="firstname" placeholder="FIRST NAME" />
+                                <input type="text" className="form-control" id="firstname" placeholder="FIRST NAME" />
                             </div>
-                            <div class="col-md-5 mb-3 input-box">
+                            <div className="col-md-5 mb-3 input-box">
                                 <label htmlFor='lastname'><LuUserSquare2 /></label>
-                                <input type="text" class="form-control" id="lastname" placeholder="LAST NAME" />
+                                <input type="text" className="form-control" id="lastname" placeholder="LAST NAME" />
                             </div>
                         </div>
                         <div className="row">
-                            <div class="col-12 mb-3 input-box">
+                            <div className="col-12 mb-3 input-box">
                                 <label htmlFor='email'><LuUserSquare2 /></label>
-                                <input type="email" class="form-control" id="email" placeholder="Email Address" required />
+                                <input type="email" className="form-control" id="email" placeholder="Email Address" required />
                             </div>
                         </div>
                         <div className="row">
-                            <div class="col-md-6 mb-3 input-box ">
+                            <div className="col-md-6 mb-3 input-box ">
                                 <label htmlFor='password'><BsFileLock /></label>
-                                <input type="password" class="form-control" id="password" placeholder="Password" required />
+                                <input type="password" className="form-control" id="password" placeholder="Password" required />
                             </div>
-                            <div class="col-md-6 mb-3 input-box">
+                            <div className="col-md-6 mb-3 input-box">
                                 <label htmlFor='confpassword'><BsFileLock /></label>
-                                <input type="password" class="form-control" id="confPassword" placeholder="Confirm Password"
+                                <input type="password" className="form-control" id="confPassword" placeholder="Confirm Password"
                                     required />
                             </div>
                         </div>

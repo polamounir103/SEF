@@ -5,8 +5,10 @@ import App from "./App";
 // import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "./redux/store.jsx";
+import { AuthProvider } from "./providers/AuthContext.jsx";
 const root = ReactDOM.createRoot(document.getElementById("root"));
-import { AuthProvider } from './providers/AuthContext.jsx'
+
+
 root.render(
     <React.StrictMode>
       <AuthProvider>

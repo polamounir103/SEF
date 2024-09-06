@@ -4,7 +4,7 @@ const InstructorActivitySummary = (props) => {
   return (
     <div className="d-flex  pt-2  text-white justify-content-between">
       <div className="d-flex ">
-        <span class="border border-warning border-2 px-4 py-3 h1 span1">
+        <span className="border border-warning border-2 px-4 py-3 h1 span1">
           {props.frist}
         </span>
 
@@ -14,7 +14,7 @@ const InstructorActivitySummary = (props) => {
         </div>
       </div>
       <div className="d-flex ">
-        <span class="border border-warning border-2 h1 px-4 py-3 span1">
+        <span className="border border-warning border-2 h1 px-4 py-3 span1">
           {props.sec}
         </span>
         <div className="d-inline-block pt-3 ps-2">
@@ -23,7 +23,7 @@ const InstructorActivitySummary = (props) => {
         </div>
       </div>
       <div className="d-flex ">
-        <span class="border border-warning border-2 h1 px-4 py-3 span1">
+        <span className="border border-warning border-2 h1 px-4 py-3 span1">
           {props.third}
         </span>
         <div className="d-inline-block pt-3 ps-2">

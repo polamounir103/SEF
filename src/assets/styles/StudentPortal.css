@@ -381,12 +381,12 @@ h1 {
 .ins {
   color: #c29c2a;
 }
-
+/* 
 .level {
   font-weight: bold !important;
   height: 60px;
   padding-right: 290px;
-}
+} */
 
 .register-course .btn {
   color: antiquewhite;

@@ -288,7 +288,7 @@
 
 // export default Header;
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logoImg from "../assets/images/seff_logo_transparent.png";
 import { IoMenu, IoClose } from "react-icons/io5";
 
@@ -342,7 +342,7 @@ function Header() {
       [menu]: !prev[menu],
     }));
   };
-
+const navigate = useNavigate()
   return (
     <nav className="px-2 px-lg-5 py-1 py-lg-3 text-light d-flex justify-content-between user-select-none align-items-center">
       {/* Logo Section */}
@@ -370,9 +370,13 @@ function Header() {
               link.subLinks ? (
                 <li key={link.label} className="position-relative">
                   <span
-                    onClick={() =>
+                    onMouseOver={() =>
                       handleSubMenuToggle(link.label.toLowerCase())
                     }
+                    onMouseLeave={() =>
+                      handleSubMenuToggle(link.label.toLowerCase())
+                    }
+                    onClick={()=>navigate(`${link.path}`)}
                   >
                     {link.label}
                   </span>

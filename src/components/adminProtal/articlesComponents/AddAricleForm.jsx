@@ -27,7 +27,7 @@ const AddAricleForm = () => {
                   }}
                 />
               </div>
-              <div class="col">
+              <div className="col">
                 <h3>Category</h3>
                 <select className="">
                   <option></option>

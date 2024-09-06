@@ -1,17 +1,18 @@
 import React from "react";
+import { Route, Routes } from "react-router-dom";
 // import { Container, Row, Col } from "react-bootstrap";
 // import ArticlesTable from "../components/adminProtal/ArteclesTable";
-import CertificateForm from "../components/adminProtal/CertificateForm";
 // import Final from "../src/Final";
+import CertificateForm from "../components/adminProtal/usersComponents/students/CertificateForm";
 import AddNewArticle from "../components/adminProtal/articlesComponents/AddNewArticle";
 import ArticlesTable from "../components/adminProtal/articlesComponents/ArticlesTable";
 import Sidebar from "../components/adminProtal/sideMenu/Sidebar";
-import { Route, Routes } from "react-router-dom";
 import useWindowWidth from "../hooks/useWindowWidth ";
 import Jobs from "../components/adminProtal/jobs/Jobs";
 import AddJobForm from "../components/adminProtal/jobs/AddJobForm";
 import UserStudentTable from "../components/adminProtal/usersComponents/students/UserStudentTable";
 import CoursesTable from "../components/courses/CoursesTable";
+import AddUserForm from "../components/adminProtal/usersComponents/AddUserForm";
 
 function AdminPanel() {
   const { width } = useWindowWidth();
@@ -45,6 +46,7 @@ function AdminPanel() {
               <Routes>
                 <Route path="/" element={<ArticlesTable />} />
                 <Route path="/students" element={<UserStudentTable />} />
+                <Route path="/add-new-user" element={<AddUserForm />} />
                 <Route path="articles" element={<ArticlesTable />} />
                 <Route
                   path="articles/add-new-article"

@@ -7,7 +7,7 @@ function ContactInfo() {
         <h5 className="car2 ps-3">Contact Info</h5>
         <div className="ps-3 mt-2">
           <span className="icon-email">
-            <i class="fa-regular fa-envelope"></i>
+            <i className="fa-regular fa-envelope"></i>
           </span>
           <span className="editable-label">Email</span>
           <span contentEditable className="editable-text i">
@@ -16,7 +16,7 @@ function ContactInfo() {
         </div>
         <div className="ps-3 mt-2">
           <span className="icon-phone">
-            <i class="fa-solid fa-phone"></i>
+            <i className="fa-solid fa-phone"></i>
           </span>
           <span className="editable-label">Mobile Number</span>
           <span contentEditable className="editable-text i">

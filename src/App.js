@@ -40,6 +40,10 @@ import EditStudentProfile from "./pages/EditStudentProfile";
 import StudentExams from "./pages/StudentExams";
 import InstructorPortal from "./pages/InstructorPortal";
 import StudentPortal from "./pages/StudentPortal";
+import ExamPage from "./pages/ExamPage";
+import CoursesPage from "./pages/CoursesPage";
+import JobDetail from "./components/jobs/JobDetail";
+import CreateCv from "./pages/CreateCv";
 // import InstructorPortalHeader from "./components/instructorPortal/InstructorPortalHeader";
 
 function App() {
@@ -49,11 +53,10 @@ function App() {
         <SpeedInsights />
         <Header />
 
-        <div className="px-3 text-light">
+        <div className="px-5 text-light">
           <Routes>
             <Route index element={<Home />} />
             <Route path="/business-news" element={<BusinessNewsPage />} />
-            <Route path="/jobs" element={<JobsPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/profile" element={<Profile />} />
@@ -65,6 +68,13 @@ function App() {
             <Route path="/studentportal" element={<StudentPortal />} />
             <Route path="/about" element={<div>PAGE</div>} />
             <Route path="/contact" element={<ContactUs />} />
+            <Route path="/jobs/*" element={<JobsPage />} />
+            <Route path="/create-cv/*" element={<CreateCv />} />
+            
+            {/* <Route path="/job/*" element={<JobDetail />} /> */}
+
+            {/* ********************** */}
+            <Route path="/exam" element={<ExamPage />} />
 
             <Route path="/sports" element={<div>PAGE</div>} />
             <Route path="/medical" element={<div>PAGE</div>} />
@@ -77,7 +87,7 @@ function App() {
             <Route path="/tech/tablets" element={<div>PAGE</div>} />
 
             {/* Courses Submenu Routes */}
-            <Route path="/courses" element={<CoursesTable />} />
+            <Route path="/courses" element={<CoursesPage />} />
             <Route path="/courses/python" element={<div>PAGE</div>} />
             <Route path="/courses/java" element={<div>PAGE</div>} />
             <Route path="/courses/javascript" element={<div>PAGE</div>} />

@@ -1,0 +1,147 @@
+.cv-steps-outer-container {
+  background: rgba(0, 0, 0, 0.534);
+  padding: 30px 0;
+}
+.cv-steps-container {
+  overflow-x: hidden;
+}
+.cv-tab {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 10px 20px;
+  margin: 0 5px;
+  color: white;
+  flex-grow: 1;
+  min-width: 20%;
+}
+.cv-tab-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+  min-height: 50px;
+  margin-right: 10px;
+  border: 1px solid #b38b00;
+  border-radius: 5px;
+  font-weight: bold;
+  aspect-ratio: 1/1;
+}
+.cv-tab-number.active {
+  background-color: #fdc600;
+}
+.buttons-box {
+  /* background: #ff0000; */
+  /* width: 100% !important; */
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ******************************** */
+.cv-page-body {
+  margin-top: 50px;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  background: #00000054;
+  gap: 30px;
+}
+.cv-forms-container {
+  min-height: 100vh;
+  margin-bottom: 30px;
+}
+
+.PhoneInputInput {
+  background: #716f6fb9;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #ffffff;
+  border: none;
+}
+/* -------------------------------- */
+.cv-upload-logo-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: -5px;
+  color: #ffffff;
+}
+.cv-upload-logo-container .details {
+  font-size: 14px;
+}
+.cv-upload-logo-container .upload-container {
+  text-align: center;
+  border: 2px dashed #ffc107;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.cv-upload-logo-container .upload-icon i {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #bf9b30;
+}
+
+.cv-upload-logo-container .upload-text {
+  font-size: 18px;
+  margin: 0;
+}
+
+.cv-upload-logo-container .upload-text .browse {
+  color: #ffc107;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.cv-upload-logo-container .supported-formats {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #a0a0a0;
+}
+.cv-upload-logo-container .buttons {
+  /* background-color: red; */
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  gap: 0.5vw;
+  margin-top: 7vh;
+}
+.cv-upload-logo-container .buttons input {
+  border: none;
+  border-radius: 5px;
+  background-color: #bf9b30;
+  padding: 8px 40px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cv-upload-logo-container .buttons input:hover {
+  background-color: #d4a32e;
+}
+
+/* -------------------------------- */
+.cv-skill-item-container {
+    gap: 10px;
+}
+.cv-skill-item {
+    display: flex;
+    gap: 10px;
+}
+.cv-skill-item-icon-box{
+    display: flex;
+    gap: 10px;
+    /* width: 100px; */
+}
+/* -------------------------------- */
+/* -------------------------------- */
+/* -------------------------------- */
+/* -------------------------------- */
+/* -------------------------------- */
+/* -------------------------------- */
