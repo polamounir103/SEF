@@ -12,15 +12,29 @@
 
 .vertical-text {
   letter-spacing: 5px;
-  margin-right: 20px;
   font-size: 45px;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  text-wrap: nowrap;
-  writing-mode: vertical-rl;
-  transform: translateY(-50%) rotate(180deg);
-  margin: auto;
+  /* text-wrap: nowrap; */
+  padding: 20px;
+}
+@media screen and (width > 991px) {
+  .vertical-text {
+    letter-spacing: 5px;
+    margin-right: 20px;
+    font-size: 45px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    text-wrap: nowrap;
+    writing-mode: vertical-rl;
+    transform: translateY(-50%) rotate(180deg);
+    margin: auto;
+  }
+  .home-article-posts {
+    background: #0000007e;
+    padding-left: 75px;
+    position: relative;
+    margin-top: 100px;
+  }
 }
 
 .featured-article {
@@ -108,7 +122,6 @@
 /* //////////////////////////////////////////////////////////////////////////////////////////////// */
 
 .main-news {
-;
 }
 
 .main-articles {
@@ -139,7 +152,6 @@
 .time {
   /* margin-left: 70%; */
 }
-
 
 .article-content .arrow {
   position: absolute;

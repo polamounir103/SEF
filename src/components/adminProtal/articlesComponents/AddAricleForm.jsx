@@ -10,7 +10,7 @@ const AddAricleForm = () => {
   };
 
   return (
-    <div className="div2  text-white ">
+    <div className=" text-white ">
       <div>
         <form>
           <div className="row">

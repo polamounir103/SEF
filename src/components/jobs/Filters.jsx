@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 
 const Filters = ({
   location,
@@ -49,7 +49,9 @@ const Filters = ({
     <div className={`content-bottom-left ${active && "active"}`}>
       <div className="filters-clear">
         <h4>Filters</h4>
-        <button onClick={resetFilter} className="btn ">Clear All</button>
+        <button onClick={resetFilter} className="btn ">
+          Clear All
+        </button>
       </div>
       <div className="location">
         <h2>Location</h2>
@@ -144,7 +146,9 @@ const Filters = ({
         ))}
       </div>
       <div className="d-flex justify-content-center mt-3">
-        <button className="btn btn-warning px-5 w-50">Create CV</button>
+        <Link to="/create-cv" className="text-center d-block w-50">
+          <button className="btn btn-warning  px-5">Create CV</button>
+        </Link>
       </div>
     </div>
   );

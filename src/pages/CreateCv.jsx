@@ -1,68 +1,95 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CreateCVHeader from "../components/createCv/CreateCVHeader";
 import "../assets/styles/cvSteps.css";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate, useParams } from "react-router-dom";
 import CvMainInformation from "../components/createCv/CvMainInformation";
 import CvAboutForm from "../components/createCv/CvAboutForm";
 import CvSkillsForm from "../components/createCv/CvSkillsForm";
 import CvTemplet from "../components/createCv/CvTemplet";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
+import CvEducationForm from "../components/createCv/CvEducationForm";
 
 function CreateCv() {
   // Array of steps
   const steps = [
-    { id: 1, name: "MAIN INFORMATION" },
-    { id: 2, name: "SUMMARY" },
-    { id: 3, name: "SKILLS" },
-    { id: 4, name: "EXPERIENCE" },
-    { id: 5, name: "EDUCATION" },
-    { id: 6, name: "HONORS AND AWARDS" },
-    { id: 7, name: "HOBBIES AND INTERESTS" },
-    { id: 8, name: "LINKS" },
+    { id: 1, urlLink: "main", name: "MAIN INFORMATION" },
+    { id: 2, urlLink: "summary", name: "SUMMARY" },
+    { id: 3, urlLink: "skills", name: "SKILLS" },
+    { id: 4, urlLink: "experiance", name: "EXPERIENCE" },
+    { id: 5, urlLink: "education", name: "EDUCATION" },
+    { id: 6, urlLink: "honors", name: "HONORS AND AWARDS" },
+    { id: 7, urlLink: "interests", name: "HOBBIES AND INTERESTS" },
+    { id: 8, urlLink: "links", name: "LINKS" },
   ];
 
-  const [activeSteps, setActiveSteps] = useState([1]);
+  const [activeSetp, setActiveStep] = useState("");
+  // const { mainStep } = useParams();
+  const { "*": mainStep } = useParams(); 
+  console.log( mainStep);
+  const [activeSteps, setActiveSteps] = useState([]);
+  const index = steps.findIndex((step) => step.urlLink === mainStep);
+
+  const updateTheActiveSteps = () => {
+    setActiveSteps([]);
+    for (let i = index; i >= 0; i--) {
+      setActiveSteps((prevSteps) => [...prevSteps, i + 1]);
+    }
+  };
+  useEffect(() => {
+    updateTheActiveSteps();
+  }, [mainStep]);
+
   const stepRefs = useRef([]);
   const cvTempletRef = useRef(); // Create a ref for CvTemplet
   const navigate = useNavigate();
 
   const handleContinue = () => {
-    const nextStep = Math.max(...activeSteps) + 1;
-    if (nextStep <= steps.length) {
+    // console.log(activeSteps);
+
+    const nextStep = index + 1;
+
+    if (nextStep < 8) {
       setActiveSteps((prevSteps) => [...prevSteps, nextStep]);
-      stepRefs.current[nextStep - 1]?.scrollIntoView({
+      stepRefs.current[nextStep]?.scrollIntoView({
         behavior: "smooth",
         block: "center",
       });
+      console.log(nextStep);
+      navigate(`/create-cv/${steps[nextStep].urlLink}`);
     }
 
-    navigate(`/create-cv/${activeSteps.length + 1}`);
+    console.log(steps[index].urlLink);
   };
 
   const handleBack = () => {
-    const prevStep = Math.max(...activeSteps);
-    if (prevStep > 1) {
+    const prevStep = index - 1;
+
+    if (prevStep >= 0) {
       setActiveSteps((prevSteps) =>
         prevSteps.filter((step) => step !== prevStep)
       );
-      stepRefs.current[prevStep - 2]?.scrollIntoView({
+      stepRefs.current[prevStep]?.scrollIntoView({
         behavior: "smooth",
         block: "center",
       });
-      navigate(`/create-cv/${activeSteps.length - 1}`);
+      console.log(prevStep);
+      console.log(steps[index].urlLink);
+
+      navigate(`/create-cv/${steps[prevStep].urlLink}`);
     }
+    console.log(activeSteps);
   };
 
   const downloadCV = () => {
-    const input = cvTempletRef.current; // Access CvTemplet
+    const input = cvTempletRef.current;
     html2canvas(input).then((canvas) => {
       const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF("p", "mm", "a4");
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
       pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-      pdf.save("CV.pdf"); // Save as PDF
+      pdf.save("CV.pdf");
     });
   };
 
@@ -104,14 +131,14 @@ function CreateCv() {
             <Routes>
               <Route>
                 <Route path="/" element={<CvMainInformation />} />
-                <Route path="/1" element={<CvMainInformation />} />
-                <Route path="/2" element={<CvAboutForm />} />
-                <Route path="/3" element={<CvSkillsForm />} />
-                <Route path="/4" element={<CvMainInformation />} />
-                <Route path="/5" element={<CvMainInformation />} />
-                <Route path="/6" element={<CvMainInformation />} />
-                <Route path="/7" element={<CvMainInformation />} />
-                <Route path="/8" element={<CvMainInformation />} />
+                <Route path="/main" element={<CvMainInformation />} />
+                <Route path="/summary" element={<CvAboutForm />} />
+                <Route path="/skills" element={<CvSkillsForm />} />
+                <Route path="/experiance" element={<CvMainInformation />} />
+                <Route path="/education" element={<CvEducationForm />} />
+                <Route path="/honors" element={<CvMainInformation />} />
+                <Route path="/interests" element={<CvMainInformation />} />
+                <Route path="/links" element={<CvMainInformation />} />
               </Route>
             </Routes>
           </div>

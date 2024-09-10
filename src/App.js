@@ -44,6 +44,7 @@ import ExamPage from "./pages/ExamPage";
 import CoursesPage from "./pages/CoursesPage";
 import JobDetail from "./components/jobs/JobDetail";
 import CreateCv from "./pages/CreateCv";
+import AboutPage from "./pages/AboutPage";
 // import InstructorPortalHeader from "./components/instructorPortal/InstructorPortalHeader";
 
 function App() {
@@ -53,7 +54,7 @@ function App() {
         <SpeedInsights />
         <Header />
 
-        <div className="px-5 text-light">
+        <div className="px-2 px-lg-5 text-light">
           <Routes>
             <Route index element={<Home />} />
             <Route path="/business-news" element={<BusinessNewsPage />} />
@@ -66,11 +67,13 @@ function App() {
             <Route path="/adminportal/*" element={<AdminPanel />} />
             <Route path="/instructorportal" element={<InstructorPortal />} />
             <Route path="/studentportal" element={<StudentPortal />} />
-            <Route path="/about" element={<div>PAGE</div>} />
+            <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/jobs/*" element={<JobsPage />} />
+            {/* <Route path="/create-cv/*" element={<CreateCv />} /> */}
             <Route path="/create-cv/*" element={<CreateCv />} />
-            
+            {/* <Route path="/create-cv/:mainStep" element={<CreateCv />} /> */}
+
             {/* <Route path="/job/*" element={<JobDetail />} /> */}
 
             {/* ********************** */}

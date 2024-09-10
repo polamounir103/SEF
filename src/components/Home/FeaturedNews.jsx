@@ -33,7 +33,7 @@ function FeaturedNews() {
   ];
 
   return (
-    <div className="text-white d-flex gap-5 home-article-posts">
+    <div className="text-white d-flex flex-column flex-lg-row  home-article-posts">
       <h2 className="vertical-text">FEATURED NEWS</h2>
       <div className="d-flex flex-xl-row flex-column gap-4 gap-xl-0">
         <div className="d-flex flex-column align-content-center home-single-article-container hero-home-single-article-container">

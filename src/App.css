@@ -60,7 +60,6 @@ body {
 }
 .home-title-container h1 {
   color: white;
-  /* font-size: 40px; */
   font-size: clamp(2.5rem, 0.7143rem + 5.7143vw, 5rem);
   font-weight: bold;
   text-transform: uppercase;
@@ -68,11 +67,12 @@ body {
   word-break: keep-all;
 }
 
+
 .home-article-posts {
   background: #0000007e;
-  padding-left: 75px;
+  /* padding-left: 75px; */
   position: relative;
-  margin-top: 100px;
+  margin-top: 75px;
 }
 .home-article-content {
   text-overflow: ellipsis;

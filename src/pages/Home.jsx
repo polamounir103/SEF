@@ -6,7 +6,7 @@ import "../assets/styles/FeaturedNews.css";
 
 function Home() {
   return (
-    <div className="home-page site-page">
+    <div className="home-page site-page w-100">
       <div className='home-title-container'>
         <h1>Software engineering for future</h1>
       </div>

@@ -123,6 +123,21 @@
 }
 
 @media (max-width: 992px) {
+  .latest-business .business-container .content {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    background: #0000;
+    gap: 15px;
+  }
+  .latest-business .business-container .content .card-body {
+    background-color: #14121383;
+    /* padding: 4rem; */
+    border-radius: 12px;
+  }
+  .latest-business .business-container .content .right .card-body {
+    margin-bottom: 50px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -130,13 +145,6 @@
     display: block;
     padding: 0rem;
     background: none;
-  }
-
-  .latest-business .business-container .content .card-body {
-    background-color: #14121383;
-    padding: 4rem;
-    border-radius: 12px;
-    margin-bottom: 30px;
   }
 
   .latest-business .business-container .content .card-body > * {

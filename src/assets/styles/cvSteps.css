@@ -128,18 +128,82 @@
 
 /* -------------------------------- */
 .cv-skill-item-container {
-    gap: 10px;
+  gap: 10px;
 }
 .cv-skill-item {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
-.cv-skill-item-icon-box{
-    display: flex;
-    gap: 10px;
-    /* width: 100px; */
+.cv-skill-item-icon-box {
+  display: flex;
+  gap: 10px;
+  /* width: 100px; */
 }
 /* -------------------------------- */
+.cv-education-form .education-field {
+  flex: 1;
+  padding: 15px;
+  border: 2px dashed rgb(211, 172, 0);
+  outline: none;
+  resize: none;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.cv-education-form .education-field input {
+  margin-top: 15px;
+  /* width: 500px; */
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  margin-bottom: 10px;
+  background-color: rgba(125, 125, 125, 0.5);
+  display: flex;
+}
+.cv-education-form .education-field p {
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+.cv-education-form .education-field textarea {
+  border: none;
+  outline: none;
+  color: #ffffff;
+  background-color: rgba(125, 125, 125, 0.5);
+  resize: none;
+  margin-top: 10px;
+  /* width: 500px; */
+  width: 100%;
+  height: 100px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.cv-education-form .education-date {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* width: 490px; */
+}
+.cv-education-form .education-date input {
+  margin-left: -55px;
+  border: none;
+  outline: none;
+  background-color: rgba(125, 125, 125, 0.5);
+  color: #ffffff;
+}
+.cv-education-form .education-field input::placeholder {
+  color: #a7a1a1;
+}
+.cv-education-form .icons {
+  margin-left: 500px;
+}
+
 /* -------------------------------- */
 /* -------------------------------- */
 /* -------------------------------- */

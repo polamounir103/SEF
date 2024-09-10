@@ -43,7 +43,7 @@ function CvSkillsForm() {
         </div>
         <div className="d-flex align-items-end">
           <div onClick={handleAddSkill} className="pb-2">
-            <i class="fas fa-plus-circle"></i>
+            <i className="fas fa-plus-circle"></i>
           </div>
         </div>
       </div>

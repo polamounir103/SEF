@@ -43,7 +43,7 @@ function ArticleList() {
   ];
 
   return (
-    <div className="main-news text-light">
+    <div className="main-news text-light mt-4">
       {articles.map((article, index) => (
         <ArticleItem
           key={index}

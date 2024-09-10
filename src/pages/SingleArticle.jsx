@@ -7,12 +7,12 @@ function SingleArticle() {
         <div className="single-article-header">
           <sapn className="single-article-category">Single Article Page</sapn>
         </div>
-        <div className="single-article-page-content">
+        <div className="single-article-page-content ">
           <div className="d-flex justify-content-between align-items-end mt-2">
             <h1>Single Article Page</h1>
             <span>2h ago</span>
           </div>
-          <div className="container d-flex flex-column mt-5">
+          <div className=" d-flex flex-column mt-5">
             <div className="d-flex gap-5 flex-column ">
               <div className="ratio ratio-16x9">
                 <img src={articlePageImg} alt="" className="" />

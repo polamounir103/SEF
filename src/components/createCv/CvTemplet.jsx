@@ -30,7 +30,7 @@ function CvTemplet() {
               <h4 className="mt-2">Skills</h4>
             </div>
             <div className="">
-              <ul class="skills-list">
+              <ul className="skills-list">
                 <li>HTML and CSS</li>
                 <li>
                   Scripting language: Javascript, Typescript, Python, Java
