@@ -120,7 +120,7 @@ function CreateCv() {
           <div className="d-flex justify-content-between align-items-center">
             <div className="d-flex gap-4 w-100 cv-steps-outer-container ">
               <div
-                className="d-flex gap-4 w-100 flex-nowrap cv-steps-container"
+                className=" cv-steps-container"
                 style={{ maxWidth: "100%" }}
               >
                 {steps.map((step, index) => (
@@ -169,12 +169,20 @@ function CreateCv() {
 
         <div className="buttons-box">
           <div className="d-flex gap-4">
-            <button className="btn btn-secondary px-5" onClick={handleBack}>
+            {activeSteps.length > 1 && (
+              <button className="btn btn-secondary px-5" onClick={handleBack}>
+                Back
+              </button>
+            )}
+            {/* <button className="btn btn-secondary px-5" onClick={handleBack}>
               Back
-            </button>
-            <button className="btn btn-warning px-3" onClick={handleContinue}>
-              Continue
-            </button>
+            </button> */}
+            {activeSteps.length < steps.length && (
+              <button className="btn btn-warning px-3" onClick={handleContinue}>
+                Continue
+              </button>
+            )}
+
           </div>
           {activeSteps.length === steps.length && (
             <div>

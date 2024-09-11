@@ -2,10 +2,16 @@
   background: rgba(0, 0, 0, 0.534);
   padding: 30px 0;
 }
+/* d-flex gap-4 w-100 flex-nowrap */
 .cv-steps-container {
+  width: 100%;
+  display: flex;
+  gap: 15px;
+  flex-wrap: nowrap;
   overflow-x: hidden;
 }
 .cv-tab {
+  /* background-color: #990707; */
   display: flex;
   align-items: center;
   justify-content: start;
@@ -14,6 +20,12 @@
   color: white;
   flex-grow: 1;
   min-width: 20%;
+}
+@media screen and (max-width: 992px) {
+ .cv-tab {
+  /* background-color: #068cfa; */
+  min-width: 200px;
+} 
 }
 .cv-tab-number {
   display: flex;
