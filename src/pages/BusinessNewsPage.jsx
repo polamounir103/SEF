@@ -3,7 +3,7 @@ import LatestBusinessNews from '../components/businessNewsPage/LatestBusinessNew
 import AllBusinessNews from '../components/businessNewsPage/AllBusinessNews';
 function BusinessNewsPage() {
   return (
-    <div className="site-page">
+    <div className="">
       <LatestBusinessNews />
       <AllBusinessNews/>
     </div>

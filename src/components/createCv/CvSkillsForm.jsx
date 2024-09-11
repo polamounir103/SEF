@@ -1,7 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { updateSkills } from "../../redux/slice/CvSlice"; // Ensure the path is correct
 
 function CvSkillsForm() {
-  const [skills, setSkills] = useState([""]);
+  const dispatch = useDispatch();
+  const skillsFromRedux = useSelector((state) => state.cv.cv.skills);
+  const [skills, setSkills] = useState(skillsFromRedux);
+
+  useEffect(() => {
+    setSkills(skillsFromRedux);
+  }, [skillsFromRedux]);
+  useEffect(() => {
+    dispatch(updateSkills(skills));
+  }, [skills, dispatch]);
 
   const handleInputChange = (index, event) => {
     const newSkills = [...skills];
@@ -18,32 +29,37 @@ function CvSkillsForm() {
     setSkills(newSkills);
   };
 
+
   return (
     <div>
       <h4>Skills</h4>
-      <div className="d-flex cv-skill-item-container ">
-        <div className=" flex-grow-1">
+      <div className="d-flex cv-skill-item-container">
+        <div className="flex-grow-1">
           {skills.map((skill, index) => (
-            <div key={index} className="cv-skill-item flex-grow-1">
+            <div
+              key={index}
+              className="cv-skill-item d-flex align-items-center mb-2"
+            >
               <input
                 type="text"
                 value={skill}
                 onChange={(e) => handleInputChange(index, e)}
+                placeholder="Enter a skill"
+                className="form-control me-2"
               />
-              <div className="cv-skill-item-icon-box">
-                {skills.length > 1 && (
-                  <i
-                    className="fas fa-trash-alt"
-                    onClick={() => handleRemoveSkill(index)}
-                  ></i>
-                )}
-              </div>
+              {skills.length > 1 && (
+                <i
+                  className="fas fa-trash-alt text-danger cursor-pointer"
+                  onClick={() => handleRemoveSkill(index)}
+                  aria-label="Remove skill"
+                ></i>
+              )}
             </div>
           ))}
         </div>
         <div className="d-flex align-items-end">
-          <div onClick={handleAddSkill} className="pb-2">
-            <i className="fas fa-plus-circle"></i>
+          <div onClick={handleAddSkill} className="pb-2 cursor-pointer">
+            <i className="fas fa-plus-circle text-primary"></i>
           </div>
         </div>
       </div>

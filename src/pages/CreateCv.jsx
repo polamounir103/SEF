@@ -9,9 +9,13 @@ import CvTemplet from "../components/createCv/CvTemplet";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import CvEducationForm from "../components/createCv/CvEducationForm";
+import CvExperianceForm from "../components/createCv/CvExperianceForm";
+import CvHonorForm from "../components/createCv/CvHonorForm";
+import CvLinksForm from "../components/createCv/CvLinksForm";
+import CvHobbiesForm from "../components/createCv/CvHobbiesForm";
+import { useDispatch } from "react-redux";
 
 function CreateCv() {
-  // Array of steps
   const steps = [
     { id: 1, urlLink: "main", name: "MAIN INFORMATION" },
     { id: 2, urlLink: "summary", name: "SUMMARY" },
@@ -22,11 +26,11 @@ function CreateCv() {
     { id: 7, urlLink: "interests", name: "HOBBIES AND INTERESTS" },
     { id: 8, urlLink: "links", name: "LINKS" },
   ];
-
+  const dispatch = useDispatch();
   const [activeSetp, setActiveStep] = useState("");
   // const { mainStep } = useParams();
-  const { "*": mainStep } = useParams(); 
-  console.log( mainStep);
+  const { "*": mainStep } = useParams();
+  console.log(mainStep);
   const [activeSteps, setActiveSteps] = useState([]);
   const index = steps.findIndex((step) => step.urlLink === mainStep);
 
@@ -41,14 +45,11 @@ function CreateCv() {
   }, [mainStep]);
 
   const stepRefs = useRef([]);
-  const cvTempletRef = useRef(); // Create a ref for CvTemplet
+  const cvTempletRef = useRef(); // Create a ref for CvTemplet 00
   const navigate = useNavigate();
 
   const handleContinue = () => {
-    // console.log(activeSteps);
-
     const nextStep = index + 1;
-
     if (nextStep < 8) {
       setActiveSteps((prevSteps) => [...prevSteps, nextStep]);
       stepRefs.current[nextStep]?.scrollIntoView({
@@ -83,13 +84,30 @@ function CreateCv() {
 
   const downloadCV = () => {
     const input = cvTempletRef.current;
-    html2canvas(input).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF("p", "mm", "a4");
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-      pdf.save("CV.pdf");
+
+    // Ensure all images are loaded before capturing the canvas
+    const images = input.querySelectorAll("img");
+    const promises = Array.from(images).map(
+      (img) =>
+        new Promise((resolve) => {
+          if (img.complete) {
+            resolve();
+          } else {
+            img.onload = resolve;
+            img.onerror = resolve; // In case an image fails to load
+          }
+        })
+    );
+
+    Promise.all(promises).then(() => {
+      html2canvas(input, { useCORS: true }).then((canvas) => {
+        const imgData = canvas.toDataURL("image/png");
+        const pdf = new jsPDF("p", "mm", "a4");
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+        pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+        pdf.save("CV.pdf");
+      });
     });
   };
 
@@ -134,11 +152,11 @@ function CreateCv() {
                 <Route path="/main" element={<CvMainInformation />} />
                 <Route path="/summary" element={<CvAboutForm />} />
                 <Route path="/skills" element={<CvSkillsForm />} />
-                <Route path="/experiance" element={<CvMainInformation />} />
+                <Route path="/experiance" element={<CvExperianceForm />} />
                 <Route path="/education" element={<CvEducationForm />} />
-                <Route path="/honors" element={<CvMainInformation />} />
-                <Route path="/interests" element={<CvMainInformation />} />
-                <Route path="/links" element={<CvMainInformation />} />
+                <Route path="/honors" element={<CvHonorForm />} />
+                <Route path="/interests" element={<CvHobbiesForm />} />
+                <Route path="/links" element={<CvLinksForm />} />
               </Route>
             </Routes>
           </div>
