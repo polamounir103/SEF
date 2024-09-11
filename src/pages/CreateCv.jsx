@@ -161,8 +161,8 @@ function CreateCv() {
             </Routes>
           </div>
 
-          <div className="bg-light d-xl-block d-none" ref={cvTempletRef}>
-            {/* Assign the ref to CvTemplet */}
+          <div className="bg-light d-xl-block visually-hidden" ref={cvTempletRef}>
+            
             <CvTemplet />
           </div>
         </div>
