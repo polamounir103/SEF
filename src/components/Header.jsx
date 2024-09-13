@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+
+
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logoImg from "../assets/images/seff_logo_transparent.png";
 import { IoMenu, IoClose } from "react-icons/io5";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser } from "../redux/slice/AuthSlice";
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -9,6 +13,21 @@ function Header() {
     tech: false,
     courses: false,
   });
+  const dispatch = useDispatch();
+  const { user, isAuthenticated } = useSelector((state) => state.auth);
+  // console.log(user);
+
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [userType, setUserType] = useState(null); // "admin", "instructor", "student", or null
+
+  // Example: fetching user data from localStorage or an API
+  // useEffect(() => {
+  //   const loggedIn = localStorage.getItem("isLoggedIn");
+  //   const userType = localStorage.getItem("userType");
+
+  //   setIsLoggedIn(loggedIn === "true");
+  //   setUserType(userType); // e.g., 'admin', 'instructor', 'student'
+  // }, []);
 
   // Array of navigation links
   const navLinks = [
@@ -47,13 +66,25 @@ function Header() {
     setter((prev) => !prev);
   };
 
-  const handleSubMenuToggle = (menu) => {
+  const handleOpenSubMenuToggle = (menu) => {
     setIsSubMenuOpen((prev) => ({
       ...prev,
-      [menu]: !prev[menu],
+      [menu]: true,
     }));
   };
-const navigate = useNavigate()
+  const handleCloseSubMenuToggle = (menu) => {
+    setIsSubMenuOpen((prev) => ({
+      ...prev,
+      [menu]: false,
+    }));
+  };
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
+  };
+
+  const navigate = useNavigate();
+
   return (
     <nav className="px-2 px-lg-5 py-1 py-lg-3 text-light d-flex justify-content-between user-select-none align-items-center">
       {/* Logo Section */}
@@ -66,11 +97,81 @@ const navigate = useNavigate()
         {/* User Actions */}
         <div>
           <ul className="d-flex align-content-end justify-content-end list-unstyled">
-            <li>
-              <Link className="btn text-light" to="/login">
-                Login
-              </Link>
-            </li>
+            {!isAuthenticated ? (
+              <>
+                <li>
+                  <Link className="btn text-light" to="/login">
+                    Login
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                {user?.role === "admin" && (
+                  <>
+                    <li>
+                      <Link className="btn text-light" to="/adminportal">
+                        Admin Portal
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="btn text-light" to="/profile">
+                        Profile
+                      </Link>
+                    </li>
+                  </>
+                )}
+                {user?.role === "instructor" && (
+                  <>
+                    <li>
+                      <Link className="btn text-light" to="/instructorportal">
+                        Instructor Portal
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="btn text-light" to="/student-exams">
+                        Exams
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="btn text-light" to="/profile">
+                        Profile
+                      </Link>
+                    </li>
+                  </>
+                )}
+                {user?.role === "student" && (
+                  <>
+                    <li>
+                      <Link className="btn text-light" to="/studentportal">
+                        Student Portal
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="btn text-light" to="/student-exams">
+                        Exams
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="btn text-light" to="/profile">
+                        Profile
+                      </Link>
+                    </li>
+                  </>
+                )}
+                <li>
+                  <button
+                    className="btn text-light"
+                    onClick={() => {
+                      handleLogout();
+                      navigate("/login");
+                    }}
+                  >
+                    Logout
+                  </button>
+                </li>
+              </>
+            )}
           </ul>
         </div>
 
@@ -79,24 +180,33 @@ const navigate = useNavigate()
           <ul className="d-flex align-items-center list-unstyled gap-3">
             {navLinks.map((link) =>
               link.subLinks ? (
-                <li key={link.label} className="position-relative">
+                <li
+                  key={link.label}
+                  className="position-relative nav-header-link-sub-menu"
+                >
                   <span
-                    onMouseOver={() =>
-                      handleSubMenuToggle(link.label.toLowerCase())
+                    onMouseEnter={() =>
+                      handleOpenSubMenuToggle(link.label.toLowerCase())
                     }
                     onMouseLeave={() =>
-                      handleSubMenuToggle(link.label.toLowerCase())
+                      handleCloseSubMenuToggle(link.label.toLowerCase())
                     }
-                    onClick={()=>navigate(`${link.path}`)}
+                    onClick={() => navigate(`${link.path}`)}
                   >
                     {link.label}
                   </span>
                   <ul
-                    className={`list-unstyled position-absolute ${
+                    className={`list-unstyled position-absolute nav-header-link-sub-menu-links-box ${
                       isSubMenuOpen[link.label.toLowerCase()]
                         ? ""
                         : "visually-hidden"
                     }`}
+                    onMouseEnter={() =>
+                      handleOpenSubMenuToggle(link.label.toLowerCase())
+                    }
+                    onMouseLeave={() =>
+                      handleCloseSubMenuToggle(link.label.toLowerCase())
+                    }
                   >
                     {link.subLinks.map((subLink) => (
                       <li key={subLink.path}>
@@ -106,14 +216,13 @@ const navigate = useNavigate()
                   </ul>
                 </li>
               ) : (
-                <li key={link.path}>
-                  {link.isButton ? (
-                    <Link to={link.path} className="btn btn-outline-warning">
-                      {link.label}
-                    </Link>
-                  ) : (
-                    <Link to={link.path}>{link.label}</Link>
-                  )}
+                <li
+                  key={link.path}
+                  className={`position-relative nav-header-link ${
+                    link.isButton && "btn btn-outline-warning "
+                  }`}
+                >
+                  <Link to={link.path}>{link.label}</Link>
                 </li>
               )
             )}
@@ -151,7 +260,9 @@ const navigate = useNavigate()
             link.subLinks ? (
               <li
                 key={link.label}
-                onClick={() => handleSubMenuToggle(link.label.toLowerCase())}
+                onClick={() =>
+                  handleOpenSubMenuToggle(link.label.toLowerCase())
+                }
               >
                 <span>{link.label}</span>
                 <ul
@@ -186,11 +297,85 @@ const navigate = useNavigate()
           )}
         </ul>
 
-        {/* Login Button */}
-        <div className="gap-3 fs-5 btn btn-light">
-          <Link to="/login" onClick={handleMenuToggle(setIsMobileMenuOpen)}>
-            Login
-          </Link>
+        {/* Login or Logout Button */}
+        <div className="gap-3 fs-5 ">
+          <ul className="d-flex gap-3 list-unstyled flex-column">
+            {!isAuthenticated ? (
+              <>
+                <li>
+                  <Link className="btn btn-warning" to="/login">
+                    Login
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                {user?.role === "admin" && (
+                  <>
+                    <li>
+                      <Link className="btn text-light" to="/adminportal">
+                        Admin Portal
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="btn text-light" to="/profile">
+                        Profile
+                      </Link>
+                    </li>
+                  </>
+                )}
+                {user?.role === "instructor" && (
+                  <>
+                    <li>
+                      <Link className="btn text-light" to="/instructorportal">
+                        Instructor Portal
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="btn text-light" to="/student-exams">
+                        Exams
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="btn text-light" to="/profile">
+                        Profile
+                      </Link>
+                    </li>
+                  </>
+                )}
+                {user?.role === "student" && (
+                  <>
+                    <li>
+                      <Link className="btn text-light" to="/studentportal">
+                        Student Portal
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="btn text-light" to="/student-exams">
+                        Exams
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="btn text-light" to="/profile">
+                        Profile
+                      </Link>
+                    </li>
+                  </>
+                )}
+                <li>
+                  <button
+                    className="btn text-light"
+                    onClick={() => {
+                      handleLogout();
+                      navigate("/login");
+                    }}
+                  >
+                    Logout
+                  </button>
+                </li>
+              </>
+            )}
+          </ul>
         </div>
       </div>
     </nav>

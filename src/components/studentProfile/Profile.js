@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Profile() {
   return (
@@ -22,7 +23,7 @@ function Profile() {
               <h3>Balqees Hamdi Sabir</h3>
               <p>Computer Science, International Islamic University</p>
               <div className="mt-2">
-                <a href="#"><i className="fa-regular fa-pen-to-square icon" style={{cursor: 'pointer'}}></i></a>
+                <Link href="#"><i className="fa-regular fa-pen-to-square icon" style={{cursor: 'pointer'}}></i></Link>
               </div>
             </div>
           </div>

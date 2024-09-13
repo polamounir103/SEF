@@ -7,15 +7,17 @@ import coursesSlice from "./slice/CoursesSlice";
 import jobsReducer from "./slice/JobsSlice";
 import jobsFilterReducer from "./slice/NewJobFilter";
 import CvSlice from "./slice/CvSlice";
+import ExamSlice from "./slice/ExamSlice";
 
 const rootreducer = combineReducers({
-  auth: authSlice.reducer,
+  auth: authSlice,
   users: userSlice.reducer,
   articles: articlesSlice.reducer,
   jobs: jobsReducer,
   courses: coursesSlice.reducer,
   jobFill: jobsFilterReducer,
   cv: CvSlice,
+  exam : ExamSlice
 });
 const store = configureStore({
   reducer: rootreducer,

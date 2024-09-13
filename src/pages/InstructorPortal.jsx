@@ -24,7 +24,7 @@ const Result3 = () => {
     },
   ]);
   return (
-    <div className="container">
+    <div className="">
       <InstructorPortalHeader />
       <InstructorActivitySummary frist="1" sec="4" third="2" />
       <InstructorExamsNotification />

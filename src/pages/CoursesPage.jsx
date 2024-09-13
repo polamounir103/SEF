@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import useFormattedDate from "../hooks/useFormattedDate";
+import { Link } from "react-router-dom";
 
 const CoursesPage = () => {
   const newCourses = [
@@ -113,9 +114,9 @@ const CoursesPage = () => {
                   </p>
                   <div className="d-flex justify-content-between">
                     <button className="btn btn-warning">Enroll</button>
-                    <a href="#" className="btn btn-link text-white">
+                    <Link href="#" className="btn btn-link text-white">
                       View Details
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -168,9 +169,9 @@ const CoursesPage = () => {
               <div className="d-flex align-items-center gap-4 justify-content-center">
                 <div className="d-flex flex-column">
                   <button className="btn btn-warning me-2">Enroll</button>
-                  <a href="#" className="btn btn-link text-warning">
+                  <Link href="#" className="btn btn-link text-warning">
                     View Details
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -182,24 +183,24 @@ const CoursesPage = () => {
       <nav aria-label="Course Pagination ">
         <ul className="pagination justify-content-end">
           <li className="page-item">
-            <a className="page-link" href="#">
+            <Link className="page-link" href="#">
               1
-            </a>
+            </Link>
           </li>
           <li className="page-item">
-            <a className="page-link" href="#">
+            <Link className="page-link" href="#">
               2
-            </a>
+            </Link>
           </li>
           <li className="page-item">
-            <a className="page-link" href="#">
+            <Link className="page-link" href="#">
               3
-            </a>
+            </Link>
           </li>
           <li className="page-item disabled">
-            <a className="page-link" href="#">
+            <Link className="page-link" href="#">
               ...
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

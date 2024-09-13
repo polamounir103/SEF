@@ -12,7 +12,7 @@ import Login from "./components/auth/Login";
 import Signup from "./components/auth/Signup";
 import JobsPage from "./pages/JobsPage";
 import Home from "./pages/Home";
-import NoPage from "./pages/NoPage"; 
+import NoPage from "./pages/NoPage";
 
 // import ContactUsPage from "./pages/ContactUsPage"; // Add this import
 // import SportsPage from "./pages/SportsPage"; // Add this import
@@ -45,6 +45,10 @@ import CoursesPage from "./pages/CoursesPage";
 import JobDetail from "./components/jobs/JobDetail";
 import CreateCv from "./pages/CreateCv";
 import AboutPage from "./pages/AboutPage";
+import ProtectedRoute from "./components/ProtectedRoute";
+import NoAccess from "./pages/NoAccess";
+import StudentExamsPage from "./pages/StudentExamsPage";
+import ExamResults from "./pages/ExamResults";
 // import InstructorPortalHeader from "./components/instructorPortal/InstructorPortalHeader";
 
 function App() {
@@ -59,14 +63,37 @@ function App() {
             <Route index element={<Home />} />
             <Route path="/business-news" element={<BusinessNewsPage />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
+            <Route path="/register" element={<Signup />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/profile-edit" element={<EditStudentProfile />} />
             <Route path="/article" element={<SingleArticle />} />
             <Route path="/article/:id" element={<SingleArticle />} />
-            <Route path="/adminportal/*" element={<AdminPanel />} />
-            <Route path="/instructorportal" element={<InstructorPortal />} />
-            <Route path="/studentportal" element={<StudentPortal />} />
+            {/* Protected Routes */}
+            <Route
+              path="/adminportal/*"
+              element={
+                <ProtectedRoute element={AdminPanel} allowedRoles={["admin"]} />
+              }
+            />
+            <Route
+              path="/instructorportal"
+              element={
+                <ProtectedRoute
+                  element={InstructorPortal}
+                  allowedRoles={["instructor"]}
+                />
+              }
+            />
+            <Route
+              path="/studentportal"
+              element={
+                <ProtectedRoute
+                  allowedRoles={["student"]}
+                  element={StudentPortal}
+                />
+              }
+            />
+
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/jobs/*" element={<JobsPage />} />
@@ -77,7 +104,25 @@ function App() {
             {/* <Route path="/job/*" element={<JobDetail />} /> */}
 
             {/* ********************** */}
-            <Route path="/exam" element={<ExamPage />} />
+            <Route path="/student-exams" element={<StudentExamsPage />} />
+            <Route
+              path="/exam/:id"
+              element={
+                <ProtectedRoute
+                  allowedRoles={["student"]}
+                  element={ExamPage}
+                ></ProtectedRoute>
+              }
+            />
+            <Route
+              path="/exam-result/:id"
+              element={
+                <ProtectedRoute
+                  allowedRoles={["student"]}
+                  element={ExamResults}
+                ></ProtectedRoute>
+              }
+            />
 
             <Route path="/sports" element={<div>PAGE</div>} />
             <Route path="/medical" element={<div>PAGE</div>} />
@@ -97,9 +142,8 @@ function App() {
             <Route path="/courses/css" element={<div>PAGE</div>} />
             <Route path="/courses/html" element={<div>PAGE</div>} />
 
-            <Route path="/student-exams" element={<StudentExams />} />
-
-            {/* Catch-All Route for NoPage */}
+            {/* NoAccess NoPage */}
+            <Route path="/no-access" element={<NoAccess />} />
             <Route path="*" element={<NoPage />} />
           </Routes>
         </div>

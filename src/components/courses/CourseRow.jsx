@@ -1,5 +1,6 @@
 import React from "react";
 import { FaRegPenToSquare, FaTrashCan } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 function CourseRow({ course }) {
   return (
@@ -29,10 +30,10 @@ function CourseRow({ course }) {
         {course.publishedOn}
       </div>
       <div className="col-lg-1 bg-dark text-white rounded p-3 mt-3 text-center">
-        <a className="text-warning" href="#" aria-label="Edit or Delete">
+        <Link className="text-warning" href="#" aria-label="Edit or Delete">
           <FaRegPenToSquare aria-hidden="true" />{" "}
           <FaTrashCan aria-hidden="true" />
-        </a>
+        </Link>
       </div>
     </>
   );

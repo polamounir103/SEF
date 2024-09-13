@@ -119,10 +119,7 @@ function CreateCv() {
         <div className="mt-5 w-100">
           <div className="d-flex justify-content-between align-items-center">
             <div className="d-flex gap-4 w-100 cv-steps-outer-container ">
-              <div
-                className=" cv-steps-container"
-                style={{ maxWidth: "100%" }}
-              >
+              <div className=" cv-steps-container" style={{ maxWidth: "100%" }}>
                 {steps.map((step, index) => (
                   <div
                     className="cv-tab "
@@ -161,8 +158,7 @@ function CreateCv() {
             </Routes>
           </div>
 
-          <div className="bg-light d-xl-block visually-hidden" ref={cvTempletRef}>
-            
+          <div className="bg-light cv-templet-container" ref={cvTempletRef}>
             <CvTemplet />
           </div>
         </div>
@@ -182,7 +178,6 @@ function CreateCv() {
                 Continue
               </button>
             )}
-
           </div>
           {activeSteps.length === steps.length && (
             <div>

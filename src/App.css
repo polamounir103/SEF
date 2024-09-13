@@ -33,8 +33,9 @@ body {
   position: fixed;
   top: 0;
   right: 0;
+  bottom: 0;
   /* height: 100dvh; */
-  height: 100lvh;
+  min-height: 100lvh;
   z-index: 4;
   display: flex;
   flex-direction: column;
@@ -47,6 +48,42 @@ body {
   background: #00000000;
   padding: 0;
   font-size: 50px !important;
+}
+.nav-header-link,
+.nav-header-link-sub-menu {
+  text-align: left;
+  letter-spacing: 1.5px;
+  font-size: 18px;
+  transition: 1s;
+}
+.nav-header-link-sub-menu {
+}
+.nav-header-link-sub-menu-links-box {
+  top: 50% !important ;
+  background: linear-gradient(0deg, rgb(0, 0, 0), rgba(0, 0, 255, 0));
+  padding: 30px 10px 10px 10px;
+}
+.nav-header-link:hover::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #f7bd00;
+}
+.nav-header-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 5px;
+  background: #f7bd00;
+  transition: 0.3s;
+}
+.nav-header-link.btn::after {
+  display: none;
 }
 /* ------------------------------------------ */
 /* ********************************************** */
@@ -63,7 +100,6 @@ body {
   word-spacing: 5px;
   word-break: keep-all;
 }
-
 
 .home-article-posts {
   background: #0000007e;
@@ -393,7 +429,35 @@ li {
 }
 /* --------------------------------------------- */
 /* ****************************************** */
-
+.EXAMSPAGE .exam-card {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.EXAMSPAGE .exam-card .row {
+  align-items: center;
+}
+.EXAMSPAGE .exam-card .col-md-2,
+.exam-card .col-md-3,
+.exam-card .col-md-4 {
+  display: flex;
+  align-items: center;
+}
+.EXAMSPAGE .exam-card .col-md-2 i,
+.exam-card .col-md-2 span {
+  margin-right: 10px;
+}
+.EXAMSPAGE .btn-join {
+  background-color: #ffae00;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.EXAMSPAGE .btn-join:hover {
+  background-color: #dd9802;
+}
 /* --------------------------------------------- */
 /* ****************************************** */
 

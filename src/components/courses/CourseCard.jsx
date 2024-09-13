@@ -1,5 +1,6 @@
 import React from "react";
 import { FaRegPenToSquare, FaTrashCan } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 // import "./CourseCard.css"; 
 
 function CourseCard({ course }) {
@@ -42,10 +43,10 @@ function CourseCard({ course }) {
         {course.publishedOn}
       </div>
       <div className="col-4 offset-8 text-light fw-bolder fs-4 mt-3 text-end">
-        <a className="text-warning" href="#" aria-label="Edit or Delete">
+        <Link className="text-warning" href="#" aria-label="Edit or Delete">
           <FaRegPenToSquare aria-hidden="true" />
           <FaTrashCan aria-hidden="true" />
-        </a>
+        </Link>
       </div>
     </div>
   );

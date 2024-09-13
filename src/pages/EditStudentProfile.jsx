@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Course from "../components/studentProfile/Course";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Define arrays for personal info, education, and contact info to dynamically generate the content
 const personalInfoFields = [
@@ -36,7 +36,7 @@ const contactInfoFields = [
 ];
 
 function EditStudentProfile() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [major, setMajor] = useState("Computer Science");
   const [personalInfo, setPersonalInfo] = useState(personalInfoFields);
   const [educationInfo, setEducationInfo] = useState(educationFields);
@@ -61,7 +61,6 @@ function EditStudentProfile() {
   const handleMajorChange = (event) => {
     setMajor(event.target.value);
   };
-
 
   // const saveChanges = async () => {
   //   // Collect all data into an object
@@ -114,12 +113,12 @@ function EditStudentProfile() {
                   style={{ width: "100px", height: "100px" }}
                 ></div>
                 <div className="mt-2 position-absolute bottom-0 end-0 ">
-                  <a href="#">
+                  <Link href="#">
                     <i
                       className="fs-6 fa-regular fa-pen-to-square icon"
                       style={{ cursor: "pointer" }}
                     ></i>
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="ms-1">

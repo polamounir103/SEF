@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const getJobs = createAsyncThunk("jobsFilter/getJobs", async () => {
-  const response = await axios.get("../../DB/jobs.json");
+  const response = await axios.get("/DB/jobs.json");
   return response.data;
 });
 

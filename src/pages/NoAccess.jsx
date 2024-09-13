@@ -1,22 +1,22 @@
 import React from "react";
 
-function NoPage() {
+function NoAccess() {
   return (
     <div
       style={{
         color: "#fff",
         textAlign: "center",
-        fontSize: "50px",
+        fontSize: "72px",
         fontWeight: "bold",
-        minHeight: "100vh",
+        minHeight: "50vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
       }}
     >
-      Sorry this Page Currently Not Available
+      Sorry you Can't access this Page 
     </div>
   );
 }
 
-export default NoPage;
+export default NoAccess;

@@ -37,10 +37,10 @@ function CourseCard({
       <div className="col-6 text-light fw-bolder fs-4 mt-3">{publishedOn}</div>
       <div className="col-8 text-light fw-bolder fs-4 mt-3"></div>
       <div className="col-4 text-light fw-bolder fs-4 mt-3 p-5">
-        <a className="text-warning" href="#" aria-label="Edit or Delete">
+        <Link className="text-warning" href="#" aria-label="Edit or Delete">
           <FaRegPenToSquare aria-hidden="true" />
           <FaTrashCan aria-hidden="true" />
-        </a>
+        </Link>
       </div>
     </div>
   );
@@ -168,10 +168,10 @@ function CoursesTable() {
               {course.publishedOn}
             </div>
             <div className="col-lg-1 bg-dark text-white rounded p-3 mt-3">
-              <a className="text-warning" href="#" aria-label="Edit or Delete">
+              <Link className="text-warning" href="#" aria-label="Edit or Delete">
                 <FaRegPenToSquare aria-hidden="true" />
                 <FaTrashCan aria-hidden="true" />
-              </a>
+              </Link>
             </div>
           </React.Fragment>
         ))}

@@ -49,7 +49,7 @@ function CvSkillsForm() {
               />
               {skills.length > 1 && (
                 <i
-                  className="fas fa-trash-alt text-danger cursor-pointer"
+                  className="fas fa-trash-alt text-warning cursor-pointer"
                   onClick={() => handleRemoveSkill(index)}
                   aria-label="Remove skill"
                 ></i>
@@ -59,7 +59,7 @@ function CvSkillsForm() {
         </div>
         <div className="d-flex align-items-end">
           <div onClick={handleAddSkill} className="pb-2 cursor-pointer">
-            <i className="fas fa-plus-circle text-primary"></i>
+            <i className="fas fa-plus-circle text-warming"></i>
           </div>
         </div>
       </div>

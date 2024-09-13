@@ -1,5 +1,6 @@
 import React from "react";
 import useFormattedDate from "../hooks/useFormattedDate";
+import { Link } from "react-router-dom";
 const ExamCard = ({
   date,
   time,
@@ -104,44 +105,44 @@ const StudentExams = () => {
           <nav aria-label="Exam pagination">
             <ul className="pagination justify-content-center">
               <li className="page-item">
-                <a
+                <Link
                   className="page-link text-white bg-dark border-secondary"
                   href="#"
                 >
                   &lt;
-                </a>
+                </Link>
               </li>
               <li className="page-item">
-                <a
+                <Link
                   className="page-link text-white bg-dark border-secondary"
                   href="#"
                 >
                   1
-                </a>
+                </Link>
               </li>
               <li className="page-item">
-                <a
+                <Link
                   className="page-link text-white bg-dark border-secondary"
                   href="#"
                 >
                   2
-                </a>
+                </Link>
               </li>
               <li className="page-item">
-                <a
+                <Link
                   className="page-link text-white bg-dark border-secondary"
                   href="#"
                 >
                   3
-                </a>
+                </Link>
               </li>
               <li className="page-item">
-                <a
+                <Link
                   className="page-link text-white bg-dark border-secondary"
                   href="#"
                 >
                   &gt;
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>

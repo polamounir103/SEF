@@ -81,34 +81,34 @@ const Footer = () => {
             <span>2023 EGYPT, All RIGHTS RESERVED</span>
           </div>
           <div className="footer-socials">
-            <a
+            <Link
               href="https://www.facebook.com/yourprofile"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FaFacebookF className="social-icon" />
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://twitter.com/yourprofile"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FaTwitter className="social-icon" />
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://www.instagram.com/yourprofile"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FaInstagram className="social-icon" />
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://www.linkedin.com/in/yourprofile"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FaLinkedinIn className="social-icon" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
