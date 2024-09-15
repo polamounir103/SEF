@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logoImg from "../assets/images/seff_logo_transparent.png";
@@ -37,7 +35,7 @@ function Header() {
       label: "Tech",
       path: "/tech",
       subLinks: [
-        { label: "Laptops", path: "/tech/laptops" },
+        { label: "Laptops", path: "/tech/labtops" },
         { label: "Phones", path: "/tech/phones" },
         { label: "Tablets", path: "/tech/tablets" },
       ],
@@ -52,7 +50,6 @@ function Header() {
       path: "/courses",
       subLinks: [
         { label: "Python", path: "/courses/python" },
-        { label: "Java", path: "/courses/java" },
         { label: "JavaScript", path: "/courses/javascript" },
         { label: "CSS", path: "/courses/css" },
         { label: "HTML", path: "/courses/html" },
@@ -197,9 +194,7 @@ function Header() {
                   </span>
                   <ul
                     className={`list-unstyled position-absolute nav-header-link-sub-menu-links-box ${
-                      isSubMenuOpen[link.label.toLowerCase()]
-                        ? ""
-                        : "visually-hidden"
+                      isSubMenuOpen[link.label.toLowerCase()] ? "active" : ""
                     }`}
                     onMouseEnter={() =>
                       handleOpenSubMenuToggle(link.label.toLowerCase())
@@ -208,11 +203,17 @@ function Header() {
                       handleCloseSubMenuToggle(link.label.toLowerCase())
                     }
                   >
-                    {link.subLinks.map((subLink) => (
-                      <li key={subLink.path}>
-                        <Link to={subLink.path}>{subLink.label}</Link>
-                      </li>
-                    ))}
+                    <div
+                      className={
+                        isSubMenuOpen[link.label.toLowerCase()] ? "active" : ""
+                      }
+                    >
+                      {link.subLinks.map((subLink) => (
+                        <li key={subLink.path}>
+                          <Link to={subLink.path}>{subLink.label}</Link>
+                        </li>
+                      ))}
+                    </div>
                   </ul>
                 </li>
               ) : (

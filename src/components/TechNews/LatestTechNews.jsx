@@ -1,9 +1,9 @@
 import React from "react";
-import "../../assets/styles/Business.css"; // Make sure this path is correct.
+// import "../../assets/styles/Tech.css"; // Make sure this path is correct.
 import { CgTimer } from "react-icons/cg";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const LatestBusinessNews = () => {
+const LatestTechNews = () => {
   const articles = [
     {
       title: "Here's the first article",
@@ -28,12 +28,12 @@ const LatestBusinessNews = () => {
   return (
     <section className="latest-business">
       <div className="business-container">
-        <h2>Latest Business News</h2>
+        <h2>Latest Tech News</h2>
         <div className="content">
           {/* Left Column */}
           <div className="left">
             <div className="card-body">
-              <h4 className="title">Business</h4>
+              <h4 className="title">Tech</h4>
               <div className="details">
                 <h2>{articles[0].title}</h2>
                 <p>
@@ -52,7 +52,7 @@ const LatestBusinessNews = () => {
           <div className="right">
             {articles.slice(1).map((article, index) => (
               <div className="card-body" key={index}>
-                <h4 className="title">Business</h4>
+                <h4 className="title">Tech</h4>
                 <div className="details">
                   <h2>{article.title}</h2>
                   <p>
@@ -74,4 +74,4 @@ const LatestBusinessNews = () => {
   );
 };
 
-export default LatestBusinessNews;
+export default LatestTechNews;

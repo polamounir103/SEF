@@ -14,42 +14,29 @@ import JobsPage from "./pages/JobsPage";
 import Home from "./pages/Home";
 import NoPage from "./pages/NoPage";
 
-// import ContactUsPage from "./pages/ContactUsPage"; // Add this import
-// import SportsPage from "./pages/SportsPage"; // Add this import
-// import MedicalPage from "./pages/MedicalPage"; // Add this import
-// import StartupsPage from "./pages/StartupsPage"; // Add this import
-// import AppsPage from "./pages/AppsPage"; // Add this import
-// import TechPage from "./pages/TechPage"; // Import the Tech page
-// import TechLaptopsPage from "./pages/TechLaptopsPage"; // Import Laptops Page
-// import TechPhonesPage from "./pages/TechPhonesPage"; // Import Phones Page
-// import TechTabletsPage from "./pages/TechTabletsPage"; // Import Tablets Page
-
-// import CoursesPage from "./pages/CoursesPage"; // Import Courses page
-// import PythonCoursePage from "./pages/PythonCoursePage"; // Import Python course page
-// import JavaCoursePage from "./pages/JavaCoursePage"; // Import Java course page
-// import JavaScriptCoursePage from "./pages/JavaScriptCoursePage"; // Import JavaScript course page
-// import CSSCoursePage from "./pages/CSSCoursePage"; // Import CSS course page
-// import HTMLCoursePage from "./pages/HTMLCoursePage"; // Import HTML course page
 
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import SingleArticle from "./pages/SingleArticle";
 import ContactUs from "./pages/ContactUs";
-import CoursesTable from "./components/courses/CoursesTable";
+// import CoursesTable from "./components/courses/CoursesTable";
 import Profile from "./pages/StudentProfile";
 import EditStudentProfile from "./pages/EditStudentProfile";
-import StudentExams from "./pages/StudentExams";
 import InstructorPortal from "./pages/InstructorPortal";
 import StudentPortal from "./pages/StudentPortal";
 import ExamPage from "./pages/ExamPage";
 import CoursesPage from "./pages/CoursesPage";
-import JobDetail from "./components/jobs/JobDetail";
 import CreateCv from "./pages/CreateCv";
 import AboutPage from "./pages/AboutPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import NoAccess from "./pages/NoAccess";
 import StudentExamsPage from "./pages/StudentExamsPage";
 import ExamResults from "./pages/ExamResults";
-// import InstructorPortalHeader from "./components/instructorPortal/InstructorPortalHeader";
+import SportsNews from "./pages/SportsNews";
+import MedicalNews from "./pages/MedicalNews";
+import StartupsNews from "./pages/StartupsNews";
+import AppsNews from "./pages/AppsNews";
+import TechNews from "./pages/TechNews";
+import TechNewsTypePage from "./components/TechNews/TechNewsTypePage";
 
 function App() {
   return (
@@ -124,23 +111,19 @@ function App() {
               }
             />
 
-            <Route path="/sports" element={<div>PAGE</div>} />
-            <Route path="/medical" element={<div>PAGE</div>} />
-            <Route path="/startups" element={<div>PAGE</div>} />
-            <Route path="/apps" element={<div>PAGE</div>} />
+            <Route path="/sports" element={<SportsNews />} />
+            <Route path="/medical" element={<MedicalNews />} />
+            <Route path="/startups" element={<StartupsNews />} />
+            <Route path="/apps" element={<AppsNews />} />
             {/* Tech Submenu Routes */}
-            <Route path="/tech" element={<div>PAGE</div>} />
-            <Route path="/tech/laptops" element={<div>PAGE</div>} />
-            <Route path="/tech/phones" element={<div>PAGE</div>} />
-            <Route path="/tech/tablets" element={<div>PAGE</div>} />
+            <Route path="/tech" element={<TechNews />} />
+            <Route path="/tech/:type" element={<TechNewsTypePage />} />
 
             {/* Courses Submenu Routes */}
             <Route path="/courses" element={<CoursesPage />} />
-            <Route path="/courses/python" element={<div>PAGE</div>} />
-            <Route path="/courses/java" element={<div>PAGE</div>} />
-            <Route path="/courses/javascript" element={<div>PAGE</div>} />
-            <Route path="/courses/css" element={<div>PAGE</div>} />
-            <Route path="/courses/html" element={<div>PAGE</div>} />
+            <Route path="/courses/:id" element={<div>PAGE</div>} />
+            <Route path="/courses/:name" element={<div>PAGE</div>} />
+
 
             {/* NoAccess NoPage */}
             <Route path="/no-access" element={<NoAccess />} />

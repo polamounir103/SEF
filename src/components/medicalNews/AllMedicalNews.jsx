@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo } from "react";
 import useFetchData from "../../hooks/useFetchData";
 import Article from "../ui/newsPage/Article";
-import Loader from "../ui/loader/Loader"; // Assuming you have a Loader component
+import Loader from "../ui/loader/Loader"; // Assuming you have a Loader component for a consistent loading state
 
-function AllBusinessNews() {
+function AllMedicalNews() {
   const url = "../DB/articles.json";
   const options = useMemo(
     () => ({
@@ -21,7 +21,7 @@ function AllBusinessNews() {
     }
   }, [error]);
 
-  const businessData = data?.filter((art) => art.category === "business");
+  const medicalData = data?.filter((art) => art.category === "medical");
 
   if (loading) {
     return (
@@ -39,7 +39,7 @@ function AllBusinessNews() {
     );
   }
 
-  if (businessData?.length === 0) {
+  if (medicalData?.length === 0) {
     return (
       <div className="d-flex justify-content-center align-items-center p-5">
         <h3 className="text-white fw-bolder">Coming Soon...</h3>
@@ -50,7 +50,7 @@ function AllBusinessNews() {
   return (
     <section className="business-articls">
       <div className="d-flex flex-column gap-5">
-        {businessData.map((art) => (
+        {medicalData.map((art) => (
           <Article key={art.id} data={art} />
         ))}
       </div>
@@ -58,4 +58,4 @@ function AllBusinessNews() {
   );
 }
 
-export default AllBusinessNews;
+export default AllMedicalNews;

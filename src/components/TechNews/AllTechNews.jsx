@@ -3,7 +3,7 @@ import useFetchData from "../../hooks/useFetchData";
 import Article from "../ui/newsPage/Article";
 import Loader from "../ui/loader/Loader"; // Assuming you have a Loader component
 
-function AllBusinessNews() {
+function AllTechNews() {
   const url = "../DB/articles.json";
   const options = useMemo(
     () => ({
@@ -21,12 +21,12 @@ function AllBusinessNews() {
     }
   }, [error]);
 
-  const businessData = data?.filter((art) => art.category === "business");
+  const techData = data?.filter((art) => art.category === "tech");
 
   if (loading) {
     return (
       <div className="d-flex justify-content-center align-items-center p-5">
-        <Loader />
+        <Loader /> {/* Display loader while loading */}
       </div>
     );
   }
@@ -39,7 +39,7 @@ function AllBusinessNews() {
     );
   }
 
-  if (businessData?.length === 0) {
+  if (techData?.length === 0) {
     return (
       <div className="d-flex justify-content-center align-items-center p-5">
         <h3 className="text-white fw-bolder">Coming Soon...</h3>
@@ -48,9 +48,9 @@ function AllBusinessNews() {
   }
 
   return (
-    <section className="business-articls">
+    <section className="business-articles">
       <div className="d-flex flex-column gap-5">
-        {businessData.map((art) => (
+        {techData.map((art) => (
           <Article key={art.id} data={art} />
         ))}
       </div>
@@ -58,4 +58,4 @@ function AllBusinessNews() {
   );
 }
 
-export default AllBusinessNews;
+export default AllTechNews;
