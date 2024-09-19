@@ -14,7 +14,7 @@ const rootreducer = combineReducers({
   users: userSlice.reducer,
   articles: articlesSlice.reducer,
   jobs: jobsReducer,
-  courses: coursesSlice.reducer,
+  courses: coursesSlice,
   jobFill: jobsFilterReducer,
   cv: CvSlice,
   exam : ExamSlice

@@ -3,11 +3,13 @@ import { useParams, Link } from "react-router-dom";
 import { ImMenu } from "react-icons/im";
 import { CiLocationOn } from "react-icons/ci";
 import { CgTimer } from "react-icons/cg";
+import { useSelector } from "react-redux";
 // import "./Jobs.css"
 
-const JobDetail = ({ jobs }) => {
-  const { id } = useParams(); // Get the job ID from the URL
-  const job = jobs.find((job) => job._id === id); // Find the job by ID
+const JobDetail = () => {
+  const { id } = useParams();
+  const jobs = useSelector((state) => state.jobs.jobsdata); // Get the job ID from the URL
+  const job = jobs?.find((job) => job._id === id); // Find the job by ID
 
   if (!job) {
     return <h2>Job not found</h2>; // Fallback if job is not found

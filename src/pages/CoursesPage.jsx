@@ -1,33 +1,24 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useDispatch, useSelector } from "react-redux";
 import useFormattedDate from "../hooks/useFormattedDate";
-import { Link } from "react-router-dom";
-import useFetchData from "../hooks/useFetchData";
 import Loader from "../components/ui/loader/Loader";
 import NewCoursesSlider from "../components/coursesPage/NewCoursesSlider";
 import AllCoursesTable from "../components/coursesPage/AllCoursesTable";
+import { fetchCourses } from "../redux/slice/CoursesSlice";
 
 const CoursesPage = () => {
   const date = useFormattedDate();
-  const url = "../DB/courses.json";
-  const options = useMemo(
-    () => ({
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-    }),
-    []
-  );
+  const dispatch = useDispatch();
 
-  const { data, error, loading } = useFetchData(url, options);
+  // Access state data using useSelector
+  const { data, error, loading } = useSelector((state) => state.courses);
 
   useEffect(() => {
-    if (error) {
-      console.error("Error fetching data:", error);
-    }
-  }, [error]);
+    // Dispatch fetchCourses action
+    dispatch(fetchCourses());
+  }, [dispatch]);
 
-  const newCoursesData = data?.filter((course) => course.isNew === true);
-  console.log(newCoursesData);
   if (loading) {
     return (
       <div className="d-flex justify-content-center align-items-center p-5">
@@ -44,8 +35,10 @@ const CoursesPage = () => {
     );
   }
 
+  const newCoursesData = data?.filter((course) => course.isNew === true);
+
   return (
-    <div className="">
+    <div>
       <div>
         <h2 className="page-title">Courses</h2>
         <p>{date}</p>

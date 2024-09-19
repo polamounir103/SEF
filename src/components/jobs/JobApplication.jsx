@@ -2,15 +2,16 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import "./JobApplication.css"; // Import the CSS file
 import { useRef } from "react";
+import { useSelector } from "react-redux";
 
-function JobApplication({ jobs }) {
+function JobApplication() {
   const fileInputRef = useRef(null);
   const handleBrowseClick = () => {
     fileInputRef.current.click();
   };
   const { id } = useParams();
-  
-  const job = jobs.find((job) => job._id === id);
+  const jobs = useSelector((state) => state.jobs.jobsdata);
+  const job = jobs?.find((job) => job._id === id);
 
   if (!job) {
     return <h2>Job not found</h2>;

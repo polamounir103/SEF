@@ -11,7 +11,7 @@ import useWindowWidth from "../hooks/useWindowWidth ";
 import Jobs from "../components/adminProtal/jobs/Jobs";
 import AddJobForm from "../components/adminProtal/jobs/AddJobForm";
 import UserStudentTable from "../components/adminProtal/usersComponents/students/UserStudentTable";
-import CoursesTable from "../components/courses/CoursesTable";
+import CoursesTable from "../components/adminProtal/courses/CoursesTable";
 import AddUserForm from "../components/adminProtal/usersComponents/AddUserForm";
 
 function AdminPanel() {

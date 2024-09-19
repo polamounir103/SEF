@@ -61,5 +61,31 @@
     "image": "https://dummyjson.com/icon/sophiab/128",
     "role": "instructor",
     "password": "12345"
+  },
+
+
+
+
+  {
+    "userId":"",
+    "firstName":"",
+    "lastName":"",
+    "email":"",
+    "password":"",
+    "phoneNumber":"",
+    "dateOfBirth":"",
+    "graduationYear":2000,
+    "raboutole":"",
+    "nationality": "",
+    "country": "",
+    "city": "",
+    "university":"",
+    "major":"",
+    "status":false,
+    "isEmailVerified":false,
+    "role":"",
+    "profileImage":""
+
   }
+
 ]

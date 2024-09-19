@@ -3,113 +3,101 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 const initialState = {
   jobsdata: [],
   filteredjobs: [],
+  filter: {
+    searchQuery: "",
+    location: "",
+    jobType: "",
+    salaryRang: [0, 500000],
+    level: "",
+  },
 };
 
 export const getJobs = createAsyncThunk("jobs/getJobs", async () => {
-  return fetch("http://localhost:3000/src/DB/jobs.json").then((response) => {
-    return response.json();
-  });
+  const response = await fetch("./DB/jobs.json");
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  return response.json();
 });
 
 const jobsSlice = createSlice({
   name: "jobs",
   initialState,
   reducers: {
-    filterByLocation(state, action) {
-      const { jobs, location } = action.payload;
-      let temp = [];
-      if (location === "All") {
-        temp = jobs;
-      } else {
-        temp = jobs.filter((pro) => pro.location === location);
-      }
-      state.filteredjobs = temp;
-    },
-    filterByJobType(state, action) {
-      const { jobs, jobType } = action.payload;
-      let temp = [];
-      if (jobType.length === 0 || jobType === "") {
-        temp = jobs;
-      } else if (jobType === "Full Time") {
-        temp = jobs.filter((pro) => pro.jobType === jobType);
-      } else if (jobType === "Part Time") {
-        temp = jobs.filter((pro) => pro.jobType === jobType);
-      } else if (jobType === "Remote") {
-        temp = jobs.filter((pro) => pro.jobType === jobType);
-      }
-      state.filteredjobs = temp;
-    },
-    filterByLevel(state, action) {
-      const { jobs, level } = action.payload;
-      let temp = [];
-      if (level.length === 0 || level === "") {
-        temp = jobs;
-      } else if (level === "Entry Level") {
-        temp = jobs.filter((pro) => pro.level === level);
-      } else if (level === "Intermediate") {
-        temp = jobs.filter((pro) => pro.level === level);
-      } else if (level === "Expert") {
-        temp = jobs.filter((pro) => pro.level === level);
-      }
-      state.filteredjobs = temp;
-    },
-    filterBySalaryRange(state, action) {
-      const { jobs, salaryRange } = action.payload;
-      let temp = [];
-      if (salaryRange === 0) {
-        temp = jobs;
-      } else if (salaryRange === 4000) {
-        temp = jobs.filter((pro) => pro.minPrice <= salaryRange);
-      } else if (salaryRange > 4000 && salaryRange < 10000) {
-        temp = jobs.filter((pro) => pro.minPrice <= salaryRange);
-      } else if (salaryRange === 10000) {
-        temp = jobs.filter((pro) => pro.minPrice >= salaryRange);
-      }
-      state.filteredjobs = temp;
-    },
-    filterBySearch(state, action) {
-      const { jobs, search } = action.payload;
-      let temp = [];
-      jobs.filter((pro) => {
-        if (pro.jobName.toLowerCase().includes(search.toLowerCase())) {
-          temp.push(pro);
+    setFilter(state, action) {
+      state.filter = {
+        ...state.filter,
+        ...action.payload,
+      };
+      console.log(state.filter);
+      state.filteredjobs = state.jobsdata.filter((job) => {
+        // Search query filter
+        if (
+          state.filter.searchQuery !== "" &&
+          !job.jobName?.toLowerCase().match(state.filter.searchQuery)
+        ) {
+          return false;
         }
+
+        // Location filter
+        if (
+          state.filter.location !== "" &&
+          job.location !== state.filter.location &&
+          (state.filter.location !== "other" ||
+            job.location === "cairo" ||
+            job.location === "alex" ||
+            job.location === "giza")
+        ) {
+          return false;
+        }
+
+        // Job type filter
+        if (
+          state.filter.jobType !== "" &&
+          job.jobType?.toLowerCase() !== state.filter.jobType?.toLowerCase()
+        ) {
+          return false;
+        }
+
+        const [minSalary, maxSalary] = state.filter.salaryRang;
+        const [jobMinSalary, jobMaxSalary] = job.salary;
+
+        if (minSalary > jobMaxSalary || maxSalary < jobMinSalary) {
+          return false;
+        }
+
+        // Level filter
+        if (state.filter.level !== "" && job.level !== state.filter.level) {
+          return false;
+        }
+
+        return true; // Job passes all filters
       });
-      state.filteredjobs = temp;
+    },
+
+    resetFilter(state) {
+      state.filter = {
+        location: "",
+        jobType: "",
+        salaryRang: [0, 500000],
+        searchQuery: "",
+        level: "",
+      };
     },
   },
   extraReducers: (builder) => {
     builder.addCase(getJobs.pending, () => {});
     builder.addCase(getJobs.fulfilled, (state, action) => {
-      state.jobsdata = [];
-      for (const key in action.payload) {
-        state.jobsdata.push({
-          id: action.payload[key]._id,
-          jobName: action.payload[key].jobName,
-          description: action.payload[key].description,
-          tools: action.payload[key].tools,
-          location: action.payload[key].location,
-          minPrice: action.payload[key].minPrice,
-          maxPrice: action.payload[key].maxPrice,
-          time: action.payload[key].time,
-          jobType: action.payload[key].jobType,
-          level: action.payload[key].level,
-          itemquantity: action.payload[key].itemquantity,
-          favourit: action.payload[key].favourit,
-        });
-      }
+      state.jobsdata = action.payload;
+      state.filteredjobs = action.payload;
     });
-    builder.addCase(getJobs.rejected, () => {});
+    builder.addCase(getJobs.rejected, (state, action) => {
+      console.error("Failed to fetch jobs:", action.error);
+    });
   },
 });
 
-export const {
-  filterByJobType,
-  filterByLevel,
-  filterByLocation,
-  filterBySalaryRange,
-  filterBySearch,
-} = jobsSlice.actions;
+export const { setFilter, resetFilter } = jobsSlice.actions;
 
 export const jobsdata = (state) => state.jobs.jobsdata;
 export const filterejobs = (state) => state.jobs.filteredjobs;

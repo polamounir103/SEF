@@ -3,6 +3,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleAuthModel } from "../../redux/slice/AuthSlice";
 
 function NewCoursesSlider({ newCoursesData }) {
   const sliderRef = useRef(null);
@@ -39,6 +41,16 @@ function NewCoursesSlider({ newCoursesData }) {
         },
       },
     ],
+  };
+
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const isAuthModelOpen = useSelector((state) => state.auth.isAuthModelOpen);
+
+  const checkAuth = () => {
+    if (!isAuthenticated) {
+      dispatch(toggleAuthModel());
+    }
   };
 
   return (
@@ -81,11 +93,17 @@ function NewCoursesSlider({ newCoursesData }) {
                   </div>
                   <div className="d-flex flex-column justify-content-between">
                     <div className="px-5">
-                      <button className="btn btn-warning w-100">Enroll</button>
+                      <button
+                        className="btn btn-warning w-100"
+                        onClick={checkAuth}
+                      >
+                        Enroll
+                      </button>
                     </div>
                     <Link
                       to={`/courses/${id}`}
                       className="btn btn-link text-white"
+                      style={{ textDecoration: "none" }}
                     >
                       View Details
                     </Link>

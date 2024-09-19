@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CgTimer } from "react-icons/cg";
 import { CiLocationOn } from "react-icons/ci";
 import { ImMenu } from "react-icons/im";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { getJobs } from "../../redux/slice/JobsSlice";
 
-const JobList = ({ jobs }) => {
+const JobList = () => {
+    const dispatch = useDispatch();
+    const jobList = useSelector((state) => state.jobs.filteredjobs);
+
+    useEffect(() => {
+      dispatch(getJobs());
+    }, [dispatch]);
+  console.log(jobList);
   return (
     <div className="content-bottom-right">
-      {jobs.map((ele, index) => (
+      {jobList?.map((ele, index) => (
         <div className="job" key={index}>
           <div className="job-header">
             <div className="title">
@@ -22,22 +31,22 @@ const JobList = ({ jobs }) => {
             </div>
             <div className="price">
               <p>
-                {ele.minPrice} EGB - {ele.maxPrice} EGB per Month
+                {ele.salary[0]} EGB - {ele.salary[1]} EGB per Month
               </p>
               <p>
                 <CiLocationOn
                   className="inline-block"
                   color="#b49b30"
                   size={25}
-                />{" "}
-                On Site
+                />
+                {ele.jobType}
               </p>
             </div>
           </div>
           <div className="job-desc">
             <p>{ele.description}</p>
             <div className="tools">
-              {ele.tools.map((tool, index) => (
+              {ele.tools?.map((tool, index) => (
                 <p key={index}>{tool}</p>
               ))}
             </div>

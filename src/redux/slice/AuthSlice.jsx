@@ -34,7 +34,7 @@ export const registerUser = createAsyncThunk(
         phone,
         username,
         role,
-        image: "https://dummyjson.com/icon/newuser/128", 
+        image: "https://dummyjson.com/icon/newuser/128",
       };
 
       // Send POST request to save new user
@@ -56,6 +56,7 @@ const authSlice = createSlice({
   initialState: {
     user: null,
     isAuthenticated: false,
+    isAuthModelOpen: false,
     loading: false,
     error: null,
   },
@@ -63,6 +64,9 @@ const authSlice = createSlice({
     logoutUser: (state) => {
       state.user = null;
       state.isAuthenticated = false;
+    },
+    toggleAuthModel: (state) => {
+      state.isAuthModelOpen = !state.isAuthModelOpen;
     },
   },
   extraReducers: (builder) => {
@@ -94,5 +98,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { logoutUser } = authSlice.actions;
+export const { logoutUser , toggleAuthModel } = authSlice.actions;
 export default authSlice.reducer;

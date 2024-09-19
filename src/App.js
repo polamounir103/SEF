@@ -14,7 +14,6 @@ import JobsPage from "./pages/JobsPage";
 import Home from "./pages/Home";
 import NoPage from "./pages/NoPage";
 
-
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import SingleArticle from "./pages/SingleArticle";
 import ContactUs from "./pages/ContactUs";
@@ -38,6 +37,8 @@ import AppsNews from "./pages/AppsNews";
 import TechNews from "./pages/TechNews";
 import TechNewsTypePage from "./components/TechNews/TechNewsTypePage";
 
+import "./assets/styles/pagination.css";
+import SingleCoursePage from "./pages/SingleCoursePage";
 function App() {
   return (
     <BrowserRouter>
@@ -121,9 +122,8 @@ function App() {
 
             {/* Courses Submenu Routes */}
             <Route path="/courses" element={<CoursesPage />} />
-            <Route path="/courses/:id" element={<div>PAGE</div>} />
+            <Route path="/courses/:id" element={<SingleCoursePage />} />
             <Route path="/courses/:name" element={<div>PAGE</div>} />
-
 
             {/* NoAccess NoPage */}
             <Route path="/no-access" element={<NoAccess />} />
