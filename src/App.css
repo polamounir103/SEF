@@ -629,15 +629,16 @@ input[type="checkbox"]:checked::after {
 /* ****************************************** */
 
 .single-course-img-body {
-  display: grid;
+
   grid-template-areas:
     "img img info "
     "img img info ";
   gap: 50px;
+overflow: hidden;
 }
 
 .single-course-page-img {
-  background: red;
+  /* background: red; */
   position: relative;
   grid-area: img;
 }
@@ -661,22 +662,30 @@ input[type="checkbox"]:checked::after {
 }
 .single-course-page-img img {
   /* max-height: 500px;*/
-  width: 100%; 
-  aspect-ratio: 16/9;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16/10;
 }
 .course-quick-info {
-  width: 400px;
+  min-width: 400px;
   /* background: #f50000; */
+}
+@media screen and (width <= 768px) {
+  .course-quick-info {
+    min-width: 100px;
+    /* background: #f50000; */
+  }
+  
 }
 
 .single-course-info-body {
   margin-top: 50px;
-  display: grid;
   grid-template-areas:
     "introduction introduction additional "
     "lessons lessons additional"
     "lessons lessons additional"
     "lessons lessons additional"
+    "lessons lessons span"
     "lessons lessons span";
 
   gap: 50px;

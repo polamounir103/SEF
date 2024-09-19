@@ -93,13 +93,13 @@ function SingleCoursePage() {
         </p>
       </div>
       {/* IMG */}
-      <div className="single-course-img-body">
+      <div className="single-course-img-body d-flex flex-column d-xl-grid">
         <div className="single-course-page-img ">
           <img src={image} alt="course-img" />
         </div>
         <div className="single-course-page-quick-info d-flex justify-content-end  ">
-          <div className="">
-            <div className="course-quick-info d-flex flex-column">
+          <div className="flex-grow-1 flex-xl-grow-0">
+            <div className="course-quick-info d-flex flex-column ">
               <div className="d-flex gap-2">
                 <p className="d-flex gap-2 bg-black bg-opacity-50 p-2 justify-content-start align-items-center rounded-3 flex-grow-1">
                   <p className="text-warning fs-1">
@@ -133,7 +133,7 @@ function SingleCoursePage() {
         </div>
       </div>
       {/* INFO */}
-      <div className="single-course-info-body">
+      <div className="single-course-info-body d-flex flex-column d-xl-grid">
         <div className="single-course-introduction-box">
           <h3>Introduction</h3>
           <p>
@@ -154,16 +154,16 @@ function SingleCoursePage() {
             <div>
               <h3>Requirements</h3>
               <p>
-                {requirements.map((req) => {
-                  return <p>{req}</p>;
+                {requirements.map((req , index) => {
+                  return <p key={index}>{req}</p>;
                 })}
               </p>
             </div>
             <div>
               <h3>Materials</h3>
               <p>
-                {materials.map((mat) => {
-                  return <p>{mat}</p>;
+                {materials.map((mat , index) => {
+                  return <p key={index}>{mat}</p>;
                 })}
               </p>
             </div>
