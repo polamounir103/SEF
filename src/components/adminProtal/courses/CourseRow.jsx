@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function CourseRow({ course }) {
   return (
     <>
-      <div className="col-lg-2 bg-dark text-white rounded p-3 mt-3">
+      <div className="col-lg-2 bg-dark text-white rounded p-3 mt-3 bg-black">
         {course.courseName}
       </div>
       <div className="col-lg-2 bg-dark text-white rounded p-3 mt-3">

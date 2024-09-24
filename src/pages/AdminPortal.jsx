@@ -45,21 +45,28 @@ function AdminPanel() {
             <div xs={12} md={9} className="vaiable-container">
               <Routes>
                 <Route path="/" element={<ArticlesTable />} />
+                <Route path="/users" element={<UserStudentTable />} />
+                <Route path="/admin" element={<UserStudentTable />} />
+                <Route path="/instructop" element={<UserStudentTable />} />
+                <Route path="/editor" element={<UserStudentTable />} />
                 <Route path="/students" element={<UserStudentTable />} />
                 <Route path="/add-new-user" element={<AddUserForm />} />
-                <Route path="articles" element={<ArticlesTable />} />
-                <Route
-                  path="articles/add-new-article"
-                  element={<AddNewArticle />}
-                />
-                <Route path="add-new-article" element={<AddNewArticle />} />
-                <Route path="jobs" element={<Jobs />} />
-                <Route path="jobs/add-new-job" element={<AddJobForm />} />
+                {/* ******************************* */}
+                <Route path="/articles" element={<ArticlesTable />} />
+                <Route path="/published-articles" element={<ArticlesTable />} />
+                <Route path="/add-new-article" element={<AddNewArticle />} />
+                <Route path="/add-new-article" element={<AddNewArticle />} />
+                {/* ******************************* */}
+                <Route path="/jobs" element={<Jobs />} />
+                <Route path="/published-jobs" element={<Jobs />} />
+                <Route path="/add-new-job" element={<AddJobForm />} />
                 <Route path="/add-new-job" element={<AddJobForm />} />
                 <Route
                   path="/upload-certificate"
                   element={<CertificateForm />}
                 />
+                {/* ******************************* */}
+                <Route path="/courses" element={<CoursesTable />} />
                 <Route path="/published-courses" element={<CoursesTable />} />
               </Routes>
             </div>

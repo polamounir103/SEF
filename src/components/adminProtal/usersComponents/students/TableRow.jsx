@@ -6,7 +6,7 @@ const TableRow = ({ name, status, userId, role, mail, id }) => {
   console.log("name");
 
   return (
-    <div key={id} className="students-table-item">
+    <div key={id} className="students-table-item bg-black rounded-3 fs-5 py-4 px-2">
       <div>{name}</div>
       {status === "active" ? (
         <div>

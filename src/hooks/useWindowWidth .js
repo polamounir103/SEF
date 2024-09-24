@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const getScreenType = (width) => {
-  if (width >= 1200) return "large";
+  if (width >= 992) return "larg";
   if (width >= 768) return "medium";
   return "small";
 };

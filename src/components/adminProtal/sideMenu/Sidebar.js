@@ -1,12 +1,53 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import AsideLinks from "./AsideLinks";
 import "./sidebar.css";
 import useFormattedDate from "../../../hooks/useFormattedDate";
-
+import { IoMenuOutline } from "react-icons/io5";
 const Sidebar = () => {
   const [activeItem, setActiveItem] = useState(null);
+  const { "*": activeTable } = useParams();
   const [activeLink, setActiveLink] = useState("");
+  const dropDownRef = useRef(null);
+  useEffect(() => {
+    if (
+      activeTable === "students" ||
+      activeTable === "instructors" ||
+      activeTable === "admins" ||
+      activeTable === "editors"
+    ) {
+      setActiveLink("Users");
+    }
+    if (
+      activeTable === "articles" ||
+      activeTable === "published-articles" ||
+      activeTable === "saved-drafts" ||
+      activeTable === "scheduled-articles"
+    ) {
+      setActiveLink("Articles");
+    }
+    if (
+      activeTable === "jobs" ||
+      activeTable === "jobs-saved-drafts" ||
+      activeTable === "jobs-scheduled" ||
+      activeTable === "published-jobs"
+    ) {
+      setActiveLink("Jobs");
+    }
+    if (
+      activeTable === "courses" ||
+      activeTable === "published-courses" ||
+      activeTable === "scheduled-courses" ||
+      activeTable === "courses-saved-drafts"
+    ) {
+      setActiveLink("Courses");
+    }
+  }, [activeTable]);
+
+  const navigate = useNavigate();
+  const handleItemNavigation = (path) => {
+    navigate(path);
+  };
 
   const handleLinkClick = (item) => {
     setActiveLink(item);
@@ -56,6 +97,7 @@ const Sidebar = () => {
     },
   ];
   const date = useFormattedDate();
+
   return (
     <div className="">
       <div className=" h6 text-light d-flex flex-column gap-2">
@@ -65,7 +107,9 @@ const Sidebar = () => {
       <nav className="d-none d-lg-block">
         <ul>
           <li>
-            <strong className="w-100 d-block p-2 strongs">Users</strong>
+            <strong className="w-100 d-block p-2 strongs">
+              <Link to="/adminportal/users">Users</Link>
+            </strong>
             <ul className="ps-4 my-4 ul-inner">
               {UsersLinks.map((link) => (
                 <AsideLinks
@@ -80,7 +124,9 @@ const Sidebar = () => {
             </ul>
           </li>
           <li>
-            <strong className="w-100 d-block p-2 strongs">Articles</strong>
+            <strong className="w-100 d-block p-2 strongs">
+              <Link to="/adminportal/articles">Articles</Link>
+            </strong>
             <ul className="ps-4 my-4 ul-inner">
               {ArticlesLinks.map((link) => (
                 <AsideLinks
@@ -95,7 +141,9 @@ const Sidebar = () => {
             </ul>
           </li>
           <li>
-            <strong className="w-100 d-block p-2 strongs">Jobs</strong>
+            <strong className="w-100 d-block p-2 strongs">
+              <Link to="/adminportal/jobs">Jobs</Link>
+            </strong>
             <ul className="ps-4 my-4 ul-inner">
               {JobsLinks.map((link) => (
                 <AsideLinks
@@ -110,7 +158,9 @@ const Sidebar = () => {
             </ul>
           </li>
           <li>
-            <strong className="w-100 d-block p-2 pb-0 strongs">Courses</strong>
+            <strong className="w-100 d-block p-2 pb-0 strongs">
+              <Link>Courses</Link>
+            </strong>
             <ul className="ps-4 mt-4 ul-inner">
               {CoursesLinks.map((link) => (
                 <AsideLinks
@@ -127,14 +177,14 @@ const Sidebar = () => {
         </ul>
       </nav>
 
-      {/* Mobile version navigation */}
-      <nav className="d-flex d-lg-none bg-transparent   ">
-        <ul className=" ul-mobile">
+      {/* Mobile navigation */}
+      <nav className="d-flex d-lg-none bg-transparent ">
+        <ul className="ul-mobile">
           <li>
             <Link
               onClick={() => handleLinkClick("Users")}
               className={activeLink === "Users" ? "activeA" : ""}
-              to="#"
+              to="/adminportal/users"
             >
               Users
             </Link>
@@ -143,7 +193,7 @@ const Sidebar = () => {
             <Link
               onClick={() => handleLinkClick("Articles")}
               className={activeLink === "Articles" ? "activeA" : ""}
-              to="#"
+              to="/adminportal/published-articles"
             >
               Articles
             </Link>
@@ -152,7 +202,7 @@ const Sidebar = () => {
             <Link
               onClick={() => handleLinkClick("Jobs")}
               className={activeLink === "Jobs" ? "activeA" : ""}
-              to="#"
+              to="/adminportal/published-jobs"
             >
               Jobs
             </Link>
@@ -161,7 +211,7 @@ const Sidebar = () => {
             <Link
               onClick={() => handleLinkClick("Courses")}
               className={activeLink === "Courses" ? "activeA" : ""}
-              to="#"
+              to="/adminportal/published-courses"
             >
               Courses
             </Link>
@@ -169,9 +219,24 @@ const Sidebar = () => {
         </ul>
       </nav>
 
-      <div className="d-block d-lg-none mb-5">
+      <div className="d-block d-lg-none position-relative">
+        <span
+          className="position-absolute top-0 fs-1 d-flex text-warning"
+          style={{ right: "10px" }}
+          onClick={() => {
+            if (dropDownRef.current) {
+              dropDownRef.current.focus();
+            }
+          }}
+        >
+          <IoMenuOutline />
+        </span>
         {activeLink !== "" && (
-          <select className="form-select select-mob">
+          <select
+            className="form-select select-mob"
+            ref={dropDownRef}
+            onChange={(e) => handleItemNavigation(e.target.value)}
+          >
             {activeLink === "Users" &&
               UsersLinks.map((link) => (
                 <option key={link.id} value={link.path}>

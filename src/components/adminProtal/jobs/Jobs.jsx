@@ -1,137 +1,55 @@
-// import React from 'react';
-// import { Table } from 'react-bootstrap';
-// import Pagination from 'react-bootstrap/Pagination';
-// import Button from 'react-bootstrap/Button';
-
-// const jopsInfo = [{ company: "Here's the company name", position: "Here's the position", status: "Open", postedAt: "Monday,June 5th 12:30 PM", application: "20" },
-// { company: "Here's the company name", position: "Here's the position", status: "Open", postedAt: "Monday,June 5th  12:30 PM", application: "20" },
-// { company: "Here's the company name", position: "Here's the position", status: "Closed", postedAt: "Monday,June 5th 12:30 PM", application: "20" },
-// { company: "Here's the company name", position: "Here's the position", status: "Closed", postedAt: "Monday,June 5th 12:30 PM", application: "20" },
-// { company: "Here's the company name", position: "Here's the position", status: "Closed", postedAt: "Monday,June 5th 12:30 PM", application: "20" },
-// { company: "Here's the company name", position: "Here's the position", status: "Closed", postedAt: "Monday,June 5th 12:30 PM", application: "20" }
-// ]
-
-// const Jobs = () => {
-//     return (
-//       <div className="">
-//         <div className=" px-0">
-//           <div className="job">
-//             <div className="btn-create-job">
-//               <Button className="create-new-job-btn">CREATE NEW JOB</Button>
-//             </div>
-
-//             <div className="job-title">
-//               <div>
-//                 <h3 className="text-white">Jobs</h3>
-//                 <p className="line"></p>
-//               </div>
-//               <div className="search">
-//                 <input
-//                   className="search-input"
-//                   type="text"
-//                   placeholder="Search In Jobs"
-//                 ></input>
-//                 <i className="search-icon" className="bi bi-search"></i>
-//               </div>
-//             </div>
-
-//             <div>
-//               <div className="table">
-//                 <thead>
-//                   <tr>
-//                     <th className=" col mx-4  text-white">Company</th>
-//                     <th className=" col  mx-5 text-white">Position</th>
-//                     <th className=" col  mx-5 text-white">Status</th>
-//                     <th className=" col  mx-5 text-white">Posted At</th>
-//                     <th className=" col  mx-5 text-white">#Applications</th>
-//                   </tr>
-//                 </thead>
-//                 <tbody>
-//                   {jopsInfo.map((item) => {
-//                     return (
-//                       <tr>
-//                         <td className="mx-0">{item.company}</td>
-//                         <td className="mx-0">{item.position}</td>
-//                         <td className="mx-0">
-//                           <span className="open">{item.status}</span>
-//                         </td>
-//                         <td className="mx-0">{item.postedAt}</td>
-//                         <td className="mx-0">{item.application}</td>
-//                         <td className="">
-//                           <i className="bi bi-pencil-square mx-2"></i>
-//                           <i className="bi bi-trash"></i>
-//                         </td>
-//                       </tr>
-//                     );
-//                   })}
-//                 </tbody>
-//               </div>
-//             </div>
-//           </div>
-//           <Pagination className="pagination pt-3 px-5 py-3 mx-5">
-//             <i className="bi bi-skip-end-circle"></i>
-//             <span className="text-white">&nbsp;....</span>
-//             <span className="text-white">3&nbsp;</span>
-//             <span className="text-white"> 2&nbsp;</span>
-//             <span className="text-white">1&nbsp;</span>
-//             <i className="bi bi-skip-start-circle"></i>
-//           </Pagination>
-//         </div>
-//       </div>
-//     );
-// }
-
-// export default Jobs;
-
 import React from "react";
 import { Pagination } from "react-bootstrap";
-// import "bootstrap-icons/font/bootstrap-icons.css"; // Ensure bootstrap icons are included
-import { FaEdit } from "react-icons/fa";
+import { FaEdit, FaSearch, FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import "./jobs.css";
+import useWindowWidth from "../../../hooks/useWindowWidth ";
+import { BsPencilSquare } from "react-icons/bs";
+import Title from "../articlesComponents/title";
 
 const Jobs = () => {
+  const screenWidth = useWindowWidth();
   const jobsInfo = [
     {
       company: "Here's the company name",
       position: "Here's the position",
-      status: "Open",
+      status: "open",
       postedAt: "Monday,June 5th 12:30 PM",
       application: "20",
     },
     {
       company: "Here's the company name",
       position: "Here's the position",
-      status: "Open",
+      status: "open",
       postedAt: "Monday,June 5th  12:30 PM",
       application: "20",
     },
     {
       company: "Here's the company name",
       position: "Here's the position",
-      status: "Closed",
+      status: "closed",
       postedAt: "Monday,June 5th 12:30 PM",
       application: "20",
     },
     {
       company: "Here's the company name",
       position: "Here's the position",
-      status: "Closed",
+      status: "closed",
       postedAt: "Monday,June 5th 12:30 PM",
       application: "20",
     },
     {
       company: "Here's the company name",
       position: "Here's the position",
-      status: "Closed",
+      status: "closed",
       postedAt: "Monday,June 5th 12:30 PM",
       application: "20",
     },
     {
       company: "Here's the company name",
       position: "Here's the position",
-      status: "Closed",
+      status: "closed",
       postedAt: "Monday,June 5th 12:30 PM",
       application: "20",
     },
@@ -139,9 +57,9 @@ const Jobs = () => {
   return (
     <div className="">
       <div className=" px-0">
-        <div className="job">
+        <div className="job d-none d-lg-block">
           <div className="btn-create-job d-flex justify-content-end ">
-            <Link to="add-new-job" className="btn btn-warning">
+            <Link to="/adminportal/add-new-job" className="btn btn-warning">
               CREATE NEW JOB
             </Link>
           </div>
@@ -176,7 +94,7 @@ const Jobs = () => {
                 <div className="">
                   <span
                     className={
-                      item.status === "Open"
+                      item.status === "open"
                         ? "job-status-open"
                         : "job-status-closed"
                     }
@@ -194,6 +112,74 @@ const Jobs = () => {
             ))}
           </div>
         </div>
+        {screenWidth.screenType !== "larg" && (
+          <>
+            <div className="d-flex justify-content-between align-items-center mt-4">
+              <Title title="All jobs" />
+              <div className=" position-relative text-danger search-box ">
+                <input
+                  type="text"
+                  className="article-search-input"
+                  placeholder="search all"
+                />
+                <div className="article-search-icon">
+                  <FaSearch />
+                </div>
+              </div>
+            </div>
+            <div className="d-flex justify-content-center mt-4 flex-column gap-4">
+              {jobsInfo.map((item, index) => (
+                <div className="d-flex flex-column gap-3 bg-black p-4 rounded-3">
+                  <div className="d-flex  justify-content-between">
+                    <h3>company</h3>
+                    <p
+                      className={
+                        item.status === "open"
+                          ? "status-btn-published rounded-4 "
+                          : "status-btn-draft rounded-4"
+                      }
+                    >
+                      {item.status}
+                    </p>
+                  </div>
+                  <div>
+                    <h3>{item.company}</h3>
+                  </div>
+                  <div className="d-flex  justify-content-between">
+                    <div>
+                      <h3>position</h3>
+                      <p>{item.position}</p>
+                    </div>
+                    <div>
+                      <h3>Posted At</h3>
+                      <div>
+                        <p>{item.postedAt}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-end  fs-2 gap-3 ">
+                    <Link className="text-warning">
+                      <BsPencilSquare />
+                    </Link>
+                    <Link className="text-warning">
+                      <FaTrashAlt />
+                    </Link>
+                  </div>
+                </div>
+              ))}
+              <div>
+                <div className="d-flex justify-content-center ">
+                  <Link
+                    to="/adminportal/add-new-job"
+                    className="btn btn-warning px-5"
+                  >
+                    CREATE NEW JOB
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
 
         <Pagination className="pagination pt-3 px-5 py-3 mx-5">
           <i className="bi bi-skip-end-circle"></i>

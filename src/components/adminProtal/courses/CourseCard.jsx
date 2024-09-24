@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function CourseCard({ course }) {
   return (
-    <div className="course-card mobile mx-auto row bg-dark bg-opacity-75 mt-5 rounded p-4">
+    <div className="course-card mobile mx-auto row bg-dark bg-opacity-75 mt-5 rounded p-4 bg-black">
       <div className="col-9 text-light fw-bolder fs-4 mt-3">
         {course.courseName}
       </div>
