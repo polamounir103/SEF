@@ -8,16 +8,18 @@ import jobsReducer from "./slice/JobsSlice";
 import jobsFilterReducer from "./slice/NewJobFilter";
 import CvSlice from "./slice/CvSlice";
 import ExamSlice from "./slice/ExamSlice";
+import AdminJobsSlice from "./slice/AdminJobsSlice";
 
 const rootreducer = combineReducers({
   auth: authSlice,
   users: userSlice.reducer,
   articles: articlesSlice.reducer,
   jobs: jobsReducer,
+  adminJobs: AdminJobsSlice,
   courses: coursesSlice,
   jobFill: jobsFilterReducer,
   cv: CvSlice,
-  exam : ExamSlice
+  exam: ExamSlice,
 });
 const store = configureStore({
   reducer: rootreducer,

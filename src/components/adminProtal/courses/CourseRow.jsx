@@ -2,40 +2,42 @@ import React from "react";
 import { FaRegPenToSquare, FaTrashCan } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
-function CourseRow({ course }) {
+function CourseRow({
+  id,
+  title,
+  status,
+  duration,
+  level,
+  startDate,
+  publishedOn,
+}) {
+  const handleEdit = () => {
+    // Add logic for editing the course
+  };
+
+  const handleDelete = () => {
+    // Add logic for deleting the course
+  };
+
   return (
-    <>
-      <div className="col-lg-2 bg-dark text-white rounded p-3 mt-3 bg-black">
-        {course.courseName}
+    <div className="row bg-black py-1 pb-2 rounded">
+      <div className="col-lg-2 text-white p-3 mt-3">{title}</div>
+      <div className="col-lg-2 text-white p-3 mt-3">
+        <button className="btn btn-warning fw-bolder btt">{status}</button>
       </div>
-      <div className="col-lg-2 bg-dark text-white rounded p-3 mt-3">
-        <button
-          className={`btn btn-${
-            course.status === "Ongoing" ? "warning" : "secondary"
-          } fw-bolder`}
-        >
-          {course.status}
+      <div className="col-lg-2 text-white p-3 mt-3">{duration}</div>
+      <div className="col-lg-1 text-white p-3 mt-3 text-center">{level}</div>
+      <div className="col-lg-2 text-white p-3 mt-3">{startDate}</div>
+      <div className="col-lg-2 text-white p-3 mt-3">{publishedOn}</div>
+      <div className="col-lg-1 p-3 mt-2 d-flex justify-content-end gap-3">
+        <button className="text-warning bg-transparent fs-4" onClick={handleEdit}>
+          <FaRegPenToSquare />
+        </button>
+        <button className="text-warning bg-transparent fs-4" onClick={handleDelete}>
+          <FaTrashCan />
         </button>
       </div>
-      <div className="col-lg-2 bg-dark text-white rounded p-3 mt-3">
-        {course.instructor}
-      </div>
-      <div className="col-lg-1 bg-dark text-white rounded p-3 mt-3 text-center">
-        {course.level}
-      </div>
-      <div className="col-lg-2 bg-dark text-white rounded p-3 mt-3">
-        {course.startDate}
-      </div>
-      <div className="col-lg-2 bg-dark text-white rounded p-3 mt-3">
-        {course.publishedOn}
-      </div>
-      <div className="col-lg-1 bg-dark text-white rounded p-3 mt-3 text-center">
-        <Link className="text-warning" href="#" aria-label="Edit or Delete">
-          <FaRegPenToSquare aria-hidden="true" />{" "}
-          <FaTrashCan aria-hidden="true" />
-        </Link>
-      </div>
-    </>
+    </div>
   );
 }
 

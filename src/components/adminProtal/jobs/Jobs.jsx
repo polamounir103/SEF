@@ -1,62 +1,57 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Pagination } from "react-bootstrap";
 import { FaEdit, FaSearch, FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import "./jobs.css";
-import useWindowWidth from "../../../hooks/useWindowWidth ";
 import { BsPencilSquare } from "react-icons/bs";
 import Title from "../articlesComponents/title";
+import { useDispatch, useSelector } from "react-redux";
+import { getJobs, setSearchQuery } from "../../../redux/slice/AdminJobsSlice";
+import usePagination from "../../../hooks/usePagination";
+import PaginationNav from "../../PaginationNav";
+import nextIcon from "../../../assets/images/next.svg";
+import prevIcon from "../../../assets/images/prev.svg";
 
 const Jobs = () => {
-  const screenWidth = useWindowWidth();
-  const jobsInfo = [
-    {
-      company: "Here's the company name",
-      position: "Here's the position",
-      status: "open",
-      postedAt: "Monday,June 5th 12:30 PM",
-      application: "20",
-    },
-    {
-      company: "Here's the company name",
-      position: "Here's the position",
-      status: "open",
-      postedAt: "Monday,June 5th  12:30 PM",
-      application: "20",
-    },
-    {
-      company: "Here's the company name",
-      position: "Here's the position",
-      status: "closed",
-      postedAt: "Monday,June 5th 12:30 PM",
-      application: "20",
-    },
-    {
-      company: "Here's the company name",
-      position: "Here's the position",
-      status: "closed",
-      postedAt: "Monday,June 5th 12:30 PM",
-      application: "20",
-    },
-    {
-      company: "Here's the company name",
-      position: "Here's the position",
-      status: "closed",
-      postedAt: "Monday,June 5th 12:30 PM",
-      application: "20",
-    },
-    {
-      company: "Here's the company name",
-      position: "Here's the position",
-      status: "closed",
-      postedAt: "Monday,June 5th 12:30 PM",
-      application: "20",
-    },
-  ];
+  const screenWidth = {
+    screenType:"larg"
+  };
+  const [inputSearch, setInputSearch] = useState("");
+  const dispatch = useDispatch();
+  const jobList = useSelector((state) => state.adminJobs.filteredJobs);
+  const loading = useSelector((state) => state.adminJobs.loading); // Selector for loading
+  const error = useSelector((state) => state.adminJobs.error); // Selector for error
+ const [displayedData, setDisplayedData] = useState([]);
+  useEffect(() => {
+    dispatch(getJobs());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(setSearchQuery(inputSearch.toLowerCase().trim()));
+    console.log(jobList);
+  }, [inputSearch, dispatch]);
+
+
+  const ITEMS_PER_PAGE = 5;
+  const {
+    currentPage,
+    totalPages,
+    onPageChange,
+    getPageNumbers,
+    setCurrentPage,
+  } = usePagination(jobList, ITEMS_PER_PAGE);
+
+    useEffect(() => {
+      const start = (currentPage - 1) * ITEMS_PER_PAGE;
+      const end = start + ITEMS_PER_PAGE;
+      setDisplayedData(jobList.slice(start, end));
+    }, [jobList, currentPage]);
+
+
   return (
-    <div className="">
-      <div className=" px-0">
+    <div>
+      <div className="px-0">
         <div className="job d-none d-lg-block">
           <div className="btn-create-job d-flex justify-content-end ">
             <Link to="/adminportal/add-new-job" className="btn btn-warning">
@@ -73,50 +68,60 @@ const Jobs = () => {
                 className="search-input"
                 type="text"
                 placeholder="Search In Jobs"
+                onChange={(e) => setInputSearch(e.target.value)}
               />
               <i className="bi bi-search search-icon"></i>
             </div>
           </div>
 
-          <div className="jobs-table-header text-white mt-2 ">
-            <div className="">Company</div>
-            <div className="">Position</div>
-            <div className="">Status</div>
-            <div className="">Posted At</div>
-            <div className="">#Applications</div>
-            <div className=""></div>
-          </div>
-          <div className="d-flex flex-column gap-2 mt-3">
-            {jobsInfo.map((item, index) => (
-              <div className="jobs-table-item text-white " key={index}>
-                <div className="">{item.company}</div>
-                <div className="">{item.position}</div>
-                <div className="">
-                  <span
-                    className={
-                      item.status === "open"
-                        ? "job-status-open"
-                        : "job-status-closed"
-                    }
-                  >
-                    {item.status}
-                  </span>
-                </div>
-                <div className="">{item.postedAt}</div>
-                <div className="">{item.application}</div>
-                <div className="">
-                  <FaEdit className="table-icon" />
-                  <MdOutlineDeleteOutline className="table-icon" />
-                </div>
+          {loading ? (
+            <p className="text-white">Loading...</p>
+          ) : error ? (
+            <p className="text-danger">Error: {error}</p>
+          ) : (
+            <>
+              <div className="jobs-table-header text-white mt-2">
+                <div className="">Company</div>
+                <div className="">Position</div>
+                <div className="">Status</div>
+                <div className="">Posted At</div>
+                <div className="">#Applications</div>
+                <div className=""></div>
               </div>
-            ))}
-          </div>
+              <div className="d-flex flex-column gap-2 mt-3">
+                {displayedData.map((item, index) => (
+                  <div className="jobs-table-item text-white" key={index}>
+                    <div>{item.companyName}</div>
+                    <div>{item.jobName}</div>
+                    <div>
+                      <span
+                        className={
+                          item.status === "open"
+                            ? "job-status-open"
+                            : "job-status-closed"
+                        }
+                      >
+                        {item.status}
+                      </span>
+                    </div>
+                    <div>{item.time}</div>
+                    <div>{item.applications?.length}</div>
+                    <div>
+                      <FaEdit className="table-icon" />
+                      <MdOutlineDeleteOutline className="table-icon" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
         </div>
+
         {screenWidth.screenType !== "larg" && (
           <>
             <div className="d-flex justify-content-between align-items-center mt-4">
               <Title title="All jobs" />
-              <div className=" position-relative text-danger search-box ">
+              <div className="position-relative text-danger search-box">
                 <input
                   type="text"
                   className="article-search-input"
@@ -128,14 +133,17 @@ const Jobs = () => {
               </div>
             </div>
             <div className="d-flex justify-content-center mt-4 flex-column gap-4">
-              {jobsInfo.map((item, index) => (
-                <div className="d-flex flex-column gap-3 bg-black p-4 rounded-3">
-                  <div className="d-flex  justify-content-between">
+              {displayedData.map((item, index) => (
+                <div
+                  className="d-flex flex-column gap-3 bg-black p-4 rounded-3"
+                  key={index}
+                >
+                  <div className="d-flex justify-content-between">
                     <h3>company</h3>
                     <p
                       className={
                         item.status === "open"
-                          ? "status-btn-published rounded-4 "
+                          ? "status-btn-published rounded-4"
                           : "status-btn-draft rounded-4"
                       }
                     >
@@ -145,7 +153,7 @@ const Jobs = () => {
                   <div>
                     <h3>{item.company}</h3>
                   </div>
-                  <div className="d-flex  justify-content-between">
+                  <div className="d-flex justify-content-between">
                     <div>
                       <h3>position</h3>
                       <p>{item.position}</p>
@@ -157,7 +165,7 @@ const Jobs = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="d-flex justify-content-end  fs-2 gap-3 ">
+                  <div className="d-flex justify-content-end fs-2 gap-3">
                     <Link className="text-warning">
                       <BsPencilSquare />
                     </Link>
@@ -168,7 +176,7 @@ const Jobs = () => {
                 </div>
               ))}
               <div>
-                <div className="d-flex justify-content-center ">
+                <div className="d-flex justify-content-center">
                   <Link
                     to="/adminportal/add-new-job"
                     className="btn btn-warning px-5"
@@ -180,15 +188,17 @@ const Jobs = () => {
             </div>
           </>
         )}
-
-        <Pagination className="pagination pt-3 px-5 py-3 mx-5">
-          <i className="bi bi-skip-end-circle"></i>
-          <span className="text-white">&nbsp;....</span>
-          <span className="text-white">3&nbsp;</span>
-          <span className="text-white">2&nbsp;</span>
-          <span className="text-white">1&nbsp;</span>
-          <i className="bi bi-skip-start-circle"></i>
-        </Pagination>
+      </div>
+      <div className=" text-white fw-bolder text-end p-3 mt-3">
+        <PaginationNav
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={onPageChange}
+          getPageNumbers={getPageNumbers}
+          setCurrentPage={setCurrentPage}
+          prevIcon={prevIcon}
+          nextIcon={nextIcon}
+        />
       </div>
     </div>
   );
