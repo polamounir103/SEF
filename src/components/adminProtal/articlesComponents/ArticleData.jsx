@@ -1,19 +1,19 @@
-import { React, useEffect, useState } from "react";
+import { React } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { BsPencilSquare } from "react-icons/bs";
 // import { PiMicrosoftPowerpointLogoDuotone } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import useWindowWidth from "../../../hooks/useWindowWidth ";
-//  import {UserContext} from"./data2";
+
 const ArticleData = (props) => {
   const screenWidth = useWindowWidth();
-  // console.log(screenWidth);
+
   return (
     <>
       {screenWidth.screenType !== "larg" && (
         <div className="d-flex flex-column gap-3 bg-black p-4 rounded-3">
           <div className="d-flex justify-content-between">
-            <h3>{props.title}</h3>
+            <h3 className="admin-table-item-title">Title</h3>
             <p
               className={
                 props.status === "published"
@@ -25,7 +25,7 @@ const ArticleData = (props) => {
             </p>
           </div>
           <div>
-            <h3>{props.title}</h3>
+            <h5 className="admin-table-card-title">{props.title}</h5>
           </div>
           <div className="d-flex justify-content-between">
             <div>
@@ -51,16 +51,15 @@ const ArticleData = (props) => {
         </div>
       )}
       <div className="my-2 pt-2 article-table-article-container text-white d-none d-lg-grid">
-        <h4 className=" mt-3">{props.title}</h4>
+        <h4 className="mt-3 admin-table-item-title">{props.title}</h4>
         <h4 className="mt-3">{props.category}</h4>
         <div className="mt-3">
           <button
             className={
-            props.status === "published"
-               ? "status-btn-published rounded-4 "
+              props.status === "published"
+                ? "status-btn-published rounded-4 "
                 : "status-btn-draft rounded-4"
             }
-  
           >
             {props.status}
           </button>
@@ -73,11 +72,11 @@ const ArticleData = (props) => {
             </div>
           </div>
         </div>
-        <div className="icon col-sm-4 mt-4 d-flex text-warning ">
-          <Link>
+        <div className="icon col-sm-4 mt-4 d-flex text-warning gap-4">
+          <Link className="text-warning">
             <BsPencilSquare />
           </Link>
-          <Link>
+          <Link className="text-warning">
             <FaTrashAlt />
           </Link>
         </div>

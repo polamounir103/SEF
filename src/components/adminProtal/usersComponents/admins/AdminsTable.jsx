@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./user.css";
 import TableRow from "../TableRow";
 import { FaSearch } from "react-icons/fa";
 import TableCard from "../TableCard";
@@ -12,13 +11,13 @@ import nextIcon from "../../../../assets/images/next.svg";
 import prevIcon from "../../../../assets/images/prev.svg";
 import { getUsers } from "../../../../redux/slice/UsersSlice";
 
-const UserStudentTable = () => {
+function AdminsTable() {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
   const { data, loading, error } = useSelector((state) => state.users);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [displayedData, setDisplayedData] = useState([]);
-  const [students, setStudents] = useState([]);
+  const [admins, setAdmins] = useState([]); // To store filtered admin users
 
   useEffect(() => {
     dispatch(getUsers());
@@ -26,23 +25,24 @@ const UserStudentTable = () => {
 
   useEffect(() => {
     if (data.length) {
-      // get students only //
-      const filtered = data.filter((user) => user.role === "student");
-      setStudents(filtered);
-      setFilteredUsers(filtered);
+      // Filter to get only admin users
+      const filtered = data.filter((user) => user.role === "admin");
+      setAdmins(filtered); // Store admins in state
+      setFilteredUsers(filtered); // Initially set all admins to filtered users
     }
   }, [data]);
 
+  // Search functionality with debounce
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
-    setFilteredUsers(
-      students.filter((user) =>
-        user.username?.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-    );
+      setFilteredUsers(
+        admins.filter((user) =>
+          user.username?.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      );
     }, 300);
     return () => clearTimeout(delayDebounceFn);
-  }, [searchTerm, students]);
+  }, [searchTerm, admins]);
 
   const ITEMS_PER_PAGE = 5;
   const {
@@ -68,19 +68,22 @@ const UserStudentTable = () => {
   }
 
   if (error) {
-    return <div className="text-danger h3 text-center"><p>Something  went wrong</p></div>;
-
+    return (
+      <div className="text-danger h3 text-center">
+        <p>Something went wrong</p>
+      </div>
+    );
   }
 
   return (
     <div className="text-light d-flex flex-column gap-4 mt-lg-4">
       <div className="d-flex flex-column align-items-end gap-4">
         <button className="btn btn-warning d-none d-lg-block">
-          CREATE NEW USER
+          CREATE NEW ADMIN
         </button>
       </div>
       <div className="d-flex justify-content-between align-items-center">
-        <Title title="Students-Users" />
+        <Title title="Admin-Users" /> {/* Title updated for admins */}
         <div className="position-relative text-danger search-box">
           <input
             type="text"
@@ -145,6 +148,6 @@ const UserStudentTable = () => {
       )}
     </div>
   );
-};
+}
 
-export default React.memo(UserStudentTable);
+export default AdminsTable;

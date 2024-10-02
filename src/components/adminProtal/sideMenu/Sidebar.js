@@ -54,10 +54,10 @@ const Sidebar = () => {
   };
 
   const UsersLinks = [
-    { id: 1, title: "Editors", path: "/adminportal/editors" },
-    { id: 2, title: "Admins", path: "/adminportal/admins" },
-    { id: 3, title: "Students", path: "/adminportal/students" },
-    { id: 4, title: "Instructors", path: "/adminportal/instructors" },
+    { id: 1, title: "Editors", path: "/adminportal/users/editors" },
+    { id: 2, title: "Admins", path: "/adminportal/users/admins" },
+    { id: 3, title: "Students", path: "/adminportal/users/students" },
+    { id: 4, title: "Instructors", path: "/adminportal/users/instructors" },
   ];
 
   const ArticlesLinks = [
@@ -100,16 +100,16 @@ const Sidebar = () => {
 
   return (
     <div className="">
-      <div className=" h6 text-light d-flex flex-column gap-2">
+      <div className="h6 text-light d-flex flex-column gap-2 mb-">
         <span className="page-title">Admin Portal</span>
         <span>{date}</span>
       </div>
-      <nav className="d-none d-lg-block">
+      <nav className="d-none d-lg-block mt-4">
         <ul>
           <li>
-            <strong className="w-100 d-block p-2 strongs">
-              <Link to="/adminportal/users">Users</Link>
-            </strong>
+            <Link to="/adminportal/users">
+              <p className="w-100 fw-bold d-block p-2 bg-black">Users</p>
+            </Link>
             <ul className="ps-4 my-4 ul-inner">
               {UsersLinks.map((link) => (
                 <AsideLinks
@@ -124,9 +124,9 @@ const Sidebar = () => {
             </ul>
           </li>
           <li>
-            <strong className="w-100 d-block p-2 strongs">
-              <Link to="/adminportal/articles">Articles</Link>
-            </strong>
+            <Link to="/adminportal/articles">
+              <p className="w-100 fw-bold d-block p-2 bg-black">Articles</p>
+            </Link>
             <ul className="ps-4 my-4 ul-inner">
               {ArticlesLinks.map((link) => (
                 <AsideLinks
@@ -141,9 +141,9 @@ const Sidebar = () => {
             </ul>
           </li>
           <li>
-            <strong className="w-100 d-block p-2 strongs">
-              <Link to="/adminportal/jobs">Jobs</Link>
-            </strong>
+            <Link to="/adminportal/jobs">
+              <p className="w-100 fw-bold d-block p-2 bg-black">Jobs</p>
+            </Link>
             <ul className="ps-4 my-4 ul-inner">
               {JobsLinks.map((link) => (
                 <AsideLinks
@@ -158,9 +158,9 @@ const Sidebar = () => {
             </ul>
           </li>
           <li>
-            <strong className="w-100 d-block p-2 pb-0 strongs">
-              <Link>Courses</Link>
-            </strong>
+            <Link to="/adminportal/courses">
+              <p className="w-100 fw-bold d-block p-2 bg-black">Courses</p>
+            </Link>
             <ul className="ps-4 mt-4 ul-inner">
               {CoursesLinks.map((link) => (
                 <AsideLinks

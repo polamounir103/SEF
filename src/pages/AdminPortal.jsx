@@ -13,6 +13,10 @@ import AddJobForm from "../components/adminProtal/jobs/AddJobForm";
 import UserStudentTable from "../components/adminProtal/usersComponents/students/UserStudentTable";
 import CoursesTable from "../components/adminProtal/courses/CoursesTable";
 import AddUserForm from "../components/adminProtal/usersComponents/AddUserForm";
+import AllUsers from "../components/adminProtal/usersComponents/AllUsers";
+import InstructorsTable from "../components/adminProtal/usersComponents/instructors/InstructorsTable";
+import EditorsTable from "../components/adminProtal/usersComponents/editors/EditorsTable";
+import AdminsTable from "../components/adminProtal/usersComponents/admins/AdminsTable";
 
 function AdminPanel() {
   const { width } = useWindowWidth();
@@ -45,12 +49,12 @@ function AdminPanel() {
             <div xs={12} md={9} className="vaiable-container">
               <Routes>
                 <Route path="/" element={<ArticlesTable />} />
-                <Route path="/users" element={<UserStudentTable />} />
-                <Route path="/admin" element={<UserStudentTable />} />
-                <Route path="/instructop" element={<UserStudentTable />} />
-                <Route path="/editor" element={<UserStudentTable />} />
-                <Route path="/students" element={<UserStudentTable />} />
-                <Route path="/add-new-user" element={<AddUserForm />} />
+                <Route path="/users" element={<AllUsers />} />
+                <Route path="/users/students" element={<UserStudentTable />} />
+                <Route path="/users/admins" element={<AdminsTable />} />
+                <Route path="/users/editors" element={<EditorsTable />} />
+                <Route path="/users/instructors" element={<InstructorsTable />} />
+                <Route path="/users/add-new-user" element={<AddUserForm />} />
                 {/* ******************************* */}
                 <Route path="/articles" element={<ArticlesTable />} />
                 <Route path="/published-articles" element={<ArticlesTable />} />

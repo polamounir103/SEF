@@ -31,7 +31,7 @@ function CoursesTable() {
           course.title?.toLowerCase().includes(searchTerm.toLowerCase())
         )
       );
-    }, 300); // Slightly longer delay for better UX
+    }, 300);
 
     return () => clearTimeout(delayDebounceFn);
   }, [searchTerm, data]);
@@ -45,12 +45,12 @@ function CoursesTable() {
     setCurrentPage,
   } = usePagination(filteredCourses, ITEMS_PER_PAGE);
 
-    useEffect(() => {
-      const start = (currentPage - 1) * ITEMS_PER_PAGE;
-      const end = start + ITEMS_PER_PAGE;
-      setDisplayedData(filteredCourses.slice(start, end));
-    }, [filteredCourses, currentPage]);
-  
+  useEffect(() => {
+    const start = (currentPage - 1) * ITEMS_PER_PAGE;
+    const end = start + ITEMS_PER_PAGE;
+    setDisplayedData(filteredCourses.slice(start, end));
+  }, [filteredCourses, currentPage]);
+
   if (loading) {
     return (
       <div className="d-flex justify-content-center align-items-center p-5">
@@ -78,7 +78,7 @@ function CoursesTable() {
             type="text"
             className="article-search-input"
             placeholder="Search all"
-            onChange={(event) => setSearchTerm(event.target.value)}
+            onChange={(e) => setSearchTerm(e.target.value)}
             aria-label="Search courses"
           />
           <div className="article-search-icon">
@@ -123,18 +123,18 @@ function CoursesTable() {
         </div>
       </div>
 
-        <div className=" text-white fw-bolder text-end p-3 mt-3">
-          <PaginationNav
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={onPageChange}
-            getPageNumbers={getPageNumbers}
-            setCurrentPage={setCurrentPage}
-            prevIcon={prevIcon}
-            nextIcon={nextIcon}
-            // disabled={!hasCourses} 
-          />
-        </div>
+      <div className=" text-white fw-bolder text-end p-3 mt-3">
+        <PaginationNav
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={onPageChange}
+          getPageNumbers={getPageNumbers}
+          setCurrentPage={setCurrentPage}
+          prevIcon={prevIcon}
+          nextIcon={nextIcon}
+          // disabled={!hasCourses}
+        />
+      </div>
     </div>
   );
 }

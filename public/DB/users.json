@@ -6,7 +6,8 @@
     "username": "Admin Name",
     "image": "https://dummyjson.com/icon/emilys/128",
     "role": "admin",
-    "password": "12345"
+    "password": "12345",
+    "status":true
 
   },
   {
@@ -17,7 +18,8 @@
     "image": "https://dummyjson.com/icon/michaelw/128",
     "role": "student",
     "password": "12345",
-        "exams":[{
+    "status":true,
+    "exams":[{
       "examId":"",
       "marks":20
     }]
@@ -29,7 +31,8 @@
     "username": "instructor Name",
     "image": "https://dummyjson.com/icon/sophiab/128",
     "role": "instructor",
-    "password": "12345"
+    "password": "12345",
+    "status":false
   },
   {
     "userID": 4,
@@ -38,7 +41,8 @@
     "username": "Admin2 Name",
     "image": "https://dummyjson.com/icon/emilys/128",
     "role": "admin",
-    "password": "12345"
+    "password": "12345",
+    "status":true
   },
   {
     "userID": 5,
@@ -48,7 +52,8 @@
     "image": "https://dummyjson.com/icon/michaelw/128",
     "role": "student",
     "password": "12345",
-        "exams":[{
+    "status":false,
+    "exams":[{
       "examId":"",
       "marks":20
     }]
@@ -60,14 +65,201 @@
     "username": "instructor2 Name",
     "image": "https://dummyjson.com/icon/sophiab/128",
     "role": "instructor",
-    "password": "12345"
+    "password": "12345",
+    "status":true
+  },
+  {
+    "userID": 7,
+    "email": "admin@admin.com",
+    "phone": "+81 965-431-3024",
+    "username": "Admin Name",
+    "image": "https://dummyjson.com/icon/emilys/128",
+    "role": "admin",
+    "password": "12345",
+    "status":true
+
+  },
+  {
+    "userID": 8,
+    "email": "student@student.com",
+    "phone": "+49 258-627-6644",
+    "username": "student Name",
+    "image": "https://dummyjson.com/icon/michaelw/128",
+    "role": "student",
+    "password": "12345",
+    "status":true,
+    "exams":[{
+      "examId":"",
+      "marks":20
+    }]
+  },
+  {
+    "userID": 9,
+    "email": "instructor@instructor.com",
+    "phone": "+81 210-652-2785",
+    "username": "instructor Name",
+    "image": "https://dummyjson.com/icon/sophiab/128",
+    "role": "instructor",
+    "password": "12345",
+    "status":true
+  },
+  {
+    "userID": 10,
+    "email": "admin2@admin.com",
+    "phone": "+81 965-431-3024",
+    "username": "Admin2 Name",
+    "image": "https://dummyjson.com/icon/emilys/128",
+    "role": "admin",
+    "password": "12345",
+    "status":false
+  },
+  {
+    "userID": 11,
+    "email": "student2@student.com",
+    "phone": "+49 258-627-6644",
+    "username": "student2 Name",
+    "image": "https://dummyjson.com/icon/michaelw/128",
+    "role": "student",
+    "password": "12345",
+    "status":true,
+    "exams":[{
+      "examId":"",
+      "marks":20
+    }]
+  },
+  {
+    "userID": 12,
+    "email": "instructor2@instructor.com",
+    "phone": "+81 210-652-2785",
+    "username": "instructor2 Name",
+    "image": "https://dummyjson.com/icon/sophiab/128",
+    "role": "instructor",
+    "password": "12345",
+    "status":false
+  },
+  {
+   "userID": 13,
+   "email": "student@student.com",
+   "phone": "+49 258-627-6644",
+   "username": "student Name",
+   "image": "https://dummyjson.com/icon/michaelw/128",
+   "role": "student",
+   "password": "12345",
+   "status":true,
+   "exams":[{
+     "examId":"",
+     "marks":20
+    }]
+  },
+  {
+    "userID": 14,
+    "email": "student@student.com",
+    "phone": "+49 258-627-6644",
+    "username": "student Name",
+    "image": "https://dummyjson.com/icon/michaelw/128",
+    "role": "student",
+    "password": "12345",
+    "status":true,
+    "exams":[{
+      "examId":"",
+      "marks":20
+    }]
+  },
+  {
+    "userID": 15,
+    "email": "instructor2@instructor.com",
+    "phone": "+81 210-652-2785",
+    "username": "instructor2 Name",
+    "image": "https://dummyjson.com/icon/sophiab/128",
+    "role": "instructor",
+    "password": "12345",
+    "status":false
+  },
+  {
+    "userID": 16,
+    "email": "instructor2@instructor.com",
+    "phone": "+81 210-652-2785",
+    "username": "instructor2 Name",
+    "image": "https://dummyjson.com/icon/sophiab/128",
+    "role": "instructor",
+    "password": "12345",
+    "status":false
+  },
+  {
+    "userID": 17,
+    "email": "instructor2@instructor.com",
+    "phone": "+81 210-652-2785",
+    "username": "editor Name",
+    "image": "https://dummyjson.com/icon/sophiab/128",
+    "role": "editor",
+    "password": "12345",
+    "status":false
+  },
+  {
+    "userID": 18,
+    "email": "instructor2@instructor.com",
+    "phone": "+81 210-652-2785",
+    "username": "editor Name",
+    "image": "https://dummyjson.com/icon/sophiab/128",
+    "role": "editor",
+    "password": "12345",
+    "status":false
+  },
+  {
+    "userID": 17,
+    "email": "instructor2@instructor.com",
+    "phone": "+81 210-652-2785",
+    "username": "instructor2 Name",
+    "image": "https://dummyjson.com/icon/sophiab/128",
+    "role": "instructor",
+    "password": "12345",
+    "status":false
+  },
+  {
+    "userID": 18,
+    "email": "instructor2@instructor.com",
+    "phone": "+81 210-652-2785",
+    "username": "instructor2 Name",
+    "image": "https://dummyjson.com/icon/sophiab/128",
+    "role": "admin",
+    "password": "12345",
+    "status":false
+  },
+  {
+    "userID": 19,
+    "email": "instructor2@instructor.com",
+    "phone": "+81 210-652-2785",
+    "username": "editor Name",
+    "image": "https://dummyjson.com/icon/sophiab/128",
+    "role": "editor",
+    "password": "12345",
+    "status":false
+  },
+  {
+    "userID": 20,
+    "email": "instructor2@instructor.com",
+    "phone": "+81 210-652-2785",
+    "username": "instructor2 Name",
+    "image": "https://dummyjson.com/icon/sophiab/128",
+    "role": "instructor",
+    "password": "12345",
+    "status":false
+  },
+  {
+    "userID": 21,
+    "email": "instructor2@instructor.com",
+    "phone": "+81 210-652-2785",
+    "username": "editor Name",
+    "image": "https://dummyjson.com/icon/sophiab/128",
+    "role": "editor",
+    "password": "12345",
+    "status":false
   },
 
 
 
-
   {
-    "userId":"",
+    "userId":"13",
     "firstName":"",
     "lastName":"",
     "email":"",

@@ -228,15 +228,14 @@ body {
 
 .article-table-header-container {
   display: grid;
-  grid-template-columns: 2fr 2fr 1fr 2fr 1fr;
+  grid-template-columns: 5fr 2fr 2fr 2fr 1fr;
   text-align: start;
 }
 .article-table-article-container {
   display: grid;
-  grid-template-columns: 2fr 2fr 1fr 2fr 1fr;
+  grid-template-columns: 5fr 2fr 2fr 2fr 1fr;
   gap: 10px;
-  background: #00000049;
-  padding: 20px 0;
+  /* background: #00000049; */
 }
 .article-table-header-navigation {
   display: flex;

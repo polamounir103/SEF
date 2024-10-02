@@ -1,5 +1,7 @@
-import React from "react";
-import "./ArticlesTable.css"; // You can still use custom CSS if needed
+import React, { useEffect, useState } from "react";
+import "./ArticlesTable.css";
+import { useDispatch, useSelector } from "react-redux";
+import { getArticles } from "../../../redux/slice/ArticlesSlice";
 
 const articles = [
   {
@@ -47,6 +49,16 @@ const articles = [
 ];
 
 const ArticlesTable = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getArticles());
+  }, [dispatch]);
+  const articlesList = useSelector((state) => state.articles.filteredarticles);
+  console.log(articlesList);
+  const filteredArticles = articlesList.filter((article) =>
+    article.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
   return (
     <div className="container mt-4">
       <div className="d-flex justify-content-between align-items-center mb-3">
@@ -56,6 +68,12 @@ const ArticlesTable = () => {
             type="text"
             className="form-control"
             placeholder="Search In Jobs"
+            value={searchTerm}
+            name="searchInput"
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              console.log(searchTerm);
+            }}
           />
           <button className="btn btn-outline-secondary" type="button">
             <i className="fa fa-search"></i>
@@ -73,7 +91,7 @@ const ArticlesTable = () => {
           </tr>
         </thead>
         <tbody>
-          {articles.map((article, index) => (
+          {filteredArticles.map((article, index) => (
             <tr key={index} className="align-middle">
               <td>{article.title}</td>
               <td>{article.category}</td>

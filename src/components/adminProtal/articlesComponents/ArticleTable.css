@@ -85,3 +85,13 @@ input[type="text"].article-search-input {
   align-items: center;
   justify-content: center;
 }
+
+.admin-table-item-title {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+.admin-table-card-title {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}

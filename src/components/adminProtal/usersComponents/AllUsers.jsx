@@ -1,48 +1,36 @@
 import React, { useEffect, useState } from "react";
-import "./user.css";
-import TableRow from "../TableRow";
+import TableRow from "./TableRow";
 import { FaSearch } from "react-icons/fa";
-import TableCard from "../TableCard";
-import Title from "../../articlesComponents/title";
+import TableCard from "./TableCard";
+import Title from "../articlesComponents/title";
 import { useDispatch, useSelector } from "react-redux";
-import usePagination from "../../../../hooks/usePagination";
-import Loader from "../../../ui/loader/Loader";
-import PaginationNav from "../../../PaginationNav";
-import nextIcon from "../../../../assets/images/next.svg";
-import prevIcon from "../../../../assets/images/prev.svg";
-import { getUsers } from "../../../../redux/slice/UsersSlice";
-
-const UserStudentTable = () => {
+import usePagination from "../../../hooks/usePagination";
+import Loader from "../../ui/loader/Loader";
+import PaginationNav from "../../PaginationNav";
+import nextIcon from "../../../assets/images/next.svg";
+import prevIcon from "../../../assets/images/prev.svg";
+import { getUsers } from "../../../redux/slice/UsersSlice";
+function AllUsers() {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
   const { data, loading, error } = useSelector((state) => state.users);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [displayedData, setDisplayedData] = useState([]);
-  const [students, setStudents] = useState([]);
 
   useEffect(() => {
     dispatch(getUsers());
   }, [dispatch]);
 
   useEffect(() => {
-    if (data.length) {
-      // get students only //
-      const filtered = data.filter((user) => user.role === "student");
-      setStudents(filtered);
-      setFilteredUsers(filtered);
-    }
-  }, [data]);
-
-  useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
-    setFilteredUsers(
-      students.filter((user) =>
-        user.username?.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-    );
+      setFilteredUsers(
+        data.filter((user) =>
+          user.username?.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      );
     }, 300);
     return () => clearTimeout(delayDebounceFn);
-  }, [searchTerm, students]);
+  }, [searchTerm, data]);
 
   const ITEMS_PER_PAGE = 5;
   const {
@@ -68,8 +56,7 @@ const UserStudentTable = () => {
   }
 
   if (error) {
-    return <div className="text-danger h3 text-center"><p>Something  went wrong</p></div>;
-
+    return <div className="text-danger">{error}</div>;
   }
 
   return (
@@ -145,6 +132,6 @@ const UserStudentTable = () => {
       )}
     </div>
   );
-};
+}
 
-export default React.memo(UserStudentTable);
+export default AllUsers;

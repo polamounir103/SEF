@@ -4,7 +4,7 @@ import { MdModeEdit } from "react-icons/md";
 
 function TableCard({ name, status, userId, role, mail, id }) {
   return (
-    <div className=" p-3 bg-black d-flex flex-column gap-3">
+    <div className=" p-3 bg-black d-flex flex-column gap-3" >
       <div className="d-flex justify-content-between">
         <div>
           <h3>Name</h3>

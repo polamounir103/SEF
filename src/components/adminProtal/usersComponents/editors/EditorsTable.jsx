@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./user.css";
 import TableRow from "../TableRow";
 import { FaSearch } from "react-icons/fa";
 import TableCard from "../TableCard";
@@ -12,13 +11,13 @@ import nextIcon from "../../../../assets/images/next.svg";
 import prevIcon from "../../../../assets/images/prev.svg";
 import { getUsers } from "../../../../redux/slice/UsersSlice";
 
-const UserStudentTable = () => {
+function EditorsTable() {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
   const { data, loading, error } = useSelector((state) => state.users);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [displayedData, setDisplayedData] = useState([]);
-  const [students, setStudents] = useState([]);
+  const [editors, setEditors] = useState([]); // Renamed to "editors"
 
   useEffect(() => {
     dispatch(getUsers());
@@ -26,23 +25,23 @@ const UserStudentTable = () => {
 
   useEffect(() => {
     if (data.length) {
-      // get students only //
-      const filtered = data.filter((user) => user.role === "student");
-      setStudents(filtered);
+      // Get editors only //
+      const filtered = data.filter((user) => user.role === "editor");
+      setEditors(filtered); // Renamed to "editors"
       setFilteredUsers(filtered);
     }
   }, [data]);
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
-    setFilteredUsers(
-      students.filter((user) =>
-        user.username?.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-    );
+      setFilteredUsers(
+        editors.filter((user) =>
+          user.username?.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      );
     }, 300);
     return () => clearTimeout(delayDebounceFn);
-  }, [searchTerm, students]);
+  }, [searchTerm, editors]); // Use "editors"
 
   const ITEMS_PER_PAGE = 5;
   const {
@@ -68,8 +67,11 @@ const UserStudentTable = () => {
   }
 
   if (error) {
-    return <div className="text-danger h3 text-center"><p>Something  went wrong</p></div>;
-
+    return (
+      <div className="text-danger h3 text-center">
+        <p>Something went wrong</p>
+      </div>
+    );
   }
 
   return (
@@ -80,7 +82,7 @@ const UserStudentTable = () => {
         </button>
       </div>
       <div className="d-flex justify-content-between align-items-center">
-        <Title title="Students-Users" />
+        <Title title="Editors-Users" /> {/* Updated title */}
         <div className="position-relative text-danger search-box">
           <input
             type="text"
@@ -145,6 +147,6 @@ const UserStudentTable = () => {
       )}
     </div>
   );
-};
+}
 
-export default React.memo(UserStudentTable);
+export default EditorsTable;

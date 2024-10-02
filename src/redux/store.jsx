@@ -12,8 +12,8 @@ import AdminJobsSlice from "./slice/AdminJobsSlice";
 
 const rootreducer = combineReducers({
   auth: authSlice,
-  users: userSlice.reducer,
-  articles: articlesSlice.reducer,
+  users: userSlice,
+  articles: articlesSlice,
   jobs: jobsReducer,
   adminJobs: AdminJobsSlice,
   courses: coursesSlice,

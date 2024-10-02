@@ -1,54 +1,42 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
-  articlesdata: [],
-  filteredarticles: [],
+  data: [],
+  loading: false,
+  error: null,
 };
+
 export const getArticles = createAsyncThunk(
   "articles/getArticles",
   async () => {
-    return fetch("http://localhost:3000/src/DB/articles.json").then(
-      (respons) => {
-        return respons.json();
-      }
-    );
+    try {
+      const response = await axios.get("../DB/articles.json");
+      return response.data;
+    } catch (error) {
+      throw new Error(error.message); 
+    }
   }
 );
+
 const articlesSlice = createSlice({
   name: "articles",
   initialState,
-  reducers: {
-    filterArticlesBySearch(state, action) {
-      const { articles, search } = action.payload;
-      let temp = [];
-      articles.filter((article) => {
-        if (article.title.toLowerCase().includes(search.toLowerCase())) {
-          temp.push(article);
-        }
-      });
-      state.filteredarticles = temp;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getArticles.pending, () => {});
-    builder.addCase(getArticles.fulfilled, (state, action) => {
-      state.articlesdata = [];
-      for (const key in action.payload) {
-        state.articlesdata.push({
-          id: action.payload[key]._id,
-          title: action.payload[key].title,
-          category: action.payload[key].category,
-          content: action.payload[key].content,
-          date: action.payload[key].date,
-          time: action.payload[key].time,
-          image: action.payload[key].photoimage,
-        });
-      }
+    builder.addCase(getArticles.pending, (state) => {
+      state.loading = true;
+      state.error = null;
     });
-    builder.addCase(getArticles.rejected, () => {});
+    builder.addCase(getArticles.fulfilled, (state, action) => {
+      state.data = action.payload;
+      state.loading = false;
+    });
+    builder.addCase(getArticles.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.error.message;
+    });
   },
 });
-export const { filterArticlesBySearch } = articlesSlice.actions;
-export const articlesdata = (state) => state.articles.articlesdata;
-export const filterarticles = (state) => state.articles.filteredarticles;
-export default articlesSlice;
+
+export default articlesSlice.reducer;
