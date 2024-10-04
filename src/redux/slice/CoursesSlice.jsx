@@ -6,7 +6,7 @@ export const fetchCourses = createAsyncThunk(
   "courses/fetchCourses",
   async () => {
     try {
-      const response = await axios.get("../DB/courses.json");
+      const response = await axios.get("/DB/courses.json");
       return response.data;
     } catch (error) {}
   }

@@ -11,7 +11,7 @@ export const getArticles = createAsyncThunk(
   "articles/getArticles",
   async () => {
     try {
-      const response = await axios.get("../DB/articles.json");
+      const response = await axios.get("/DB/articles.json");
       return response.data;
     } catch (error) {
       throw new Error(error.message); 

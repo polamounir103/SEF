@@ -64,14 +64,18 @@ const Sidebar = () => {
     {
       id: 5,
       title: "Published Articles",
-      path: "/adminportal/articles",
+      path: "/adminportal/articles/published-articles",
     },
     {
       id: 6,
       title: "Scheduled Articles",
       path: "/adminportal/scheduled-articles",
     },
-    { id: 7, title: "Saved Drafts", path: "/adminportal/saved-drafts" },
+    {
+      id: 7,
+      title: "Saved Drafts",
+      path: "/adminportal/articles/drafted-articles",
+    },
   ];
 
   const JobsLinks = [
@@ -83,18 +87,18 @@ const Sidebar = () => {
     {
       id: 10,
       title: "Published Courses",
-      path: "/adminportal/published-courses",
+      path: "/adminportal/courses/published-courses",
     },
     {
       id: 11,
       title: "Scheduled Courses",
-      path: "/adminportal/scheduled-courses",
+      path: "/adminportal/courses/scheduled-courses",
     },
-    {
-      id: 12,
-      title: "Saved Drafts",
-      path: "/adminportal/courses-saved-drafts",
-    },
+    // {
+    //   id: 12,
+    //   title: "Saved Drafts",
+    //   path: "/adminportal/courses-saved-drafts",
+    // },
   ];
   const date = useFormattedDate();
 
@@ -104,13 +108,13 @@ const Sidebar = () => {
         <span className="page-title">Admin Portal</span>
         <span>{date}</span>
       </div>
-      <nav className="d-none d-lg-block mt-4">
-        <ul>
+      <nav className="d-none d-lg-block mt-4 bg-black bg-opacity-25 p-0">
+        <ul className="p-0">
           <li>
             <Link to="/adminportal/users">
               <p className="w-100 fw-bold d-block p-2 bg-black">Users</p>
             </Link>
-            <ul className="ps-4 my-4 ul-inner">
+            <ul className="pt-2 pb-4">
               {UsersLinks.map((link) => (
                 <AsideLinks
                   key={link.id}
@@ -127,7 +131,7 @@ const Sidebar = () => {
             <Link to="/adminportal/articles">
               <p className="w-100 fw-bold d-block p-2 bg-black">Articles</p>
             </Link>
-            <ul className="ps-4 my-4 ul-inner">
+            <ul className="pt-2 pb-4">
               {ArticlesLinks.map((link) => (
                 <AsideLinks
                   key={link.id}
@@ -144,7 +148,7 @@ const Sidebar = () => {
             <Link to="/adminportal/jobs">
               <p className="w-100 fw-bold d-block p-2 bg-black">Jobs</p>
             </Link>
-            <ul className="ps-4 my-4 ul-inner">
+            <ul className="pt-2 pb-4">
               {JobsLinks.map((link) => (
                 <AsideLinks
                   key={link.id}
@@ -161,7 +165,7 @@ const Sidebar = () => {
             <Link to="/adminportal/courses">
               <p className="w-100 fw-bold d-block p-2 bg-black">Courses</p>
             </Link>
-            <ul className="ps-4 mt-4 ul-inner">
+            <ul className="pb-4">
               {CoursesLinks.map((link) => (
                 <AsideLinks
                   key={link.id}

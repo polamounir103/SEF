@@ -57,13 +57,13 @@ function App() {
             <Route path="/article" element={<SingleArticle />} />
             <Route path="/article/:id" element={<SingleArticle />} />
             {/* Protected Routes */}
-            {/* <Route
+            <Route
               path="/adminportal/*"
               element={
                 <ProtectedRoute element={AdminPanel} allowedRoles={["admin"]} />
               }
-            /> */}
-            <Route path="/adminportal/*" element={<AdminPanel />} />
+            />
+            {/* <Route path="/adminportal/*" element={<AdminPanel />} /> */}
             <Route
               path="/instructorportal"
               element={

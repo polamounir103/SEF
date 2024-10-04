@@ -5,7 +5,7 @@ import { BsPencilSquare } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import useWindowWidth from "../../../hooks/useWindowWidth ";
 
-const ArticleData = (props) => {
+const ArticleItem = (props) => {
   const screenWidth = useWindowWidth();
 
   return (
@@ -50,11 +50,11 @@ const ArticleData = (props) => {
           </div>
         </div>
       )}
-      <div className="my-2 pt-2 article-table-article-container text-white d-none d-lg-grid">
-        <h4 className="mt-3 admin-table-item-title">{props.title}</h4>
-        <h4 className="mt-3">{props.category}</h4>
-        <div className="mt-3">
-          <button
+      <div className="article-table-article-container text-white d-none d-lg-grid bg-black bg-opacity-25 align-items-center px-2 rounded">
+        <h5 className=" admin-table-item-title">{props.title}</h5>
+        <h5 className="">{props.category}</h5>
+        <div className="">
+          <span
             className={
               props.status === "published"
                 ? "status-btn-published rounded-4 "
@@ -62,17 +62,20 @@ const ArticleData = (props) => {
             }
           >
             {props.status}
-          </button>
+          </span>
         </div>
         <div className="">
-          <div className=" ">
+          <div className="">
             <div className="col-sm-8 ">
               <p>{props.date}</p>
               <p>{props.time}</p>
             </div>
           </div>
         </div>
-        <div className="icon col-sm-4 mt-4 d-flex text-warning gap-4">
+        <div
+          className="icon col-sm-4  d-flex text-warning gap-4 align-items-center
+        "
+        >
           <Link className="text-warning">
             <BsPencilSquare />
           </Link>
@@ -84,4 +87,4 @@ const ArticleData = (props) => {
     </>
   );
 };
-export default ArticleData;
+export default ArticleItem;

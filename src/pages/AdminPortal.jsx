@@ -5,10 +5,9 @@ import { Route, Routes } from "react-router-dom";
 // import Final from "../src/Final";
 import CertificateForm from "../components/adminProtal/usersComponents/students/CertificateForm";
 import AddNewArticle from "../components/adminProtal/articlesComponents/AddNewArticle";
-import ArticlesTable from "../components/adminProtal/articlesComponents/ArticlesTable";
+import AllArticlesTable from "../components/adminProtal/articlesComponents/AllArticlesTable";
 import Sidebar from "../components/adminProtal/sideMenu/Sidebar";
 import useWindowWidth from "../hooks/useWindowWidth ";
-import Jobs from "../components/adminProtal/jobs/Jobs";
 import AddJobForm from "../components/adminProtal/jobs/AddJobForm";
 import UserStudentTable from "../components/adminProtal/usersComponents/students/UserStudentTable";
 import CoursesTable from "../components/adminProtal/courses/CoursesTable";
@@ -17,6 +16,11 @@ import AllUsers from "../components/adminProtal/usersComponents/AllUsers";
 import InstructorsTable from "../components/adminProtal/usersComponents/instructors/InstructorsTable";
 import EditorsTable from "../components/adminProtal/usersComponents/editors/EditorsTable";
 import AdminsTable from "../components/adminProtal/usersComponents/admins/AdminsTable";
+import JobsTable from "../components/adminProtal/jobs/JobsTable";
+import PublishedArticles from "../components/adminProtal/articlesComponents/PublishedArticles";
+import DratArticles from "../components/adminProtal/articlesComponents/DratArticles";
+import ScheduledCourses from "../components/adminProtal/courses/ScheduledCourses";
+import AddCourseForm from "../components/adminProtal/courses/AddCourseForm";
 
 function AdminPanel() {
   const { width } = useWindowWidth();
@@ -48,21 +52,33 @@ function AdminPanel() {
             </div>
             <div xs={12} md={9} className="vaiable-container">
               <Routes>
-                <Route path="/" element={<ArticlesTable />} />
+                <Route path="/" element={<AllArticlesTable />} />
                 <Route path="/users" element={<AllUsers />} />
                 <Route path="/users/students" element={<UserStudentTable />} />
                 <Route path="/users/admins" element={<AdminsTable />} />
                 <Route path="/users/editors" element={<EditorsTable />} />
-                <Route path="/users/instructors" element={<InstructorsTable />} />
+                <Route
+                  path="/users/instructors"
+                  element={<InstructorsTable />}
+                />
                 <Route path="/users/add-new-user" element={<AddUserForm />} />
                 {/* ******************************* */}
-                <Route path="/articles" element={<ArticlesTable />} />
-                <Route path="/published-articles" element={<ArticlesTable />} />
-                <Route path="/add-new-article" element={<AddNewArticle />} />
-                <Route path="/add-new-article" element={<AddNewArticle />} />
+                <Route path="/articles" element={<AllArticlesTable />} />
+                <Route
+                  path="/articles/published-articles"
+                  element={<PublishedArticles />}
+                />
+                <Route
+                  path="/articles/drafted-articles"
+                  element={<DratArticles />}
+                />
+                <Route
+                  path="/articles/add-new-article"
+                  element={<AddNewArticle />}
+                />
                 {/* ******************************* */}
-                <Route path="/jobs" element={<Jobs />} />
-                <Route path="/published-jobs" element={<Jobs />} />
+                <Route path="/jobs" element={<JobsTable />} />
+                <Route path="/published-jobs" element={<JobsTable />} />
                 <Route path="/add-new-job" element={<AddJobForm />} />
                 <Route path="/add-new-job" element={<AddJobForm />} />
                 <Route
@@ -71,7 +87,18 @@ function AdminPanel() {
                 />
                 {/* ******************************* */}
                 <Route path="/courses" element={<CoursesTable />} />
-                <Route path="/published-courses" element={<CoursesTable />} />
+                <Route
+                  path="/courses/published-courses"
+                  element={<CoursesTable />}
+                />
+                <Route
+                  path="/courses/scheduled-course"
+                  element={<ScheduledCourses />}
+                />
+                <Route
+                  path="/courses/add-course"
+                  element={<AddCourseForm />}
+                />
               </Routes>
             </div>
           </div>

@@ -11,6 +11,7 @@ import PaginationNav from "../../../PaginationNav";
 import nextIcon from "../../../../assets/images/next.svg";
 import prevIcon from "../../../../assets/images/prev.svg";
 import { getUsers } from "../../../../redux/slice/UsersSlice";
+import { Link } from "react-router-dom";
 
 const UserStudentTable = () => {
   const dispatch = useDispatch();
@@ -34,14 +35,14 @@ const UserStudentTable = () => {
   }, [data]);
 
   useEffect(() => {
-    const delayDebounceFn = setTimeout(() => {
-    setFilteredUsers(
-      students.filter((user) =>
-        user.username?.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-    );
+    const delayFn = setTimeout(() => {
+      setFilteredUsers(
+        students.filter((user) =>
+          user.username?.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      );
     }, 300);
-    return () => clearTimeout(delayDebounceFn);
+    return () => clearTimeout(delayFn);
   }, [searchTerm, students]);
 
   const ITEMS_PER_PAGE = 5;
@@ -68,16 +69,22 @@ const UserStudentTable = () => {
   }
 
   if (error) {
-    return <div className="text-danger h3 text-center"><p>Something  went wrong</p></div>;
-
+    return (
+      <div className="text-danger h3 text-center">
+        <p>Something went wrong</p>
+      </div>
+    );
   }
 
   return (
     <div className="text-light d-flex flex-column gap-4 mt-lg-4">
       <div className="d-flex flex-column align-items-end gap-4">
-        <button className="btn btn-warning d-none d-lg-block">
+        <Link
+          to="/adminportal/users/add-new-user"
+          className="btn btn-warning d-none d-lg-block"
+        >
           CREATE NEW USER
-        </button>
+        </Link>
       </div>
       <div className="d-flex justify-content-between align-items-center">
         <Title title="Students-Users" />

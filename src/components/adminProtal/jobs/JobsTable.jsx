@@ -13,7 +13,7 @@ import PaginationNav from "../../PaginationNav";
 import nextIcon from "../../../assets/images/next.svg";
 import prevIcon from "../../../assets/images/prev.svg";
 
-const Jobs = () => {
+const JobsTable = () => {
   const screenWidth = {
     screenType:"larg"
   };
@@ -117,77 +117,75 @@ const Jobs = () => {
           )}
         </div>
 
-        {screenWidth.screenType !== "larg" && (
-          <>
-            <div className="d-flex justify-content-between align-items-center mt-4">
-              <Title title="All jobs" />
-              <div className="position-relative text-danger search-box">
-                <input
-                  type="text"
-                  className="article-search-input"
-                  placeholder="search all"
-                />
-                <div className="article-search-icon">
-                  <FaSearch />
-                </div>
+        <div className="d-block d-lg-none ">
+          <div className="d-flex justify-content-between align-items-center mt-4">
+            <Title title="All jobs" />
+            <div className="position-relative text-danger search-box">
+              <input
+                type="text"
+                className="article-search-input"
+                placeholder="search all"
+              />
+              <div className="article-search-icon">
+                <FaSearch />
               </div>
             </div>
-            <div className="d-flex justify-content-center mt-4 flex-column gap-4">
-              {displayedData.map((item, index) => (
-                <div
-                  className="d-flex flex-column gap-3 bg-black p-4 rounded-3"
-                  key={index}
-                >
-                  <div className="d-flex justify-content-between">
-                    <h3>company</h3>
-                    <p
-                      className={
-                        item.status === "open"
-                          ? "status-btn-published rounded-4"
-                          : "status-btn-draft rounded-4"
-                      }
-                    >
-                      {item.status}
-                    </p>
+          </div>
+          <div className="d-flex justify-content-center mt-4 flex-column gap-4">
+            {displayedData.map((item, index) => (
+              <div
+                className="d-flex flex-column gap-3 bg-black p-4 rounded-3"
+                key={index}
+              >
+                <div className="d-flex justify-content-between">
+                  <h3>company</h3>
+                  <p
+                    className={
+                      item.status === "open"
+                        ? "status-btn-published rounded-4"
+                        : "status-btn-draft rounded-4"
+                    }
+                  >
+                    {item.status}
+                  </p>
+                </div>
+                <div>
+                  <h5 style={{marginTop :"-20px"}}>{item.companyName}</h5>
+                </div>
+                <div className="d-flex justify-content-between">
+                  <div>
+                    <h3>position</h3>
+                    <p className="admin-table-item-title">{item.jobName}</p>
                   </div>
                   <div>
-                    <h3>{item.company}</h3>
-                  </div>
-                  <div className="d-flex justify-content-between">
+                    <h3>Posted At</h3>
                     <div>
-                      <h3>position</h3>
-                      <p>{item.position}</p>
+                      <p>{item.time}</p>
                     </div>
-                    <div>
-                      <h3>Posted At</h3>
-                      <div>
-                        <p>{item.postedAt}</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="d-flex justify-content-end fs-2 gap-3">
-                    <Link className="text-warning">
-                      <BsPencilSquare />
-                    </Link>
-                    <Link className="text-warning">
-                      <FaTrashAlt />
-                    </Link>
                   </div>
                 </div>
-              ))}
-              <div>
-                <div className="d-flex justify-content-center">
-                  <Link
-                    to="/adminportal/add-new-job"
-                    className="btn btn-warning px-5"
-                  >
-                    CREATE NEW JOB
+                <div className="d-flex justify-content-end fs-2 gap-3">
+                  <Link className="text-warning">
+                    <BsPencilSquare />
+                  </Link>
+                  <Link className="text-warning">
+                    <FaTrashAlt />
                   </Link>
                 </div>
               </div>
+            ))}
+            <div>
+              <div className="d-flex justify-content-center">
+                <Link
+                  to="/adminportal/add-new-job"
+                  className="btn btn-warning px-5"
+                >
+                  CREATE NEW JOB
+                </Link>
+              </div>
             </div>
-          </>
-        )}
+          </div>
+        </div>
       </div>
       <div className=" text-white fw-bolder text-end p-3 mt-3">
         <PaginationNav
@@ -204,4 +202,4 @@ const Jobs = () => {
   );
 };
 
-export default Jobs;
+export default JobsTable;

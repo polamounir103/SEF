@@ -9,26 +9,31 @@
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex ;
+  display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   z-index: 999999999;
 }
 .login-mode.open {
-    display: flex ;
+  display: flex;
 }
 .login-mode.hide {
-    display: none !important;
-    z-index: -999999999;
+  display: none !important;
+  z-index: -999999999;
 }
 
 .login-model .wrapper {
   background-color: #5e5e5e83;
   width: 45%;
-  height: 110px;
+  /* height: 110px; */
   padding: 8px 20px 8px 20px;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .login-model .wrapper button {
@@ -43,11 +48,14 @@
 }
 
 .login-model .wrapper div {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
+  width: 100%;
   margin-top: 12px;
   padding: 0 16px 0 16px;
   gap: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
 }
 
 .login-model .wrapper div p {

@@ -10,6 +10,7 @@ import PaginationNav from "../../../PaginationNav";
 import nextIcon from "../../../../assets/images/next.svg";
 import prevIcon from "../../../../assets/images/prev.svg";
 import { getUsers } from "../../../../redux/slice/UsersSlice";
+import { Link } from "react-router-dom";
 
 function InstructorsTable() {
   const dispatch = useDispatch();
@@ -27,21 +28,21 @@ function InstructorsTable() {
     if (data.length) {
       // get instructors only //
       const filtered = data.filter((user) => user.role === "instructor");
-      setInstructors(filtered); // renamed to instructors
+      setInstructors(filtered);
       setFilteredUsers(filtered);
     }
   }, [data]);
 
   useEffect(() => {
-    const delayDebounceFn = setTimeout(() => {
+    const delayFn = setTimeout(() => {
       setFilteredUsers(
         instructors.filter((user) =>
           user.username?.toLowerCase().includes(searchTerm.toLowerCase())
         )
       );
     }, 300);
-    return () => clearTimeout(delayDebounceFn);
-  }, [searchTerm, instructors]); // use instructors
+    return () => clearTimeout(delayFn);
+  }, [searchTerm, instructors]);
 
   const ITEMS_PER_PAGE = 5;
   const {
@@ -77,9 +78,12 @@ function InstructorsTable() {
   return (
     <div className="text-light d-flex flex-column gap-4 mt-lg-4">
       <div className="d-flex flex-column align-items-end gap-4">
-        <button className="btn btn-warning d-none d-lg-block">
+        <Link
+          to="/adminportal/users/add-new-user"
+          className="btn btn-warning d-none d-lg-block"
+        >
           CREATE NEW USER
-        </button>
+        </Link>
       </div>
       <div className="d-flex justify-content-between align-items-center">
         <Title title="Instructors-Users" /> {/* Updated title */}

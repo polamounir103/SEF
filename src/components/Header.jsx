@@ -171,7 +171,17 @@ function Header() {
             )}
           </ul>
         </div>
-
+        <div>
+          <Link className="btn text-light" to="/instructorportal">
+            Instructor Portal
+          </Link>
+          <Link className="btn text-light" to="/studentportal">
+            Student Portal
+          </Link>
+          <Link className="btn text-light" to="/adminportal">
+            Admin Portal
+          </Link>
+        </div>
         {/* Main Navigation */}
         <div className="d-flex">
           <ul className="d-flex align-items-center list-unstyled gap-3">

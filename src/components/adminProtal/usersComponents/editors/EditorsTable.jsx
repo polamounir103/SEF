@@ -10,6 +10,7 @@ import PaginationNav from "../../../PaginationNav";
 import nextIcon from "../../../../assets/images/next.svg";
 import prevIcon from "../../../../assets/images/prev.svg";
 import { getUsers } from "../../../../redux/slice/UsersSlice";
+import { Link } from "react-router-dom";
 
 function EditorsTable() {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ function EditorsTable() {
   const { data, loading, error } = useSelector((state) => state.users);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [displayedData, setDisplayedData] = useState([]);
-  const [editors, setEditors] = useState([]); // Renamed to "editors"
+  const [editors, setEditors] = useState([]);
 
   useEffect(() => {
     dispatch(getUsers());
@@ -27,21 +28,21 @@ function EditorsTable() {
     if (data.length) {
       // Get editors only //
       const filtered = data.filter((user) => user.role === "editor");
-      setEditors(filtered); // Renamed to "editors"
+      setEditors(filtered);
       setFilteredUsers(filtered);
     }
   }, [data]);
 
   useEffect(() => {
-    const delayDebounceFn = setTimeout(() => {
+    const delayFn = setTimeout(() => {
       setFilteredUsers(
         editors.filter((user) =>
           user.username?.toLowerCase().includes(searchTerm.toLowerCase())
         )
       );
     }, 300);
-    return () => clearTimeout(delayDebounceFn);
-  }, [searchTerm, editors]); // Use "editors"
+    return () => clearTimeout(delayFn);
+  }, [searchTerm, editors]);
 
   const ITEMS_PER_PAGE = 5;
   const {
@@ -77,12 +78,15 @@ function EditorsTable() {
   return (
     <div className="text-light d-flex flex-column gap-4 mt-lg-4">
       <div className="d-flex flex-column align-items-end gap-4">
-        <button className="btn btn-warning d-none d-lg-block">
+        <Link
+          to="/adminportal/users/add-new-user"
+          className="btn btn-warning d-none d-lg-block"
+        >
           CREATE NEW USER
-        </button>
+        </Link>
       </div>
       <div className="d-flex justify-content-between align-items-center">
-        <Title title="Editors-Users" /> {/* Updated title */}
+        <Title title="Editors-Users" />
         <div className="position-relative text-danger search-box">
           <input
             type="text"

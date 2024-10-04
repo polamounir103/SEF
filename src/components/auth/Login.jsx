@@ -8,6 +8,7 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../redux/slice/AuthSlice";
+import LoginError from "../ui/loginError/LoginError";
 
 const Login = () => {
   const [activepassword, setActivepassword] = useState(false);
@@ -24,7 +25,6 @@ const Login = () => {
     dispatch(loginUser({ email, password }));
   };
 
-  // Redirect if already authenticated or after successful login
   useEffect(() => {
     if (isAuthenticated && user) {
       // Redirect based on user role
@@ -39,55 +39,76 @@ const Login = () => {
   }, [isAuthenticated, user, navigate]);
 
   return (
-    <section className="login-form">
-      <div className="form-box">
-        <form onSubmit={handleLogin}>
-          <img className="logo" src={Logo} alt="logo" />
-          <div className="input-box">
-            <label htmlFor="userid">
-              <LuUserSquare2 />
-            </label>
-            <input
-              type="text"
-              id="userid"
-              name="userid"
-              placeholder="User Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className="input-box">
-            <label htmlFor="password">
-              <BsFileLock />
-            </label>
-            <input
-              type={`${activepassword ? "text" : "password"}`}
-              id="password"
-              name="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <p onClick={() => setActivepassword(!activepassword)}>
-              {activepassword ? <MdOutlineRemoveRedEye /> : <FaRegEyeSlash />}
+    <>
+      <p>{error && <LoginError />}</p>
+      <section className="login-form">
+        <div  className="login-body">
+
+          <div className="form-box">
+            <form onSubmit={handleLogin}>
+              <img className="logo" src={Logo} alt="logo" />
+              <div className="input-box">
+                <label htmlFor="userid">
+                  <LuUserSquare2 />
+                </label>
+                <input
+                  type="text"
+                  id="userid"
+                  name="userid"
+                  placeholder="User Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  disabled={loading}
+                  required
+                />
+              </div>
+              <div className="input-box">
+                <label htmlFor="password">
+                  <BsFileLock />
+                </label>
+                <input
+                  type={`${activepassword ? "text" : "password"}`}
+                  id="password"
+                  name="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  disabled={loading}
+                  required
+                />
+                <p
+                  onClick={() => setActivepassword(!activepassword)}
+                  aria-label={
+                    activepassword ? "Hide password" : "Show password"
+                  }
+                >
+                  {activepassword ? (
+                    <MdOutlineRemoveRedEye />
+                  ) : (
+                    <FaRegEyeSlash />
+                  )}
+                </p>
+              </div>
+              <button
+                type="button"
+                className="forget-btn"
+                onClick={() => navigate("/forgetpassword")}
+                disabled={loading}
+              >
+                forget your password ?
+              </button>
+              <button type="submit" className="login-btn" disabled={loading}>
+                {loading ? "Logging in..." : "Login"}
+              </button>
+            </form>
+
+            <p className="account">
+              Don't have an account yet? <Link to="/signup">Sign up</Link>
             </p>
           </div>
-          <button
-            type="button"
-            className="forget-btn"
-            onClick={() => navigate("/forgetpassword")}
-          >
-            forget your password ?
-          </button>
-          <button type="submit" className="login-btn">
-            Login
-          </button>
-        </form>
-        <p className="account">
-          Don't have an account yet? <Link to="/signup">Sign up</Link>
-        </p>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 };
 

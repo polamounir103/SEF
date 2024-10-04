@@ -25,15 +25,15 @@ function CoursesTable() {
   }, [dispatch]);
 
   useEffect(() => {
-    const delayDebounceFn = setTimeout(() => {
+    const delayFn = setTimeout(() => {
       setFilteredCourses(
-        data.filter((course) =>
+        data?.filter((course) =>
           course.title?.toLowerCase().includes(searchTerm.toLowerCase())
         )
       );
     }, 300);
 
-    return () => clearTimeout(delayDebounceFn);
+    return () => clearTimeout(delayFn);
   }, [searchTerm, data]);
 
   const ITEMS_PER_PAGE = 5;
@@ -66,7 +66,7 @@ function CoursesTable() {
       <div className="col-lg-12 bg-opacity-25 text-white fw-bolder text-end d-none d-lg-block mt-3">
         <Link
           className="btn btn-warning text-light"
-          aria-label="Create New Course"
+          to="/adminportal/courses/add-course"
         >
           Create New Courses
         </Link>

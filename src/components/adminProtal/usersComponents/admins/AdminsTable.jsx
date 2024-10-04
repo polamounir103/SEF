@@ -10,6 +10,7 @@ import PaginationNav from "../../../PaginationNav";
 import nextIcon from "../../../../assets/images/next.svg";
 import prevIcon from "../../../../assets/images/prev.svg";
 import { getUsers } from "../../../../redux/slice/UsersSlice";
+import { Link } from "react-router-dom";
 
 function AdminsTable() {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ function AdminsTable() {
   const { data, loading, error } = useSelector((state) => state.users);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [displayedData, setDisplayedData] = useState([]);
-  const [admins, setAdmins] = useState([]); // To store filtered admin users
+  const [admins, setAdmins] = useState([]);
 
   useEffect(() => {
     dispatch(getUsers());
@@ -27,21 +28,21 @@ function AdminsTable() {
     if (data.length) {
       // Filter to get only admin users
       const filtered = data.filter((user) => user.role === "admin");
-      setAdmins(filtered); // Store admins in state
-      setFilteredUsers(filtered); // Initially set all admins to filtered users
+      setAdmins(filtered);
+      setFilteredUsers(filtered);
     }
   }, [data]);
 
-  // Search functionality with debounce
+  // Search functionality with delay
   useEffect(() => {
-    const delayDebounceFn = setTimeout(() => {
+    const delayFn = setTimeout(() => {
       setFilteredUsers(
         admins.filter((user) =>
           user.username?.toLowerCase().includes(searchTerm.toLowerCase())
         )
       );
     }, 300);
-    return () => clearTimeout(delayDebounceFn);
+    return () => clearTimeout(delayFn);
   }, [searchTerm, admins]);
 
   const ITEMS_PER_PAGE = 5;
@@ -78,9 +79,12 @@ function AdminsTable() {
   return (
     <div className="text-light d-flex flex-column gap-4 mt-lg-4">
       <div className="d-flex flex-column align-items-end gap-4">
-        <button className="btn btn-warning d-none d-lg-block">
+        <Link
+          to="/adminportal/users/add-new-user"
+          className="btn btn-warning d-none d-lg-block"
+        >
           CREATE NEW ADMIN
-        </button>
+        </Link>
       </div>
       <div className="d-flex justify-content-between align-items-center">
         <Title title="Admin-Users" /> {/* Title updated for admins */}
