@@ -171,6 +171,7 @@ function Header() {
             )}
           </ul>
         </div>
+        {/*Testing The Protected Routes */}
         <div>
           <Link className="btn text-light" to="/instructorportal">
             Instructor Portal

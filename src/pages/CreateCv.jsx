@@ -17,6 +17,7 @@ import { useDispatch } from "react-redux";
 
 function CreateCv() {
   const steps = [
+   
     { id: 1, urlLink: "main", name: "MAIN INFORMATION" },
     { id: 2, urlLink: "summary", name: "SUMMARY" },
     { id: 3, urlLink: "skills", name: "SKILLS" },
@@ -26,18 +27,28 @@ function CreateCv() {
     { id: 7, urlLink: "interests", name: "HOBBIES AND INTERESTS" },
     { id: 8, urlLink: "links", name: "LINKS" },
   ];
-  const dispatch = useDispatch();
-  const [activeSetp, setActiveStep] = useState("");
+  // const dispatch = useDispatch();
+  // const [activeSetp, setActiveStep] = useState("");
   // const { mainStep } = useParams();
+
   const { "*": mainStep } = useParams();
-  console.log(mainStep);
+
+  // console.log(mainStep);
+  // FIX THE ERROR OF THE URL
+  useEffect(()=>{
+    if(!mainStep) {
+      navigate("/create-cv/main");
+      return;
+    }
+  })
   const [activeSteps, setActiveSteps] = useState([]);
-  const index = steps.findIndex((step) => step.urlLink === mainStep);
+  const index = steps.findIndex((step) => step?.urlLink === mainStep);
 
   const updateTheActiveSteps = () => {
     setActiveSteps([]);
     for (let i = index; i >= 0; i--) {
       setActiveSteps((prevSteps) => [...prevSteps, i + 1]);
+      console.log(activeSteps);
     }
   };
   useEffect(() => {
@@ -45,7 +56,8 @@ function CreateCv() {
   }, [mainStep]);
 
   const stepRefs = useRef([]);
-  const cvTempletRef = useRef(); // Create a ref for CvTemplet 00
+  // Creating a ref for CvTemplet 
+  const cvTempletRef = useRef();
   const navigate = useNavigate();
 
   const handleContinue = () => {
