@@ -42,11 +42,10 @@ const Login = () => {
     <>
       <p>{error && <LoginError />}</p>
       <section className="login-form">
-        <div  className="login-body">
-
+        <div className="login-body">
           <div className="form-box">
             <form onSubmit={handleLogin}>
-              <img className="logo" src={Logo} alt="logo" />
+              <img className="logo" src={Logo} alt="logo"  />
               <div className="input-box">
                 <label htmlFor="userid">
                   <LuUserSquare2 />
