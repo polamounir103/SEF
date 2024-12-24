@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Auth.css";
-import Logo from "../../assets/images/seff_logo_black.jpg";
+import Logo from "../../assets/images/app-logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { BsFileLock } from "react-icons/bs";
 import { LuUserSquare2 } from "react-icons/lu";

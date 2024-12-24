@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Logo from "../../assets/images/seff_logo_black.jpg";
+import Logo from "../../assets/images/app-logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
 import { LuUserSquare2 } from "react-icons/lu";

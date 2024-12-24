@@ -114,17 +114,17 @@ const Footer = () => {
       </div>
       {/* -------------------------------------------------------------------- */}
       <div className="footer-container d-block d-lg-none ">
-        <img src={logo} alt="SEF Future Logo" className="footer-logo" />
+        <img src={logo} alt="Logo" className="footer-logo" />
         <div></div>
         <div className=" d-flex justify-content-between">
           <div className="footer-content d-flex flex-column align-items-start text-start">
-            <h3 className="">SOFTWARE ENGINEERING FOR FUTURE</h3>
+            <h3 className="">Sudy_Acad for online courses</h3>
 
             {/* Contact Information */}
             <div className="contact-info">
-              <p className="">sefffuture@gmail.com</p>
-              <p className="">+20 109 8481 288</p>
-              <p className="">+20 155 5177 645</p>
+              <p className="">study_acad@gmail.com</p>
+              <p className="">+20 123 4567 890</p>
+              <p className="">+20 123 4567 890</p>
             </div>
             <p>@2023 EGYPT, ALL RIGHTS RESERVED</p>
           </div>

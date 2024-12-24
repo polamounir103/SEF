@@ -18,7 +18,7 @@ function ContactUs() {
           </div>
           <div>
             <h4>Leave Us An Email</h4>
-            <p>mailTo: SEFFFuture@gmail.com</p>
+            <p>mailTo: study_acad@gmail.com</p>
           </div>
           <div>
             <h4>Follow us on Social Media</h4>
