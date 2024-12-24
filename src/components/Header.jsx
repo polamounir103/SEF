@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logoImg from "../assets/images/seff_logo_transparent.png";
+import logoImg from "../assets/images/app-logo.png";
 import { IoMenu, IoClose } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../redux/slice/AuthSlice";
