@@ -12,7 +12,7 @@ import {
   FaFacebook,
 } from "react-icons/fa";
 import "./Footer.css";
-import logo from "../assets/images/seff_logo_black.jpg";
+import logo from "../assets/images/app-logo.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
