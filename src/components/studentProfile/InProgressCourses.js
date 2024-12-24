@@ -9,12 +9,12 @@ function InProgressCourses() {
         <div className="card-body">
           <Course
             title="Introduction to Data Analysis"
-            instructor="Mohammed Nour"
+            instructor="Instructor Name"
             level="1"
           />
           <Course
             title="Introduction to React JS"
-            instructor="Tariq Ali"
+            instructor="Instructor Name"
             level="1"
           />
         </div>

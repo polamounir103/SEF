@@ -15,7 +15,7 @@ function Education() {
         <div className="mt-3 ps-3">
           <span className="editable-label">University </span>
           <span className="editable-text w-100" contentEditable>
-            International Islamic University
+            International University
           </span>
         </div>
         <div className="ps-3 mt-2">

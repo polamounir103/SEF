@@ -11,7 +11,7 @@ function ContactInfo() {
           </span>
           <span className="editable-label">Email</span>
           <span contentEditable className="editable-text i">
-            balqeessabir@gmail.com
+            studenUser@gmail.com
           </span>
         </div>
         <div className="ps-3 mt-2">
@@ -20,7 +20,7 @@ function ContactInfo() {
           </span>
           <span className="editable-label">Mobile Number</span>
           <span contentEditable className="editable-text i">
-            0020 1064569047
+            0201234567890
           </span>
         </div>
       </div>

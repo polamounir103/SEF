@@ -15,17 +15,18 @@ function Header() {
   const { user, isAuthenticated } = useSelector((state) => state.auth);
   // console.log(user);
 
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // const [userType, setUserType] = useState(null); // "admin", "instructor", "student", or null
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [
+    , setUserType] = useState(null); // "admin", "instructor", "student", or null
 
-  // Example: fetching user data from localStorage or an API
-  // useEffect(() => {
-  //   const loggedIn = localStorage.getItem("isLoggedIn");
-  //   const userType = localStorage.getItem("userType");
 
-  //   setIsLoggedIn(loggedIn === "true");
-  //   setUserType(userType); // e.g., 'admin', 'instructor', 'student'
-  // }, []);
+  useEffect(() => {
+    const loggedIn = localStorage.getItem("isLoggedIn");
+    const userType = localStorage.getItem("userType");
+
+    setIsLoggedIn(loggedIn === "true");
+    setUserType(userType); // e.g., 'admin', 'instructor', 'student'
+  }, []);
 
   // Array of navigation links
   const navLinks = [

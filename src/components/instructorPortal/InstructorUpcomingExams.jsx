@@ -32,7 +32,7 @@ const InstructorUpcomingExams = (props) => {
               <PiNotePencilLight className="text-warning" />
             </div>
             <span className="text-warning">
-              Instructor <span className="text-light">: TARIQ AF</span>
+              Instructor : <span className="text-light">Instructor Name</span>
             </span>
             <div className="d-flex justify-content-between">
               <span className="">Lev.{props.level} Exem</span>

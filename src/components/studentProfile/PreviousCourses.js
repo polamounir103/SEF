@@ -9,12 +9,12 @@ function PreviousCourses() {
         <div className="card-body">
           <Course
             title="System Analysis and Design"
-            instructor="Sarah Ahmed"
+            instructor="Instructor Name"
             level="1"
           />
           <Course
             title="Introduction to Web Development"
-            instructor="Alaa Sameer"
+            instructor="Instructor Name"
             level="1"
           />
         </div>

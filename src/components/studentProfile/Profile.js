@@ -13,15 +13,15 @@ function Profile() {
         </div>
 
         {/* Profile Picture, Name, and Save Button */}
-        <div className="car d-flex align-items-center justify-content-between py-2">
+        <div className=" d-flex align-items-center justify-content-between py-2">
           <div className="d-flex align-items-center">
             <div
               className="profile-pic bg-secondary rounded-circle mx-3"
               style={{ width: '100px', height: '100px' }}
             ></div>
             <div className="ms-1">
-              <h3>Balqees Hamdi Sabir</h3>
-              <p>Computer Science, International Islamic University</p>
+              <h3>Stuednt Name</h3>
+              <p>Computer Science, International University</p>
               <div className="mt-2">
                 <Link href="#"><i className="fa-regular fa-pen-to-square icon" style={{cursor: 'pointer'}}></i></Link>
               </div>

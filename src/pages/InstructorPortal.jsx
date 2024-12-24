@@ -28,8 +28,8 @@ const Result3 = () => {
       <InstructorPortalHeader />
       <InstructorActivitySummary frist="1" sec="4" third="2" />
       <InstructorExamsNotification />
-      <div className=" d-flex text-white  justify-content-between gap-5 gap-lg-5 flex-column-reverse flex-lg-row">
-        <div className="flex-grow-1">
+      <div className=" d-flex text-white justify-content-between gap-5 gap-lg-5 flex-column-reverse flex-lg-row">
+        <div className="flex-grow-1 mt-5">
           <p className="page-title h2">Ongoing Courses</p>
           <div className="mt-3 d-flex flex-column gap-2">
             {student.map((art) => (
@@ -42,7 +42,7 @@ const Result3 = () => {
           </div>
         </div>
 
-        <div className="flex-grow-1">
+        <div className="flex-grow-1 mt-5">
           {student2.map((art) => (
             <InstructorUpcomingExams
               title={art.title}

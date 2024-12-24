@@ -7,12 +7,12 @@ const StudentPortal = () => {
   const registeredCourses = [
     {
       title: "Introduction to React js",
-      instructor: "Tariq Ali",
+      instructor: "Instructor Namei",
       level: "lev.1",
     },
     {
       title: "Introduction to Data Analysis",
-      instructor: "Sarah Ahmed",
+      instructor: "Instructor Name",
       level: "lev.1",
     },
   ];
@@ -22,7 +22,7 @@ const StudentPortal = () => {
       date: "7th Jun",
       day: "wed",
       title: "Introduction to React js",
-      instructor: "Tariq Ali",
+      instructor: "Instructor Name",
       time: "12:30 PM",
       level: "Lev.1 Exam",
     },
@@ -33,7 +33,7 @@ const StudentPortal = () => {
   const earnedCertificates = [
     {
       title: "Introduction to React js",
-      instructor: "Tariq Ali",
+      instructor: "Instructor Name",
       dateAcquired: "Monday, June 5th",
     },
   ];
@@ -50,7 +50,7 @@ const StudentPortal = () => {
           </div>
           <div className="d-flex justify-content-between">
             <p className="h1 text-white">
-              WELCOME BACK <span className=" text-warning">BALQEES SABIR</span>
+              WELCOME BACK <span className=" text-warning">Student Name</span>
             </p>
             <Button className="btn btn-text btn-warning">VIEW PROFILE</Button>
           </div>

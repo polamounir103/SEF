@@ -13,12 +13,12 @@ import { Link } from "react-router-dom";
 function StudentProfile() {
   const date = useFormattedDate();
   return (
-    <div>
+    <div className="text-white d-flex flex-column gap-5">
       {/* <Profile />
       <PersonalInfo /> */}
 
-      <div className="text-white">
-        <div className="container">
+      <div className="text-white d-flex flex-column gap-5">
+        <div className="">
           {/* Top Section with "Profile", Line, and Date */}
           <div className="d-flex flex-column mb-4 ">
             <h2 className="page-title ">Profile</h2>
@@ -26,15 +26,15 @@ function StudentProfile() {
           </div>
 
           {/* Profile Picture, Name, and Save Button */}
-          <div className="car d-flex align-items-center justify-content-between">
+          <div className=" d-flex align-items-center justify-content-between">
             <div className="d-flex align-items-center">
               <div
                 className="profile-pic bg-secondary rounded-circle mx-3"
                 style={{ width: "100px", height: "100px" }}
               ></div>
               <div className="ms-1">
-                <h3>Balqees Hamdi Sabir</h3>
-                <p>Computer Science, International Islamic University</p>
+                <h3>Student Name</h3>
+                <p>Computer Science, International University</p>
               </div>
             </div>
             <Link
@@ -48,7 +48,7 @@ function StudentProfile() {
         </div>
       </div>
       {/* ******************************************* */}
-      <div className="container">
+      <div className="">
         <div className="row">
           <div className="col-md-4 card">
             {/* <PersonalInfo /> */}
@@ -120,7 +120,7 @@ function StudentProfile() {
                   </span>
                   <div className="d-flex flex-column ">
                     <span className="editable-label">Email</span>
-                    <span className="text-start ">balqeessabir@gmail.com</span>
+                    <span className="text-start ">student@gmail.com</span>
                   </div>
                 </div>
                 <div className="d-flex mt-2 gap-2">
@@ -130,7 +130,7 @@ function StudentProfile() {
                   <div className="d-flex flex-column ">
                     <span className="editable-label">Mobile Number</span>
                     <span className="text-start flex-grow-1 ">
-                      0020 1064569047
+                      0021234567890
                     </span>
                   </div>
                 </div>
@@ -157,12 +157,12 @@ function StudentProfile() {
                 <div className="card-body">
                   <Course
                     title="Introduction to Data Analysis"
-                    instructor="Mohammed Nour"
+                    instructor="Instructor Name"
                     level="1"
                   />
                   <Course
                     title="Introduction to React JS"
-                    instructor="Tariq Ali"
+                    instructor="Instructor Name"
                     level="1"
                   />
                 </div>
@@ -176,12 +176,12 @@ function StudentProfile() {
                 <div className="card-body">
                   <Course
                     title="System Analysis and Design"
-                    instructor="Sarah Ahmed"
+                    instructor="Instructor Name"
                     level="1"
                   />
                   <Course
                     title="Introduction to Web Development"
-                    instructor="Alaa Sameer"
+                    instructor="Instructor Name"
                     level="1"
                   />
                 </div>

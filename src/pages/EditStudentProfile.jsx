@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 const personalInfoFields = [
   { label: "Student ID", value: "1420572", editable: false },
   { label: "Age", value: "26 yo", editable: true },
-  { label: "Nationality", value: "Sudanese", editable: true },
+  { label: "Nationality", value: "egyption", editable: true },
   { label: "Country", value: "Egypt", editable: true },
   { label: "City", value: "Cairo", editable: true },
 ];
@@ -14,7 +14,7 @@ const personalInfoFields = [
 const educationFields = [
   {
     label: "University",
-    value: "International Islamic University",
+    value: "International University",
     editable: true,
   },
   { label: "Graduation Year", value: "2019", editable: true },
@@ -23,13 +23,13 @@ const educationFields = [
 const contactInfoFields = [
   {
     label: "Email",
-    value: "balqeessabir@gmail.com",
+    value: "student@gmail.com",
     editable: true,
     icon: "fa-regular fa-envelope",
   },
   {
     label: "Mobile Number",
-    value: "0020 1064569047",
+    value: "00201234567890",
     editable: true,
     icon: "fa-solid fa-phone",
   },
@@ -122,8 +122,8 @@ function EditStudentProfile() {
                 </div>
               </div>
               <div className="ms-1">
-                <h3>Balqees Hamdi Sabir</h3>
-                <p>Computer Science, International Islamic University</p>
+                <h3>Student Name</h3>
+                <p>Computer Science, International University</p>
               </div>
             </div>
             <button
@@ -253,12 +253,12 @@ function EditStudentProfile() {
               <div className="card-body">
                 <Course
                   title="Introduction to Data Analysis"
-                  instructor="Mohammed Nour"
+                  instructor="Instructor Name"
                   level="1"
                 />
                 <Course
                   title="Introduction to React JS"
-                  instructor="Tariq Ali"
+                  instructor="Instructor Name"
                   level="1"
                 />
               </div>
@@ -270,12 +270,12 @@ function EditStudentProfile() {
               <div className="card-body">
                 <Course
                   title="System Analysis and Design"
-                  instructor="Sarah Ahmed"
+                  instructor="Instructor Name"
                   level="1"
                 />
                 <Course
                   title="Introduction to Web Development"
-                  instructor="Alaa Sameer"
+                  instructor="Instructor Name"
                   level="1"
                 />
               </div>
